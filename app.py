@@ -18,12 +18,12 @@ st.markdown("""
     /* Global Styles */
     .stApp {
         max-width: 100%;
-        background-color: #f3f4f6;
+        background-color: #f8fafc;
     }
     
     /* Sidebar Styles */
     .css-1d391kg {
-        background-color: #111827;
+        background-color: #1e293b;
     }
     .css-1d391kg .stTitle {
         color: white;
@@ -421,6 +421,74 @@ st.markdown("""
     .stDeployButton, footer, header {
         display: none !important;
     }
+    
+    /* General Styles */
+    .stApp {
+        background-color: #f8fafc !important;
+        color: #111827 !important;
+    }
+    
+    /* Sidebar Styles */
+    .css-1d391kg, .css-1lcbmhc {
+        background-color: #1e293b !important;
+    }
+    .css-1d391kg a, .css-1lcbmhc a {
+        color: white !important;
+    }
+    .stSelectbox label {
+        color: white !important;
+    }
+    .stSelectbox div[data-baseweb="select"] div {
+        background-color: #2d3748 !important;
+        color: white !important;
+    }
+    
+    /* Module Styles */
+    .module-card {
+        background: white;
+        padding: 1.5rem;
+        border-radius: 12px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        margin-bottom: 1rem;
+    }
+    .module-card h3 {
+        color: #111827;
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+    }
+    .module-card p {
+        color: #4b5563;
+        margin-bottom: 1rem;
+    }
+    .nav-pills {
+        display: flex;
+        gap: 1rem;
+        margin-bottom: 2rem;
+        overflow-x: auto;
+        padding-bottom: 0.5rem;
+    }
+    .nav-pill {
+        background: white;
+        color: #4b5563;
+        padding: 0.75rem 1.5rem;
+        border-radius: 9999px;
+        font-weight: 500;
+        white-space: nowrap;
+        transition: all 0.2s;
+        border: 1px solid #e5e7eb;
+    }
+    .nav-pill.active {
+        background: #2563eb;
+        color: white;
+        border-color: #2563eb;
+    }
+    .nav-pill:hover {
+        background: #f3f4f6;
+    }
+    .nav-pill.active:hover {
+        background: #1d4ed8;
+    }
 </style>
 """, unsafe_allow_html=True)
 
@@ -606,33 +674,233 @@ else:
             """, unsafe_allow_html=True)
 
     elif selected_section == "Acquisition":
+        st.title("Client Acquisition")
+        
+        # Module navigation
         st.markdown("""
-            <div class="module-content">
-                <h2 class="module-title">Client Acquisition</h2>
-                <p class="module-description">Implement proven strategies to attract and convert high-value clients.</p>
-            </div>
+        <div class="nav-pills">
+            <a href="#" class="nav-pill active">Lead Generation</a>
+            <a href="#" class="nav-pill">Sales System</a>
+            <a href="#" class="nav-pill">Follow-up</a>
+            <a href="#" class="nav-pill">Proposals</a>
+        </div>
         """, unsafe_allow_html=True)
+        
+        col1, col2 = st.columns(2)
+        
+        with col1:
+            st.markdown("""
+            <div class="module-card">
+                <h3>Lead Generation Strategy</h3>
+                <p>Learn how to consistently generate high-quality leads for your agency.</p>
+                <ul style="color: #4b5563; margin-left: 1.5rem;">
+                    <li>Create your ideal client profile</li>
+                    <li>Build your lead magnet</li>
+                    <li>Set up automated systems</li>
+                </ul>
+            </div>
+            
+            <div class="module-card">
+                <h3>Sales Process</h3>
+                <p>Master the art of closing high-ticket clients.</p>
+                <ul style="color: #4b5563; margin-left: 1.5rem;">
+                    <li>Discovery call framework</li>
+                    <li>Objection handling</li>
+                    <li>Pricing strategy</li>
+                </ul>
+            </div>
+            """, unsafe_allow_html=True)
+        
+        with col2:
+            st.markdown("""
+            <div class="module-card">
+                <h3>Follow-up System</h3>
+                <p>Never let leads slip through the cracks.</p>
+                <ul style="color: #4b5563; margin-left: 1.5rem;">
+                    <li>Email sequences</li>
+                    <li>Nurture campaigns</li>
+                    <li>Re-engagement strategies</li>
+                </ul>
+            </div>
+            
+            <div class="module-card">
+                <h3>Proposal Templates</h3>
+                <p>Convert more prospects with winning proposals.</p>
+                <ul style="color: #4b5563; margin-left: 1.5rem;">
+                    <li>High-converting templates</li>
+                    <li>Pricing presentation</li>
+                    <li>Case studies integration</li>
+                </ul>
+            </div>
+            """, unsafe_allow_html=True)
         
     elif selected_section == "Delivery":
+        st.title("Service Delivery")
+        
         st.markdown("""
-            <div class="module-content">
-                <h2 class="module-title">Service Delivery</h2>
-                <p class="module-description">Streamline your service delivery process and ensure client satisfaction.</p>
-            </div>
+        <div class="nav-pills">
+            <a href="#" class="nav-pill active">Onboarding</a>
+            <a href="#" class="nav-pill">Project Management</a>
+            <a href="#" class="nav-pill">Quality Assurance</a>
+            <a href="#" class="nav-pill">Client Success</a>
+        </div>
         """, unsafe_allow_html=True)
+        
+        col1, col2 = st.columns(2)
+        
+        with col1:
+            st.markdown("""
+            <div class="module-card">
+                <h3>Client Onboarding</h3>
+                <p>Create an exceptional first impression with a smooth onboarding process.</p>
+                <ul style="color: #4b5563; margin-left: 1.5rem;">
+                    <li>Welcome sequence</li>
+                    <li>Kickoff meeting template</li>
+                    <li>Asset collection</li>
+                </ul>
+            </div>
+            
+            <div class="module-card">
+                <h3>Project Management</h3>
+                <p>Keep projects on track and clients happy.</p>
+                <ul style="color: #4b5563; margin-left: 1.5rem;">
+                    <li>Timeline management</li>
+                    <li>Task delegation</li>
+                    <li>Progress tracking</li>
+                </ul>
+            </div>
+            """, unsafe_allow_html=True)
+        
+        with col2:
+            st.markdown("""
+            <div class="module-card">
+                <h3>Quality Assurance</h3>
+                <p>Maintain high standards across all deliverables.</p>
+                <ul style="color: #4b5563; margin-left: 1.5rem;">
+                    <li>Review process</li>
+                    <li>Quality checklist</li>
+                    <li>Client approval workflow</li>
+                </ul>
+            </div>
+            
+            <div class="module-card">
+                <h3>Client Success</h3>
+                <p>Turn clients into long-term partners.</p>
+                <ul style="color: #4b5563; margin-left: 1.5rem;">
+                    <li>Regular check-ins</li>
+                    <li>Performance reporting</li>
+                    <li>Upsell opportunities</li>
+                </ul>
+            </div>
+            """, unsafe_allow_html=True)
         
     elif selected_section == "Growth":
+        st.title("Agency Growth")
+        
         st.markdown("""
-            <div class="module-content">
-                <h2 class="module-title">Agency Growth</h2>
-                <p class="module-description">Scale your agency with proven growth strategies and frameworks.</p>
-            </div>
+        <div class="nav-pills">
+            <a href="#" class="nav-pill active">Team Building</a>
+            <a href="#" class="nav-pill">Financial Management</a>
+            <a href="#" class="nav-pill">Systems & Processes</a>
+            <a href="#" class="nav-pill">Scaling Strategy</a>
+        </div>
         """, unsafe_allow_html=True)
         
-    elif selected_section == "Resources":
-        st.markdown("""
-            <div class="module-content">
-                <h2 class="module-title">Resources</h2>
-                <p class="module-description">Access tools, templates, and resources to optimize your agency.</p>
+        col1, col2 = st.columns(2)
+        
+        with col1:
+            st.markdown("""
+            <div class="module-card">
+                <h3>Team Building</h3>
+                <p>Build and manage a high-performing team.</p>
+                <ul style="color: #4b5563; margin-left: 1.5rem;">
+                    <li>Hiring process</li>
+                    <li>Training system</li>
+                    <li>Performance management</li>
+                </ul>
             </div>
-        """, unsafe_allow_html=True)
+            
+            <div class="module-card">
+                <h3>Financial Management</h3>
+                <p>Optimize your agency's financial performance.</p>
+                <ul style="color: #4b5563; margin-left: 1.5rem;">
+                    <li>Profit optimization</li>
+                    <li>Cash flow management</li>
+                    <li>Financial forecasting</li>
+                </ul>
+            </div>
+            """, unsafe_allow_html=True)
+        
+        with col2:
+            st.markdown("""
+            <div class="module-card">
+                <h3>Systems & Processes</h3>
+                <p>Create scalable systems for growth.</p>
+                <ul style="color: #4b5563; margin-left: 1.5rem;">
+                    <li>SOP development</li>
+                    <li>Automation setup</li>
+                    <li>Tool stack optimization</li>
+                </ul>
+            </div>
+            
+            <div class="module-card">
+                <h3>Scaling Strategy</h3>
+                <p>Scale your agency systematically.</p>
+                <ul style="color: #4b5563; margin-left: 1.5rem;">
+                    <li>Growth roadmap</li>
+                    <li>Service expansion</li>
+                    <li>Market positioning</li>
+                </ul>
+            </div>
+            """, unsafe_allow_html=True)
+        
+    elif selected_section == "Resources":
+        st.title("Resources")
+        
+        col1, col2 = st.columns(2)
+        
+        with col1:
+            st.markdown("""
+            <div class="module-card">
+                <h3>Templates Library</h3>
+                <p>Access our complete library of proven templates, scripts, and frameworks.</p>
+                <ul style="color: #4b5563; margin-left: 1.5rem;">
+                    <li>Proposal templates</li>
+                    <li>Email scripts</li>
+                    <li>SOPs and checklists</li>
+                </ul>
+            </div>
+            
+            <div class="module-card">
+                <h3>Training Videos</h3>
+                <p>Step-by-step video tutorials for implementing every system.</p>
+                <ul style="color: #4b5563; margin-left: 1.5rem;">
+                    <li>Implementation guides</li>
+                    <li>Best practices</li>
+                    <li>Case studies</li>
+                </ul>
+            </div>
+            """, unsafe_allow_html=True)
+        
+        with col2:
+            st.markdown("""
+            <div class="module-card">
+                <h3>Community Forum</h3>
+                <p>Connect with other agency owners, share insights, and get support.</p>
+                <ul style="color: #4b5563; margin-left: 1.5rem;">
+                    <li>Discussion boards</li>
+                    <li>Expert Q&A</li>
+                    <li>Resource sharing</li>
+                </ul>
+            </div>
+            
+            <div class="module-card">
+                <h3>Expert Directory</h3>
+                <p>Find and connect with vetted experts in various agency specialties.</p>
+                <ul style="color: #4b5563; margin-left: 1.5rem;">
+                    <li>Specialist profiles</li>
+                    <li>Booking system</li>
+                    <li>Reviews and ratings</li>
+                </ul>
+            </div>
+            """, unsafe_allow_html=True)
