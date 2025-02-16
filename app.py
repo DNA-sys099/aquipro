@@ -631,88 +631,120 @@ else:
         selected_section = st.selectbox("Choose Your Module", list(sections.keys()))
 
     if selected_section == "Dashboard":
-        st.title("Agency Dashboard")
+        st.title("Agency Automation Hub")
         
-        # Add Metrics Form
-        with st.expander("Add New Metrics"):
-            col1, col2 = st.columns(2)
-            with col1:
-                new_revenue = st.number_input("Monthly Revenue ($)", min_value=0, step=1000)
-                new_clients = st.number_input("Active Clients", min_value=0, step=1)
-            with col2:
-                new_projects = st.number_input("Active Projects", min_value=0, step=1)
-                new_team_size = st.number_input("Team Size", min_value=0, step=1)
+        # Automation Categories
+        col1, col2 = st.columns(2)
+        
+        with col1:
+            st.markdown("""
+            <div class="module-card">
+                <h3>Client Communication</h3>
+                <p>Automated email sequences and follow-ups</p>
+                <ul style="color: #4b5563; margin-left: 1.5rem;">
+                    <li>Welcome sequences</li>
+                    <li>Progress updates</li>
+                    <li>Meeting reminders</li>
+                </ul>
+                <div style="margin-top: 1rem;">
+                    <p style="color: #2563eb; font-weight: 500;">Status: Active</p>
+                </div>
+            </div>
             
-            if st.button("Add Metrics"):
-                st.session_state.metrics['revenue'].append(new_revenue)
-                st.session_state.metrics['clients'].append(new_clients)
-                st.session_state.metrics['projects'].append(new_projects)
-                st.session_state.metrics['team_size'].append(new_team_size)
-                st.success("Metrics added successfully!")
-
-        # Display Metrics
-        if any(len(metric) > 0 for metric in st.session_state.metrics.values()):
-            col1, col2, col3, col4 = st.columns(4)
+            <div class="module-card">
+                <h3>Project Management</h3>
+                <p>Task automation and workflow management</p>
+                <ul style="color: #4b5563; margin-left: 1.5rem;">
+                    <li>Task assignments</li>
+                    <li>Deadline tracking</li>
+                    <li>Progress reporting</li>
+                </ul>
+                <div style="margin-top: 1rem;">
+                    <p style="color: #2563eb; font-weight: 500;">Status: Active</p>
+                </div>
+            </div>
+            """, unsafe_allow_html=True)
+        
+        with col2:
+            st.markdown("""
+            <div class="module-card">
+                <h3>Social Media</h3>
+                <p>Content scheduling and posting automation</p>
+                <ul style="color: #4b5563; margin-left: 1.5rem;">
+                    <li>Post scheduling</li>
+                    <li>Analytics tracking</li>
+                    <li>Engagement monitoring</li>
+                </ul>
+                <div style="margin-top: 1rem;">
+                    <p style="color: #2563eb; font-weight: 500;">Status: Active</p>
+                </div>
+            </div>
             
-            with col1:
-                if len(st.session_state.metrics['revenue']) > 0:
-                    current_revenue = st.session_state.metrics['revenue'][-1]
-                    prev_revenue = st.session_state.metrics['revenue'][-2] if len(st.session_state.metrics['revenue']) > 1 else current_revenue
-                    revenue_change = ((current_revenue - prev_revenue) / prev_revenue * 100) if prev_revenue > 0 else 0
-                    st.metric("Monthly Revenue", f"${current_revenue:,.2f}", f"{revenue_change:,.1f}%")
-                else:
-                    st.metric("Monthly Revenue", "$0", "0%")
-
-            with col2:
-                if len(st.session_state.metrics['clients']) > 0:
-                    current_clients = st.session_state.metrics['clients'][-1]
-                    prev_clients = st.session_state.metrics['clients'][-2] if len(st.session_state.metrics['clients']) > 1 else current_clients
-                    clients_change = current_clients - prev_clients
-                    st.metric("Active Clients", current_clients, f"{clients_change:+d}")
-                else:
-                    st.metric("Active Clients", "0", "0")
-
-            with col3:
-                if len(st.session_state.metrics['projects']) > 0:
-                    current_projects = st.session_state.metrics['projects'][-1]
-                    prev_projects = st.session_state.metrics['projects'][-2] if len(st.session_state.metrics['projects']) > 1 else current_projects
-                    projects_change = current_projects - prev_projects
-                    st.metric("Active Projects", current_projects, f"{projects_change:+d}")
-                else:
-                    st.metric("Active Projects", "0", "0")
-
-            with col4:
-                if len(st.session_state.metrics['team_size']) > 0:
-                    current_team = st.session_state.metrics['team_size'][-1]
-                    prev_team = st.session_state.metrics['team_size'][-2] if len(st.session_state.metrics['team_size']) > 1 else current_team
-                    team_change = current_team - prev_team
-                    st.metric("Team Size", current_team, f"{team_change:+d}")
-                else:
-                    st.metric("Team Size", "0", "0")
-
-            # Show Metrics History
-            if st.checkbox("Show Metrics History"):
-                st.subheader("Metrics History")
-                history_df = pd.DataFrame({
-                    'Revenue': st.session_state.metrics['revenue'],
-                    'Clients': st.session_state.metrics['clients'],
-                    'Projects': st.session_state.metrics['projects'],
-                    'Team Size': st.session_state.metrics['team_size']
-                })
-                st.dataframe(history_df)
-
-                # Clear Metrics Button
-                if st.button("Clear All Metrics"):
-                    st.session_state.metrics = {
-                        'revenue': [],
-                        'clients': [],
-                        'projects': [],
-                        'team_size': []
-                    }
-                    st.success("All metrics cleared!")
-                    st.rerun()
-        else:
-            st.info("No metrics data available. Add your first metrics using the form above!")
+            <div class="module-card">
+                <h3>Reporting</h3>
+                <p>Automated report generation and delivery</p>
+                <ul style="color: #4b5563; margin-left: 1.5rem;">
+                    <li>Performance reports</li>
+                    <li>Client dashboards</li>
+                    <li>ROI tracking</li>
+                </ul>
+                <div style="margin-top: 1rem;">
+                    <p style="color: #2563eb; font-weight: 500;">Status: Active</p>
+                </div>
+            </div>
+            """, unsafe_allow_html=True)
+            
+        # Active Automations Overview
+        st.subheader("Active Automations")
+        
+        # Create three columns for automation stats
+        stat_col1, stat_col2, stat_col3 = st.columns(3)
+        
+        with stat_col1:
+            st.metric("Active Workflows", "12", "+2")
+        
+        with stat_col2:
+            st.metric("Tasks Automated", "127", "+15")
+            
+        with stat_col3:
+            st.metric("Time Saved (hrs/week)", "45", "+5")
+            
+        # Recent Automation Activity
+        st.subheader("Recent Activity")
+        
+        activity_data = [
+            {
+                "time": "2 hours ago",
+                "event": "Welcome sequence triggered for new client: Tech Solutions Inc.",
+                "type": "Client Communication"
+            },
+            {
+                "time": "4 hours ago",
+                "event": "Monthly performance reports generated and sent to all clients",
+                "type": "Reporting"
+            },
+            {
+                "time": "Yesterday",
+                "event": "Social media content scheduled for next week",
+                "type": "Social Media"
+            },
+            {
+                "time": "2 days ago",
+                "event": "Project milestone notifications sent to team",
+                "type": "Project Management"
+            }
+        ]
+        
+        for activity in activity_data:
+            st.markdown(f"""
+            <div style="padding: 1rem; background: white; border-radius: 0.5rem; margin-bottom: 0.5rem; border: 1px solid #e5e7eb;">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                    <span style="color: #4b5563; font-size: 0.875rem;">{activity['time']}</span>
+                    <span style="color: #2563eb; font-size: 0.875rem;">{activity['type']}</span>
+                </div>
+                <div style="color: #111827;">{activity['event']}</div>
+            </div>
+            """, unsafe_allow_html=True)
 
     elif selected_section == "Acquisition":
         st.title("Client Acquisition")
