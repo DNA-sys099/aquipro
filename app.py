@@ -1,6 +1,7 @@
 import streamlit as st
 import os
 import markdown
+import json
 
 # Custom CSS
 st.set_page_config(
@@ -58,6 +59,23 @@ st.markdown("""
     .stSelectbox div[data-baseweb="select"] {
         margin-top: 0.5rem;
     }
+    .stTabs {
+        background-color: #f8f9fa;
+        padding: 1rem;
+        border-radius: 10px;
+        margin-top: 2rem;
+    }
+    .stTab {
+        background-color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 0.5rem 1rem;
+        margin-right: 0.5rem;
+    }
+    .stTab[aria-selected="true"] {
+        background-color: #FF4B4B;
+        color: white;
+    }
     </style>
 """, unsafe_allow_html=True)
 
@@ -76,11 +94,58 @@ def main():
         
         # Main sections with emojis
         sections = {
-            "🎯 Foundation & Positioning": "course-structure/modules/1-foundation/pricing-strategy-guide.md",
-            "🔥 Client Acquisition": "course-structure/modules/2-acquisition/client-acquisition-guide.md",
-            "⚡ Service Delivery": "course-structure/modules/3-delivery/service-delivery-guide.md",
-            "🤝 Client Retention": "course-structure/modules/4-retention/retention-guide.md",
-            "👥 Team Building": "course-structure/modules/5-team/team-building-guide.md"
+            "🎯 Foundation & Positioning": {
+                "path": "course-structure/modules/1-foundation",
+                "modules": [
+                    "Market Research",
+                    "Positioning Strategy",
+                    "Offer Creation",
+                    "Implementation"
+                ]
+            },
+            "🔥 Client Acquisition": {
+                "path": "course-structure/modules/2-acquisition",
+                "modules": [
+                    "Market Research",
+                    "Offer Creation",
+                    "Lead Generation",
+                    "Sales System",
+                    "Follow-Up",
+                    "Optimization",
+                    "Implementation",
+                    "Tools & Templates"
+                ]
+            },
+            "⚡ Service Delivery": {
+                "path": "course-structure/modules/3-delivery",
+                "modules": [
+                    "Client Onboarding",
+                    "Project Management",
+                    "Communication",
+                    "Quality Assurance",
+                    "Process Optimization"
+                ]
+            },
+            "🤝 Client Retention": {
+                "path": "course-structure/modules/4-retention",
+                "modules": [
+                    "Value Maximization",
+                    "Relationship Building",
+                    "Success System",
+                    "Loyalty Program",
+                    "Implementation"
+                ]
+            },
+            "👥 Team Building": {
+                "path": "course-structure/modules/5-team",
+                "modules": [
+                    "Team Structure",
+                    "Hiring System",
+                    "Training Program",
+                    "Culture Building",
+                    "Systems & Processes"
+                ]
+            }
         }
         
         selected_section = st.selectbox("Choose Your Module", list(sections.keys()))
@@ -99,7 +164,7 @@ def main():
     if selected_section:
         # Remove emoji for file path
         clean_section = selected_section[2:]
-        file_path = os.path.join(os.getcwd(), sections[selected_section])
+        section_data = sections[selected_section]
         
         # Header with gradient
         st.markdown(f"""
@@ -111,24 +176,28 @@ def main():
             </div>
         """, unsafe_allow_html=True)
         
-        if os.path.exists(file_path):
-            content = read_markdown_file(file_path)
-            st.markdown(content)
-        else:
-            st.warning(f"Content for {clean_section} is coming soon!")
-            
-            # Show placeholder content
-            st.markdown("""
-                ### Module Overview
-                This module is currently under development. It will include:
-                
-                * Comprehensive strategies and frameworks
-                * Step-by-step implementation guides
-                * Templates and resources
-                * Action plans and checklists
-                
-                Check back soon for updates!
-            """)
+        # Sub-module tabs
+        selected_module = st.tabs(section_data["modules"])
+        
+        for i, module in enumerate(section_data["modules"]):
+            with selected_module[i]:
+                module_path = f"{section_data['path']}/{module.lower().replace(' ', '-')}.md"
+                if os.path.exists(module_path):
+                    content = read_markdown_file(module_path)
+                    st.markdown(content)
+                else:
+                    st.warning(f"Content for {module} is coming soon!")
+                    st.markdown("""
+                        ### Module Overview
+                        This module is currently under development. It will include:
+                        
+                        * Step-by-step implementation guide
+                        * Automation processes
+                        * Templates and resources
+                        * Action plans and checklists
+                        
+                        Check back soon for updates!
+                    """)
 
 if __name__ == "__main__":
     main()
