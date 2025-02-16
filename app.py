@@ -265,6 +265,13 @@ st.markdown("""
         border: 1px solid #e5e7eb !important;
         border-radius: 8px !important;
     }
+    .stTextInput > div > div > input {
+        color: #111827 !important;
+    }
+    .stTextInput > label {
+        color: #374151 !important;
+        font-weight: 500 !important;
+    }
     .stTextInput > div > div:focus-within {
         border-color: #3b82f6 !important;
         box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1) !important;
@@ -283,6 +290,21 @@ st.markdown("""
     .stButton > button:hover {
         background: linear-gradient(90deg, #1d4ed8, #2563eb) !important;
         transform: translateY(-1px) !important;
+    }
+    /* Hide Streamlit branding */
+    #MainMenu, footer, header {
+        visibility: hidden;
+    }
+    /* Style form container */
+    .stForm {
+        background: transparent !important;
+        border: none !important;
+        padding: 0 !important;
+    }
+    .stForm > div {
+        background: transparent !important;
+        border: none !important;
+        padding: 0 !important;
     }
 </style>
 """, unsafe_allow_html=True)
