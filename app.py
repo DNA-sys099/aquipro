@@ -228,6 +228,62 @@ st.markdown("""
         letter-spacing: -0.025em !important;
         margin: 2.5rem 0 1.5rem !important;
     }
+    
+    /* Auth Container */
+    .auth-container {
+        max-width: 400px;
+        margin: 4rem auto;
+        padding: 2.5rem;
+        background: white;
+        border-radius: 16px;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    }
+    .auth-header {
+        text-align: center;
+        margin-bottom: 2.5rem;
+    }
+    .auth-title {
+        font-size: 1.875rem;
+        font-weight: 700;
+        color: #111827;
+        letter-spacing: -0.025em;
+        margin-bottom: 0.75rem;
+    }
+    .auth-subtitle {
+        color: #6b7280;
+        font-size: 1rem;
+    }
+    .auth-form {
+        display: flex;
+        flex-direction: column;
+        gap: 1.25rem;
+    }
+    /* Override Streamlit's default form styling */
+    .stTextInput > div > div {
+        padding: 0.75rem !important;
+        background: #f9fafb !important;
+        border: 1px solid #e5e7eb !important;
+        border-radius: 8px !important;
+    }
+    .stTextInput > div > div:focus-within {
+        border-color: #3b82f6 !important;
+        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1) !important;
+    }
+    .stButton > button {
+        width: 100% !important;
+        background: linear-gradient(90deg, #2563eb, #3b82f6) !important;
+        color: white !important;
+        padding: 0.75rem !important;
+        border: none !important;
+        border-radius: 8px !important;
+        font-weight: 600 !important;
+        letter-spacing: 0.025em !important;
+        transition: all 0.3s ease !important;
+    }
+    .stButton > button:hover {
+        background: linear-gradient(90deg, #1d4ed8, #2563eb) !important;
+        transform: translateY(-1px) !important;
+    }
 </style>
 """, unsafe_allow_html=True)
 
@@ -238,41 +294,30 @@ if 'logged_in' not in st.session_state:
 # Signup/Login Page
 if not st.session_state.logged_in:
     st.markdown("""
-    <div class="signup-container">
-        <div class="signup-header">
-            <h1>Welcome to AquiPro</h1>
-            <p class="text-muted">Your complete agency growth solution</p>
+    <div class="auth-container">
+        <div class="auth-header">
+            <div class="auth-title">Welcome to AquiPro</div>
+            <div class="auth-subtitle">Sign in to access your dashboard</div>
         </div>
     </div>
     """, unsafe_allow_html=True)
     
     with st.form("signup_form"):
-        col1, col2 = st.columns(2)
-        with col1:
-            first_name = st.text_input("First Name")
-        with col2:
-            last_name = st.text_input("Last Name")
-        
-        email = st.text_input("Email Address")
+        email = st.text_input("Email")
         password = st.text_input("Password", type="password")
-        confirm_password = st.text_input("Confirm Password", type="password")
-        
-        agency_name = st.text_input("Agency Name")
-        agency_size = st.selectbox("Agency Size", ["1-5 employees", "6-20 employees", "21-50 employees", "50+ employees"])
-        
-        submitted = st.form_submit_button("Create Account")
+        submitted = st.form_submit_button("Sign In")
         
         if submitted:
-            if password == confirm_password and len(password) >= 8:
+            if len(password) >= 8:
                 st.session_state.logged_in = True
-                st.success("Account created successfully!")
+                st.success("Signed in successfully!")
                 st.experimental_rerun()
             else:
-                st.error("Passwords don't match or password is too short")
+                st.error("Password must be at least 8 characters")
     
     st.markdown("""
-    <div style="text-align: center; margin-top: 1rem;">
-        <p>Already have an account? <a href="#" style="color: #2962ff;">Sign in</a></p>
+    <div style="text-align: center; margin-top: 1.5rem;">
+        <p style="color: #6b7280; font-size: 0.875rem;">Don't have an account? <a href="#" style="color: #3b82f6; font-weight: 500;">Create one</a></p>
     </div>
     """, unsafe_allow_html=True)
 
