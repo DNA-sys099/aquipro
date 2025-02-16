@@ -309,39 +309,93 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-# Check if user is logged in
+# Initialize session states
 if 'logged_in' not in st.session_state:
     st.session_state.logged_in = False
+if 'show_signup' not in st.session_state:
+    st.session_state.show_signup = False
+
+def switch_to_signup():
+    st.session_state.show_signup = True
+
+def switch_to_login():
+    st.session_state.show_signup = False
 
 # Signup/Login Page
 if not st.session_state.logged_in:
-    st.markdown("""
-    <div class="auth-container">
-        <div class="auth-header">
-            <div class="auth-title">Welcome to AquiPro</div>
-            <div class="auth-subtitle">Sign in to access your dashboard</div>
+    if not st.session_state.show_signup:
+        # Login Form
+        st.markdown("""
+        <div class="auth-container">
+            <div class="auth-header">
+                <div class="auth-title">Welcome to AquiPro</div>
+                <div class="auth-subtitle">Sign in to access your dashboard</div>
+            </div>
         </div>
-    </div>
-    """, unsafe_allow_html=True)
-    
-    with st.form("signup_form"):
-        email = st.text_input("Email")
-        password = st.text_input("Password", type="password")
-        submitted = st.form_submit_button("Sign In")
+        """, unsafe_allow_html=True)
         
-        if submitted:
-            if len(password) >= 8:
-                st.session_state.logged_in = True
-                st.success("Signed in successfully!")
-                st.experimental_rerun()
-            else:
-                st.error("Password must be at least 8 characters")
+        with st.form("login_form"):
+            email = st.text_input("Email")
+            password = st.text_input("Password", type="password")
+            submitted = st.form_submit_button("Sign In")
+            
+            if submitted:
+                if len(password) >= 8:
+                    st.session_state.logged_in = True
+                    st.success("Signed in successfully!")
+                    st.experimental_rerun()
+                else:
+                    st.error("Password must be at least 8 characters")
+        
+        st.markdown("""
+        <div style="text-align: center; margin-top: 1.5rem;">
+            <p style="color: #6b7280; font-size: 0.875rem;">Don't have an account? <a href="#" onclick="document.querySelector('.create-account-button').click()" style="color: #3b82f6; font-weight: 500;">Create one</a></p>
+        </div>
+        """, unsafe_allow_html=True)
+        
+        # Hidden button for JavaScript click
+        if st.button("Create Account", key="create-account-button", help=None):
+            switch_to_signup()
+            st.experimental_rerun()
     
-    st.markdown("""
-    <div style="text-align: center; margin-top: 1.5rem;">
-        <p style="color: #6b7280; font-size: 0.875rem;">Don't have an account? <a href="#" style="color: #3b82f6; font-weight: 500;">Create one</a></p>
-    </div>
-    """, unsafe_allow_html=True)
+    else:
+        # Signup Form
+        st.markdown("""
+        <div class="auth-container">
+            <div class="auth-header">
+                <div class="auth-title">Create Account</div>
+                <div class="auth-subtitle">Join AquiPro to grow your agency</div>
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
+        
+        with st.form("signup_form"):
+            email = st.text_input("Email")
+            password = st.text_input("Password", type="password")
+            confirm_password = st.text_input("Confirm Password", type="password")
+            submitted = st.form_submit_button("Create Account")
+            
+            if submitted:
+                if len(password) >= 8:
+                    if password == confirm_password:
+                        st.session_state.logged_in = True
+                        st.success("Account created successfully!")
+                        st.experimental_rerun()
+                    else:
+                        st.error("Passwords don't match")
+                else:
+                    st.error("Password must be at least 8 characters")
+        
+        st.markdown("""
+        <div style="text-align: center; margin-top: 1.5rem;">
+            <p style="color: #6b7280; font-size: 0.875rem;">Already have an account? <a href="#" onclick="document.querySelector('.sign-in-button').click()" style="color: #3b82f6; font-weight: 500;">Sign in</a></p>
+        </div>
+        """, unsafe_allow_html=True)
+        
+        # Hidden button for JavaScript click
+        if st.button("Sign In", key="sign-in-button", help=None):
+            switch_to_login()
+            st.experimental_rerun()
 
 else:
     # Sidebar navigation
