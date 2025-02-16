@@ -314,7 +314,7 @@ st.markdown("""
         align-items: center;
         justify-content: center;
         height: 100vh;
-        background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+        background: white;
     }
     .logo-container {
         text-align: center;
@@ -342,7 +342,7 @@ st.markdown("""
         font-weight: 500;
         margin-bottom: 2rem;
     }
-    .enter-button {
+    .enter-app-btn {
         background: white;
         color: #1e40af;
         padding: 1rem 2.5rem;
@@ -352,14 +352,71 @@ st.markdown("""
         border: 2px solid #e2e8f0;
         cursor: pointer;
         transition: all 0.3s ease;
-        text-decoration: none;
+        display: inline-block;
     }
-    .enter-button:hover {
+    .enter-app-btn:hover {
         background: #1e40af;
         color: white;
         border-color: #1e40af;
         transform: translateY(-2px);
     }
+    
+    /* Dashboard Styles */
+    .metric-card {
+        background: white;
+        padding: 1.75rem;
+        border-radius: 16px;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        margin-bottom: 1rem;
+    }
+    .metric-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    }
+    .metric-value {
+        font-family: 'Inter', sans-serif;
+        font-size: 2rem;
+        font-weight: 700;
+        color: #111827;
+        margin: 0.5rem 0;
+    }
+    .metric-label {
+        color: #6b7280;
+        font-size: 0.875rem;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.025em;
+    }
+    
+    /* Module Content */
+    .module-content {
+        padding: 2rem;
+        background: white;
+        border-radius: 16px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        margin-top: 1rem;
+    }
+    .module-title {
+        color: #111827;
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+    }
+    .module-description {
+        color: #4b5563;
+        font-size: 1rem;
+        line-height: 1.5;
+    }
+    
+    /* Sidebar */
+    .css-1d391kg, .css-1lcbmhc {
+        background-color: #1e293b;
+    }
+    .css-1d391kg a, .css-1lcbmhc a {
+        color: white !important;
+    }
+    
     /* Hide Streamlit Components */
     .stDeployButton, footer, header {
         display: none !important;
@@ -367,13 +424,22 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-# Initialize session states
+# Initialize session states and sections dictionary
 if 'logged_in' not in st.session_state:
     st.session_state.logged_in = False
 if 'show_signup' not in st.session_state:
     st.session_state.show_signup = False
 if 'show_home' not in st.session_state:
     st.session_state.show_home = True
+
+# Define sections
+sections = {
+    "Dashboard": "View your agency's performance",
+    "Acquisition": "Client acquisition strategies",
+    "Delivery": "Service delivery management",
+    "Growth": "Agency growth tactics",
+    "Resources": "Tools and resources"
+}
 
 def switch_to_auth():
     st.session_state.show_home = False
@@ -396,11 +462,10 @@ if st.session_state.show_home:
             <div class="logo-line"></div>
             <div class="author">By Dhruv Atluri</div>
         </div>
-        <a href="#" class="enter-button" onclick="document.querySelector('.enter-app-button').click()">Enter Platform</a>
+        <button class="enter-app-btn" onclick="document.querySelector('#enter-app-button').click()">Enter Platform</button>
     </div>
     """, unsafe_allow_html=True)
     
-    # Hidden button for JavaScript click
     if st.button("Enter App", key="enter-app-button", help=None):
         switch_to_auth()
 
@@ -483,59 +548,12 @@ else:
     # Sidebar navigation
     with st.sidebar:
         st.title("AquiPro")
-        selected_section = st.selectbox("Choose Your Module", ["Dashboard", "Acquisition", "Delivery", "Growth", "Resources"])
-    
-    # Main content area
-    st.markdown("""
-        <style>
-            .metric-card {
-                background: white;
-                padding: 1.75rem;
-                border-radius: 16px;
-                box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-                transition: transform 0.2s ease, box-shadow 0.2s ease;
-            }
-            .metric-card:hover {
-                transform: translateY(-2px);
-                box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-            }
-            .metric-value {
-                font-family: 'Inter', sans-serif;
-                font-size: 2rem;
-                font-weight: 700;
-                color: #111827;
-                margin: 0.5rem 0;
-            }
-            .metric-label {
-                color: #6b7280;
-                font-size: 0.875rem;
-                font-weight: 500;
-                text-transform: uppercase;
-                letter-spacing: 0.025em;
-            }
-            .activity-item {
-                padding: 1rem;
-                border-bottom: 1px solid #e5e7eb;
-            }
-            .activity-item:last-child {
-                border-bottom: none;
-            }
-            .progress-bar {
-                height: 8px;
-                background: linear-gradient(90deg, #3b82f6, #2563eb);
-                border-radius: 4px;
-            }
-            .section-title {
-                font-size: 1.5rem;
-                font-weight: 700;
-                color: #111827;
-                letter-spacing: -0.025em;
-                margin: 2.5rem 0 1.5rem;
-            }
-        </style>
-    """, unsafe_allow_html=True)
+        selected_section = st.selectbox("Choose Your Module", list(sections.keys()))
 
+    # Main content area
     if selected_section == "Dashboard":
+        st.title("Dashboard")
+        
         # Metrics Grid
         col1, col2, col3, col4 = st.columns(4)
         
@@ -572,7 +590,7 @@ else:
             """, unsafe_allow_html=True)
 
         # Recent Activity
-        st.markdown('<h2 class="section-title">Recent Activity</h2>', unsafe_allow_html=True)
+        st.subheader("Recent Activity")
         activity_data = [
             "New client onboarding: Tech Solutions Inc.",
             "Campaign performance report generated",
@@ -582,166 +600,39 @@ else:
         
         for activity in activity_data:
             st.markdown(f"""
-                <div class="activity-item">
+                <div class="metric-card">
                     <div style="color: #374151;">{activity}</div>
                 </div>
             """, unsafe_allow_html=True)
 
-        # Module Progress
-        st.markdown('<h2 class="section-title">Module Progress</h2>', unsafe_allow_html=True)
-        col1, col2 = st.columns(2)
-        
-        with col1:
-            st.markdown("""
-                <div style="margin-bottom: 1rem;">
-                    <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
-                        <span style="color: #374151; font-weight: 500;">Client Acquisition</span>
-                        <span style="color: #6b7280;">75%</span>
-                    </div>
-                    <div style="background: #e5e7eb; border-radius: 4px;">
-                        <div class="progress-bar" style="width: 75%;"></div>
-                    </div>
-                </div>
-            """, unsafe_allow_html=True)
-            
-            st.markdown("""
-                <div style="margin-bottom: 1rem;">
-                    <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
-                        <span style="color: #374151; font-weight: 500;">Team Management</span>
-                        <span style="color: #6b7280;">60%</span>
-                    </div>
-                    <div style="background: #e5e7eb; border-radius: 4px;">
-                        <div class="progress-bar" style="width: 60%;"></div>
-                    </div>
-                </div>
-            """, unsafe_allow_html=True)
-        
-        with col2:
-            st.markdown("""
-                <div style="margin-bottom: 1rem;">
-                    <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
-                        <span style="color: #374151; font-weight: 500;">Revenue Growth</span>
-                        <span style="color: #6b7280;">85%</span>
-                    </div>
-                    <div style="background: #e5e7eb; border-radius: 4px;">
-                        <div class="progress-bar" style="width: 85%;"></div>
-                    </div>
-                </div>
-            """, unsafe_allow_html=True)
-            
-            st.markdown("""
-                <div style="margin-bottom: 1rem;">
-                    <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
-                        <span style="color: #374151; font-weight: 500;">Client Retention</span>
-                        <span style="color: #6b7280;">90%</span>
-                    </div>
-                    <div style="background: #e5e7eb; border-radius: 4px;">
-                        <div class="progress-bar" style="width: 90%;"></div>
-                    </div>
-                </div>
-            """, unsafe_allow_html=True)
-
-    elif selected_section == "Clients":
-        st.title("Clients Module")
-        st.write("Manage your client relationships here.")
-        
-    elif selected_section == "Tasks":
-        st.title("Tasks Module")
-        st.write("Track and manage your tasks here.")
-        
-    elif selected_section == "Analytics":
-        st.title("Analytics Module")
-        st.write("View detailed analytics and reports here.")
-        
     elif selected_section == "Acquisition":
-        st.title("Client Acquisition")
-        
-        # Module navigation
         st.markdown("""
-        <div class="nav-pills">
-            <a href="#" class="nav-pill active">Lead Generation</a>
-            <a href="#" class="nav-pill">Sales System</a>
-            <a href="#" class="nav-pill">Follow-up</a>
-            <a href="#" class="nav-pill">Proposals</a>
-        </div>
+            <div class="module-content">
+                <h2 class="module-title">Client Acquisition</h2>
+                <p class="module-description">Implement proven strategies to attract and convert high-value clients.</p>
+            </div>
         """, unsafe_allow_html=True)
         
-        # Load and display module content
-        module_path = Path("course-structure/modules/2-acquisition/lead-generation.md")
-        if module_path.exists():
-            content = markdown.markdown(module_path.read_text())
-            st.markdown(content)
-
     elif selected_section == "Delivery":
-        st.title("Service Delivery")
-        
-        # Module navigation
         st.markdown("""
-        <div class="nav-pills">
-            <a href="#" class="nav-pill active">Onboarding</a>
-            <a href="#" class="nav-pill">Project Management</a>
-            <a href="#" class="nav-pill">Quality Assurance</a>
-            <a href="#" class="nav-pill">Client Success</a>
-        </div>
+            <div class="module-content">
+                <h2 class="module-title">Service Delivery</h2>
+                <p class="module-description">Streamline your service delivery process and ensure client satisfaction.</p>
+            </div>
         """, unsafe_allow_html=True)
         
-        # Load and display module content
-        module_path = Path("course-structure/modules/3-delivery/onboarding-system.md")
-        if module_path.exists():
-            content = markdown.markdown(module_path.read_text())
-            st.markdown(content)
-
     elif selected_section == "Growth":
-        st.title("Agency Growth")
-        
-        # Module navigation
         st.markdown("""
-        <div class="nav-pills">
-            <a href="#" class="nav-pill active">Team Building</a>
-            <a href="#" class="nav-pill">Financial Management</a>
-            <a href="#" class="nav-pill">Systems & Processes</a>
-            <a href="#" class="nav-pill">Scaling Strategy</a>
-        </div>
+            <div class="module-content">
+                <h2 class="module-title">Agency Growth</h2>
+                <p class="module-description">Scale your agency with proven growth strategies and frameworks.</p>
+            </div>
         """, unsafe_allow_html=True)
         
-        # Load and display module content
-        module_path = Path("course-structure/modules/3-delivery/team-management.md")
-        if module_path.exists():
-            content = markdown.markdown(module_path.read_text())
-            st.markdown(content)
-
-    else:  # Resources
-        st.title("Resources")
-        
-        # Resource cards
-        col1, col2 = st.columns(2)
-        
-        with col1:
-            st.markdown("""
-            <div class="module-card">
-                <h3>Templates Library</h3>
-                <p>Access our complete library of proven templates, scripts, and frameworks.</p>
-                <button class="stButton">View Templates</button>
+    elif selected_section == "Resources":
+        st.markdown("""
+            <div class="module-content">
+                <h2 class="module-title">Resources</h2>
+                <p class="module-description">Access tools, templates, and resources to optimize your agency.</p>
             </div>
-            
-            <div class="module-card">
-                <h3>Training Videos</h3>
-                <p>Step-by-step video tutorials for implementing every system.</p>
-                <button class="stButton">Watch Videos</button>
-            </div>
-            """, unsafe_allow_html=True)
-        
-        with col2:
-            st.markdown("""
-            <div class="module-card">
-                <h3>Community Forum</h3>
-                <p>Connect with other agency owners, share insights, and get support.</p>
-                <button class="stButton">Join Community</button>
-            </div>
-            
-            <div class="module-card">
-                <h3>Expert Directory</h3>
-                <p>Find and connect with vetted experts in various agency specialties.</p>
-                <button class="stButton">Browse Experts</button>
-            </div>
-            """, unsafe_allow_html=True)
+        """, unsafe_allow_html=True)
