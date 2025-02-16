@@ -377,13 +377,15 @@ if 'show_home' not in st.session_state:
 
 def switch_to_auth():
     st.session_state.show_home = False
-    st.experimental_rerun()
+    st.rerun()
 
 def switch_to_signup():
     st.session_state.show_signup = True
+    st.rerun()
 
 def switch_to_login():
     st.session_state.show_signup = False
+    st.rerun()
 
 # Homepage
 if st.session_state.show_home:
@@ -423,7 +425,7 @@ elif not st.session_state.logged_in:
                 if len(password) >= 8:
                     st.session_state.logged_in = True
                     st.success("Signed in successfully!")
-                    st.experimental_rerun()
+                    st.rerun()
                 else:
                     st.error("Password must be at least 8 characters")
         
@@ -436,7 +438,7 @@ elif not st.session_state.logged_in:
         # Hidden button for JavaScript click
         if st.button("Create Account", key="create-account-button", help=None):
             switch_to_signup()
-            st.experimental_rerun()
+            st.rerun()
     
     else:
         # Signup Form
@@ -460,7 +462,7 @@ elif not st.session_state.logged_in:
                     if password == confirm_password:
                         st.session_state.logged_in = True
                         st.success("Account created successfully!")
-                        st.experimental_rerun()
+                        st.rerun()
                     else:
                         st.error("Passwords don't match")
                 else:
@@ -475,7 +477,7 @@ elif not st.session_state.logged_in:
         # Hidden button for JavaScript click
         if st.button("Sign In", key="sign-in-button", help=None):
             switch_to_login()
-            st.experimental_rerun()
+            st.rerun()
 
 else:
     # Sidebar navigation
