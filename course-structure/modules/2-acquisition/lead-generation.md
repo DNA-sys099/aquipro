@@ -1,355 +1,152 @@
-# Lead Generation Mastery
-By Dan Henry, Alex Hormozi, and Sam Ovens
+# Getting Leads On Autopilot
 
-## Content Strategy
-Create a content system that attracts high-ticket clients.
+Let's set up your lead generation system right now. I'll show you exactly how to get leads coming in daily without spending hours prospecting.
 
-### Content Framework
-1. Content Pillars
-```
-Core Topics Matrix:
-1. Pain Points
-   - Industry Problems
-   - Common Mistakes
-   - Failed Attempts
-   - Market Shifts
+## Step 1: Setting Up Your Lead Magnet
+Open Google Docs right now. We're going to create a lead magnet that actually converts.
 
-2. Solutions
-   - Methodologies
-   - Frameworks
-   - Case Studies
-   - Implementation
+Title it:
+"[Number] [Niche] [Result] Templates"
 
-3. Authority
-   - Insights
-   - Predictions
-   - Analysis
-   - Expert Tips
-```
+Examples:
+"7 Email Templates That Get SaaS CEOs to Reply"
+"5 Ad Templates That Get Real Estate Leads for $5"
+"3 Automation Scripts That Save E-commerce Stores 10 Hours/Week"
 
-2. Content Calendar
-```
-Weekly Schedule:
-Monday: Core Teaching
-- Long-form content
-- Deep insights
-- Strategic frameworks
+Don't use: "Free Guide" or "Strategy Session"
 
-Tuesday: Case Study
-- Problem overview
-- Solution approach
-- Implementation
-- Results achieved
+## Step 2: Creating Your Lead Magnet
+Copy this exact structure:
 
-Wednesday: Expert Tips
-- Quick wins
-- Tool recommendations
-- Process optimization
-- Resource guides
+Page 1: The Promise
+"These templates helped [specific result]. Example: Generated 127 leads in 30 days for [niche] business"
 
-Thursday: Q&A Content
-- Common questions
-- Problem solving
-- Strategy sessions
-- Implementation help
+Page 2-4: The Templates
+For each template:
+1. When to use it
+2. Why it works
+3. The exact template
+4. How to customize it
 
-Friday: Success Framework
-- Step-by-step guides
-- Templates
-- Checklists
-- Action plans
-```
+Last Page: Your Call-to-Action
+"Want help implementing these? Book a call here: [calendar link]"
 
-### Content Automation
-1. Content Distribution
-```
-Tool: Buffer + Zapier
-Workflow:
-1. Content Creation
-2. Approval Process
-3. Multi-channel Distribution
-4. Engagement Monitoring
-5. Lead Capture
-```
+## Step 3: Setting Up Your Landing Page
+Go to Carrd.co right now (it's free and super easy).
 
-2. Content Repurposing
-```
-Tool: Repurpose.io
-Process:
-1. Core Content → Multiple Formats
-2. Format Optimization
-3. Platform Distribution
-4. Performance Tracking
-```
+Your headline should be:
+"Get [specific result] for your [niche] business in [timeframe]"
 
-## Paid Acquisition
-Build a predictable lead generation machine.
+Example:
+"Get 30+ Qualified Leads for Your SaaS Company in 14 Days"
 
-### Facebook Ads System
-1. Campaign Structure
-```
-Campaign Levels:
-1. Awareness
-   - Content Marketing
-   - Brand Building
-   - Authority Content
+Under that, write:
+"Download these proven templates:
+• Template 1: [specific result]
+• Template 2: [specific result]
+• Template 3: [specific result]"
 
-2. Consideration
-   - Lead Magnets
-   - Case Studies
-   - Free Training
+Example:
+"Download these proven templates:
+• Cold Email Template: 72% open rate
+• LinkedIn Message: 65% response rate
+• Follow-up Sequence: 38% meeting rate"
 
-3. Conversion
-   - Strategy Sessions
-   - Discovery Calls
-   - Applications
-```
+## Step 4: Setting Up Your Ad
+Open Facebook Ads Manager. Create a new ad with these exact settings:
 
-2. Ad Creative Framework
-```
-Ad Components:
-1. Hook (First 3 Seconds)
-   - Pattern Interrupt
-   - Curiosity Driver
-   - Problem Statement
+Objective: Lead Generation
+Budget: $20/day
+Audience:
+- Location: Your target location
+- Age: 28-55
+- Job Titles: CEO, Founder, Owner
+- Interests: [your niche]
 
-2. Content (Next 30 Seconds)
-   - Problem Agitation
-   - Solution Introduction
-   - Proof/Credibility
+Ad Copy Template:
+"Attention [niche] owners:
 
-3. Call-to-Action
-   - Clear Offer
-   - Next Steps
-   - Risk Reversal
-```
+Want [specific result] in the next [timeframe]?
 
-### Ads Automation
-1. Campaign Management
-```
-Tool: Facebook Ads Manager + Rules
-Setup:
-1. Budget Management
-2. Performance Monitoring
-3. A/B Testing
-4. Scaling Rules
-```
+I'm giving away the exact [templates/system/process] we use to:
+→ [Result 1]
+→ [Result 2]
+→ [Result 3]
 
-2. Lead Processing
-```
-Tool: Zapier + CRM
-Workflow:
-1. Lead Capture
-2. Data Enrichment
-3. Scoring System
-4. Distribution
-5. Follow-up
-```
+Click below to get it free "
 
-## Organic Growth
-Build a sustainable organic lead generation system.
+Example:
+"Attention SaaS founders:
 
-### LinkedIn Strategy
-1. Profile Optimization
-```
-Key Elements:
-1. Header Section
-   - Clear Value Proposition
-   - Target Market
-   - Results Focus
+Want 30+ demos booked in the next 14 days?
 
-2. About Section
-   - Problem/Solution
-   - Unique Mechanism
-   - Call-to-Action
+I'm giving away the exact email templates we use to:
+→ Get 72% open rates
+→ Book 15+ demos/week
+→ Close 35% to calls
 
-3. Experience
-   - Results Focus
-   - Case Studies
-   - Authority Builders
-```
+Click below to get them free "
 
-2. Content Strategy
-```
-Post Types:
-1. Teaching (40%)
-   - How-to Content
-   - Tips & Tricks
-   - Industry Insights
+## Step 5: Setting Up Your Email Sequence
+Open your email tool (ActiveCampaign, MailChimp, whatever you use).
 
-2. Case Studies (30%)
-   - Client Results
-   - Implementation
-   - Success Stories
+Create 5 emails:
 
-3. Authority (20%)
-   - Thought Leadership
-   - Industry Analysis
-   - Predictions
+Email 1: Welcome
+Subject: "Here are your [niche] templates!"
+Send: Immediately
+Content: Deliver the lead magnet and tell them to watch their inbox
 
-4. Personal (10%)
-   - Behind-the-Scenes
-   - Journey Sharing
-   - Team Highlights
-```
+Email 2: Quick Win
+Subject: "Quick tip for [result]"
+Send: Day 2
+Content: Share one quick tip they can implement today
 
-### Organic Automation
-1. LinkedIn Outreach
-```
-Tool: Phantombuster
-Setup:
-1. Profile Targeting
-2. Connection Requests
-3. Message Sequences
-4. Engagement Tracking
-```
+Email 3: Common Mistake
+Subject: "Avoid this [niche] mistake"
+Send: Day 3
+Content: Share a common mistake and how to fix it
 
-2. Content Management
-```
-Tool: Hypefury
-Process:
-1. Content Scheduling
-2. Auto-Engagement
-3. Analytics
-4. Lead Tracking
-```
+Email 4: Case Study
+Subject: "How [client] got [result]"
+Send: Day 4
+Content: Share a simple case study
 
-## Lead Nurturing
-Convert leads into high-ticket clients.
+Email 5: Call Invitation
+Subject: "15 minutes to improve your [result]?"
+Send: Day 5
+Content: Invite them to book a call
 
-### Nurture Sequence
-1. Email Framework
-```
-7-Day Sequence:
-Day 1: Welcome
-- Problem Introduction
-- Your Story
-- Quick Win
+## Step 6: Daily Management
+Every morning, do this:
 
-Day 2: Education
-- Core Teaching
-- Framework Share
-- Implementation Guide
+9:00-9:15: Check new leads
+- Download lead list
+- Import to your CRM
+- Start email sequence
 
-Day 3: Case Study
-- Client Journey
-- Implementation
-- Results
+9:15-9:30: Check ad performance
+- Cost per lead
+- Click rate
+- Landing page conversion
 
-Day 4: Objection Handler
-- Common Concerns
-- Solutions
-- Proof Points
+9:30-10:00: Optimize
+- Adjust ad copy if CPL > $10
+- Test new headlines if CTR < 1%
+- Update landing page if conversion < 20%
 
-Day 5: Authority
-- Industry Insights
-- Expert Tips
-- Predictions
+## Step 7: Scaling Up
+When your cost per lead is under $20 and you're converting at least 10% to calls:
 
-Day 6: Offer
-- Value Stack
-- Success Stories
-- Next Steps
+1. Duplicate your best ad
+2. Increase budget by $10/day
+3. Test new audience with same ad
+4. Create new lead magnet variation
 
-Day 7: Urgency
-- Limited Time
-- Bonus Value
-- Call-to-Action
-```
+## What To Do Right Now
+1. Open Google Docs
+2. Create your lead magnet
+3. Set up a free Carrd.co account
+4. Write your landing page copy
 
-2. Retargeting System
-```
-Platform Matrix:
-1. Facebook
-   - Custom Audiences
-   - Engagement Sequences
-   - Conversion Focus
-
-2. LinkedIn
-   - Content Targeting
-   - InMail Campaigns
-   - Event Promotion
-
-3. YouTube
-   - Video Sequences
-   - In-Stream Ads
-   - Discovery Campaigns
-```
-
-### Nurture Automation
-1. Email System
-```
-Tool: ActiveCampaign
-Setup:
-1. Segmentation
-2. Scoring System
-3. Automation Rules
-4. Conversion Tracking
-```
-
-2. CRM Integration
-```
-Tool: HubSpot
-Workflow:
-1. Lead Tracking
-2. Activity Monitoring
-3. Task Assignment
-4. Follow-up System
-```
-
-## Implementation Guide
-Follow these steps to launch your lead generation system:
-
-1. Week 1: Foundation
-```
-Day 1-2: Content Strategy
-Day 3-4: Ad Campaign Setup
-Day 5: Organic Profiles
-Day 6-7: Nurture Sequence
-```
-
-2. Week 2: Launch
-```
-Day 8-9: Content Creation
-Day 10-11: Campaign Testing
-Day 12-13: System Integration
-Day 14: Analytics Setup
-```
-
-3. Week 3: Optimization
-```
-Day 15-16: Performance Review
-Day 17-18: Adjustments
-Day 19-20: Scale Planning
-Day 21: Team Training
-```
-
-### Launch Automation
-1. Project Management
-```
-Tool: ClickUp
-Setup:
-- Task Templates
-- Team Assignments
-- Timeline Tracking
-- Resource Allocation
-```
-
-2. Reporting System
-```
-Tool: Databox
-Metrics:
-1. Lead Volume
-2. Cost per Lead
-3. Conversion Rate
-4. ROI Tracking
-```
-
-## Next Steps
-You've completed the Lead Generation module! You should now have:
-- Content creation system
-- Paid acquisition framework
-- Organic growth strategy
-- Lead nurturing process
-
-Ready to move on? Continue to the "Sales System" module to convert your leads into clients.
+Go do that now. Then come back and I'll show you how to set up your ads!

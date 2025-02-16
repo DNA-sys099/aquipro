@@ -390,3 +390,178 @@ You've completed the Financial Management module! You should now have:
 - Growth planning system
 
 Ready to move on? Continue to the "Growth Strategy" module to plan your agency's expansion.
+
+## Managing Your Agency Finances
+
+Let's set up your financial management system right now. I'll show you exactly how to track, forecast, and grow your agency's profits.
+
+## Step 1: Setting Up Your Books
+Open QuickBooks Online (or Wave if you're starting out). Create these exact accounts:
+
+Income Categories:
+• Client Retainers
+• Project Fees
+• Consulting Calls
+• Training Programs
+• Referral Fees
+
+Expense Categories:
+• Team Salaries
+• Contractor Payments
+• Software Tools
+• Advertising
+• Office Expenses
+
+## Step 2: Your Pricing Calculator
+Create this spreadsheet right now:
+
+Project Costs:
+• Team Hours × Rate
+• Software Costs
+• Ad Spend
+• Other Expenses
+• 20% Buffer
+
+Monthly Costs:
+• Fixed Costs
+• Variable Costs
+• Team Costs
+• Tool Costs
+• Buffer
+
+Pricing Formula:
+1. Total Costs × 3 = Minimum Price
+2. Value Delivered × 10% = Value Price
+3. Use higher of the two
+
+Example:
+Costs = $3,000
+Minimum Price = $9,000
+Value Delivered = $100,000
+Value Price = $10,000
+Final Price = $10,000
+
+## Step 3: The Cash Flow System
+Track these numbers daily:
+
+Morning Check:
+• Current balance
+• Pending payments
+• Due payments
+• Available cash
+
+Weekly Review:
+• Revenue in
+• Expenses out
+• Profit margin
+• Cash runway
+
+Monthly Planning:
+• Revenue forecast
+• Expense forecast
+• Growth budget
+• Emergency fund
+
+## Step 4: The Billing System
+Use these exact templates:
+
+New Client Email:
+"Hey [name]!
+
+Great to have you on board! Here's your payment info:
+
+Amount: $[amount]
+Due: [date]
+Link: [payment link]
+
+After payment:
+1. You'll get a receipt
+2. We'll schedule onboarding
+3. Work begins on [date]
+
+Questions? Just reply!"
+
+Late Payment Email:
+"Hey [name]!
+
+Quick reminder about invoice #[number]:
+Amount: $[amount]
+Due: [date]
+Now: [days] overdue
+
+Click here to pay: [link]
+
+Need to discuss? Let me know!"
+
+## Step 5: The Profit System
+Follow this exact formula:
+
+Revenue Split:
+• 40% Operating Expenses
+• 30% Team Costs
+• 20% Profit Account
+• 10% Tax Account
+
+Profit Distribution:
+• 50% Reinvestment
+• 30% Emergency Fund
+• 20% Owner Payment
+
+Growth Metrics:
+• Revenue Growth: 20%/quarter
+• Profit Margin: 30%+
+• Cash Reserve: 3 months
+• Client Value: $3k+/month
+
+## Step 6: The Financial Dashboard
+Track these weekly:
+
+Revenue Metrics:
+• Monthly Recurring Revenue
+• Average Client Value
+• Revenue Growth Rate
+• Churn Rate
+• Lifetime Value
+
+Expense Metrics:
+• Fixed Costs
+• Variable Costs
+• Team Costs
+• Tool Costs
+• Marketing Spend
+
+Profit Metrics:
+• Gross Margin
+• Net Margin
+• Cash Reserve
+• Runway Months
+• Growth Rate
+
+## Step 7: The Growth Plan
+Create these targets:
+
+90-Day Goals:
+• Revenue: +25%
+• Clients: +3
+• Average Value: +20%
+• Profit Margin: +5%
+
+6-Month Goals:
+• Revenue: 2X
+• Team: +2
+• Services: +1
+• Profit: 35%
+
+12-Month Goals:
+• Revenue: 4X
+• Team: +5
+• Locations: +1
+• Valuation: 3X
+
+## What To Do Right Now
+1. Set up your accounting software
+2. Create your pricing calculator
+3. Set up your revenue split
+4. Start your financial dashboard
+
+Go do that now. Then come back and I'll show you how to forecast your first $100K month!

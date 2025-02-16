@@ -408,3 +408,134 @@ You've completed the Sales System module! You should now have:
 - Performance tracking system
 
 Ready to move on? Continue to the "Follow-Up System" module to maximize your conversion rates and client retention.
+
+## Closing Deals Without Being Salesy
+
+Hey! Let's get you closing deals confidently. I'm going to show you exactly what to say on calls, how to handle objections, and how to close without being pushy.
+
+## Step 1: Setting Up Your Call System
+Open your calendar right now. Go to Calendly.com and create a free account.
+
+Name your meeting type:
+"[Your Niche] Strategy Session"
+
+NOT:
+❌ "Discovery Call"
+❌ "Sales Call"
+❌ "Free Consultation"
+
+Set the duration to 30 minutes. Not 15 (too short), not 60 (too long).
+
+## Step 2: The Pre-Call Process
+When someone books a call, send them this message right away:
+
+"Hey [name]! Looking forward to our chat on [day] at [time].
+
+To make this super valuable for you, could you tell me:
+1. What's your biggest challenge with [problem you solve] right now?
+2. What have you tried so far?
+
+Talk soon!"
+
+## Step 3: Starting The Call
+First 2 minutes:
+"Hey [name]! Can you hear me okay?"
+[Wait for response]
+
+"Great! Before we dive in, I like to start all my calls by learning more about you and your business. Tell me what you're working on right now?"
+
+[Let them talk]
+
+❌ Don't say: "Let me tell you about what we do..."
+✅ Do say: "Tell me more about that..."
+
+## Step 4: Finding Their Pain
+When they finish talking, ask these exact questions:
+
+1. "What made you interested in talking today?"
+[Let them answer]
+
+2. "How long has this been a problem?"
+[Let them answer]
+
+3. "What happens if you don't fix this in the next 3-6 months?"
+[Let them answer]
+
+## Step 5: Presenting Your Solution
+Only NOW do you talk about your solution. Say this:
+
+"Based on what you've told me, there are 3 things we need to focus on:
+
+1. [Problem they mentioned]
+2. [Problem they mentioned]
+3. [Problem they mentioned]
+
+Would you like me to show you how we solve these?"
+
+[Wait for them to say yes]
+
+Then share your screen and show them:
+1. Your process (simple flowchart)
+2. Timeline (week by week)
+3. Expected results (be specific)
+
+## Step 6: Handling "The Price Question"
+They'll ask: "How much is this?"
+
+Say this exactly:
+"Great question. Let me ask you this first - if we could solve [their biggest problem] in the next 90 days, what would that be worth to your business?"
+
+They'll usually give you a number. Let's say they say "$100,000"
+
+Then say:
+"Okay, and if we could do that for less than [1/10th of their number], would that be worth exploring?"
+
+## Step 7: Common Objections
+Here's exactly what to say for each objection:
+
+"I need to think about it"
+Say: "I completely understand. What specific part do you need to think about?"
+
+"It's too expensive"
+Say: "I understand. Let me ask you - is it the investment that's the issue, or do you not see enough value in the results we discussed?"
+
+"I need to talk to my partner/team"
+Say: "Of course! What concerns do you think they'll have that I can address right now?"
+
+"Can you send me more information?"
+Say: "Happy to! What specific information would help you make a decision?"
+
+## Step 8: Closing The Deal
+When they're ready to move forward, say:
+
+"Great! Here's what happens next:
+1. I'll send you the agreement right now
+2. Once you sign, you'll get our onboarding questionnaire
+3. We'll schedule our kickoff call for next week
+4. We can start implementing by [date]
+
+Does that work for you?"
+
+## Step 9: After They Say Yes
+Send this exact email:
+
+Subject: Welcome aboard [name]! Next steps
+
+"Hey [name]!
+
+Excited to have you on board! Here's what happens next:
+
+1. Click here to sign the agreement: [DocuSign link]
+2. Fill out our kickoff questionnaire: [Form link]
+3. Book your kickoff call: [Calendly link]
+
+Need anything else? Just hit reply!
+
+[Your name]"
+
+## What To Do Right Now
+1. Set up your Calendly
+2. Create your call structure in a Google Doc
+3. Practice the questions out loud 3 times
+
+Go do that now. Then come back and I'll show you how to handle your first call!
