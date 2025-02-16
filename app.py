@@ -401,156 +401,176 @@ else:
     # Sidebar navigation
     with st.sidebar:
         st.title("AquiPro")
-        
-        # User profile section
-        st.markdown("""
-        <div style="padding: 1rem; background-color: #2d2d2d; border-radius: 10px; margin: 1rem 0;">
-            <div style="display: flex; align-items: center; margin-bottom: 0.5rem;">
-                <div style="width: 40px; height: 40px; background-color: #2962ff; border-radius: 20px; margin-right: 0.5rem;"></div>
-                <div>
-                    <div style="color: white; font-weight: 500;">Your Name</div>
-                    <div style="color: #64748b; font-size: 0.8rem;">Agency Owner</div>
-                </div>
-            </div>
-            <div style="background-color: #3d3d3d; height: 4px; border-radius: 2px; margin: 0.5rem 0;">
-                <div style="width: 65%; height: 100%; background-color: #2962ff; border-radius: 2px;"></div>
-            </div>
-            <div style="color: #64748b; font-size: 0.8rem;">65% Profile Complete</div>
-        </div>
-        """, unsafe_allow_html=True)
-        
-        # Navigation menu
-        selected_section = st.radio(
-            "",
-            ["Dashboard", "Acquisition", "Delivery", "Growth", "Resources"],
-            key="nav"
-        )
-
+        selected_section = st.selectbox("Choose Your Module", ["Dashboard", "Acquisition", "Delivery", "Growth", "Resources"])
+    
     # Main content area
-    if selected_section == "Dashboard":
-        st.markdown("""
-        <div class="dashboard-container">
-            <h1 style="margin-bottom: 2rem; color: #1e293b;">Your Growth Dashboard</h1>
-            
-            <div class="metrics-grid">
-                <div class="metric-card">
-                    <div class="metric-title">Active Clients</div>
-                    <div class="metric-value">12</div>
-                    <div class="metric-change positive">+2 this month</div>
-                </div>
-                
-                <div class="metric-card">
-                    <div class="metric-title">Monthly Revenue</div>
-                    <div class="metric-value">$24,500</div>
-                    <div class="metric-change positive">+15% from last month</div>
-                </div>
-                
-                <div class="metric-card">
-                    <div class="metric-title">Leads in Pipeline</div>
-                    <div class="metric-value">28</div>
-                    <div class="metric-change positive">+5 this week</div>
-                </div>
-                
-                <div class="metric-card">
-                    <div class="metric-title">Client Satisfaction</div>
-                    <div class="metric-value">94%</div>
-                    <div class="metric-change positive">+2% this month</div>
-                </div>
-            </div>
-            
-            <div class="activity-card">
-                <div class="activity-header">
-                    <div class="activity-title">Recent Activity</div>
-                </div>
-                
-                <div class="activity-item">
-                    <div class="activity-content">
-                        <div class="activity-action">New Client Onboarded</div>
-                        <div class="activity-detail">Tech Solutions Inc.</div>
-                    </div>
-                    <div class="activity-time">2 hours ago</div>
-                </div>
-                
-                <div class="activity-item">
-                    <div class="activity-content">
-                        <div class="activity-action">Proposal Sent</div>
-                        <div class="activity-detail">Digital Marketing Package</div>
-                    </div>
-                    <div class="activity-time">5 hours ago</div>
-                </div>
-                
-                <div class="activity-item">
-                    <div class="activity-content">
-                        <div class="activity-action">Strategy Call Completed</div>
-                        <div class="activity-detail">Growth Planning Session</div>
-                    </div>
-                    <div class="activity-time">Yesterday</div>
-                </div>
-            </div>
-            
-            <h2 style="margin: 2rem 0; color: #1e293b;">Module Progress</h2>
-            
-            <div class="progress-section">
-                <div class="progress-card">
-                    <div class="progress-header">
-                        <div class="progress-title">Client Acquisition</div>
-                        <div class="progress-description">Learn how to consistently attract and close high-ticket clients</div>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress-bar-fill" style="width: 85%;"></div>
-                    </div>
-                    <div class="progress-stats">
-                        <div class="progress-percentage">85%</div>
-                        <div class="progress-label">Complete</div>
-                    </div>
-                    <div class="action-items">
-                        <div class="action-item">Complete lead magnet</div>
-                        <div class="action-item">Set up automation</div>
-                        <div class="action-item">Review analytics</div>
-                    </div>
-                </div>
-                
-                <div class="progress-card">
-                    <div class="progress-header">
-                        <div class="progress-title">Service Delivery</div>
-                        <div class="progress-description">Deliver exceptional results that turn clients into advocates</div>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress-bar-fill" style="width: 60%;"></div>
-                    </div>
-                    <div class="progress-stats">
-                        <div class="progress-percentage">60%</div>
-                        <div class="progress-label">Complete</div>
-                    </div>
-                    <div class="action-items">
-                        <div class="action-item">Update SOP documentation</div>
-                        <div class="action-item">Train team on new process</div>
-                        <div class="action-item">Schedule client reviews</div>
-                    </div>
-                </div>
-                
-                <div class="progress-card">
-                    <div class="progress-header">
-                        <div class="progress-title">Team Management</div>
-                        <div class="progress-description">Build and manage a high-performing team</div>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress-bar-fill" style="width: 40%;"></div>
-                    </div>
-                    <div class="progress-stats">
-                        <div class="progress-percentage">40%</div>
-                        <div class="progress-label">Complete</div>
-                    </div>
-                    <div class="action-items">
-                        <div class="action-item">Create hiring plan</div>
-                        <div class="action-item">Develop training materials</div>
-                        <div class="action-item">Set up performance metrics</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        """, unsafe_allow_html=True)
+    st.markdown("""
+        <style>
+            .metric-card {
+                background: white;
+                padding: 1.75rem;
+                border-radius: 16px;
+                box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+                transition: transform 0.2s ease, box-shadow 0.2s ease;
+            }
+            .metric-card:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            }
+            .metric-value {
+                font-family: 'Inter', sans-serif;
+                font-size: 2rem;
+                font-weight: 700;
+                color: #111827;
+                margin: 0.5rem 0;
+            }
+            .metric-label {
+                color: #6b7280;
+                font-size: 0.875rem;
+                font-weight: 500;
+                text-transform: uppercase;
+                letter-spacing: 0.025em;
+            }
+            .activity-item {
+                padding: 1rem;
+                border-bottom: 1px solid #e5e7eb;
+            }
+            .activity-item:last-child {
+                border-bottom: none;
+            }
+            .progress-bar {
+                height: 8px;
+                background: linear-gradient(90deg, #3b82f6, #2563eb);
+                border-radius: 4px;
+            }
+            .section-title {
+                font-size: 1.5rem;
+                font-weight: 700;
+                color: #111827;
+                letter-spacing: -0.025em;
+                margin: 2.5rem 0 1.5rem;
+            }
+        </style>
+    """, unsafe_allow_html=True)
 
+    if selected_section == "Dashboard":
+        # Metrics Grid
+        col1, col2, col3, col4 = st.columns(4)
+        
+        with col1:
+            st.markdown("""
+                <div class="metric-card">
+                    <div class="metric-label">Active Clients</div>
+                    <div class="metric-value">24</div>
+                </div>
+            """, unsafe_allow_html=True)
+        
+        with col2:
+            st.markdown("""
+                <div class="metric-card">
+                    <div class="metric-label">Monthly Revenue</div>
+                    <div class="metric-value">$48.5k</div>
+                </div>
+            """, unsafe_allow_html=True)
+        
+        with col3:
+            st.markdown("""
+                <div class="metric-card">
+                    <div class="metric-label">Leads in Pipeline</div>
+                    <div class="metric-value">12</div>
+                </div>
+            """, unsafe_allow_html=True)
+        
+        with col4:
+            st.markdown("""
+                <div class="metric-card">
+                    <div class="metric-label">Client Satisfaction</div>
+                    <div class="metric-value">98%</div>
+                </div>
+            """, unsafe_allow_html=True)
+
+        # Recent Activity
+        st.markdown('<h2 class="section-title">Recent Activity</h2>', unsafe_allow_html=True)
+        activity_data = [
+            "New client onboarding: Tech Solutions Inc.",
+            "Campaign performance report generated",
+            "Team meeting scheduled for tomorrow",
+            "New lead added to pipeline"
+        ]
+        
+        for activity in activity_data:
+            st.markdown(f"""
+                <div class="activity-item">
+                    <div style="color: #374151;">{activity}</div>
+                </div>
+            """, unsafe_allow_html=True)
+
+        # Module Progress
+        st.markdown('<h2 class="section-title">Module Progress</h2>', unsafe_allow_html=True)
+        col1, col2 = st.columns(2)
+        
+        with col1:
+            st.markdown("""
+                <div style="margin-bottom: 1rem;">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                        <span style="color: #374151; font-weight: 500;">Client Acquisition</span>
+                        <span style="color: #6b7280;">75%</span>
+                    </div>
+                    <div style="background: #e5e7eb; border-radius: 4px;">
+                        <div class="progress-bar" style="width: 75%;"></div>
+                    </div>
+                </div>
+            """, unsafe_allow_html=True)
+            
+            st.markdown("""
+                <div style="margin-bottom: 1rem;">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                        <span style="color: #374151; font-weight: 500;">Team Management</span>
+                        <span style="color: #6b7280;">60%</span>
+                    </div>
+                    <div style="background: #e5e7eb; border-radius: 4px;">
+                        <div class="progress-bar" style="width: 60%;"></div>
+                    </div>
+                </div>
+            """, unsafe_allow_html=True)
+        
+        with col2:
+            st.markdown("""
+                <div style="margin-bottom: 1rem;">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                        <span style="color: #374151; font-weight: 500;">Revenue Growth</span>
+                        <span style="color: #6b7280;">85%</span>
+                    </div>
+                    <div style="background: #e5e7eb; border-radius: 4px;">
+                        <div class="progress-bar" style="width: 85%;"></div>
+                    </div>
+                </div>
+            """, unsafe_allow_html=True)
+            
+            st.markdown("""
+                <div style="margin-bottom: 1rem;">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                        <span style="color: #374151; font-weight: 500;">Client Retention</span>
+                        <span style="color: #6b7280;">90%</span>
+                    </div>
+                    <div style="background: #e5e7eb; border-radius: 4px;">
+                        <div class="progress-bar" style="width: 90%;"></div>
+                    </div>
+                </div>
+            """, unsafe_allow_html=True)
+
+    elif selected_section == "Clients":
+        st.title("Clients Module")
+        st.write("Manage your client relationships here.")
+        
+    elif selected_section == "Tasks":
+        st.title("Tasks Module")
+        st.write("Track and manage your tasks here.")
+        
+    elif selected_section == "Analytics":
+        st.title("Analytics Module")
+        st.write("View detailed analytics and reports here.")
+        
     elif selected_section == "Acquisition":
         st.title("Client Acquisition")
         
