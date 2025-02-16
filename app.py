@@ -306,6 +306,64 @@ st.markdown("""
         border: none !important;
         padding: 0 !important;
     }
+    
+    /* Homepage Styles */
+    .homepage {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+    }
+    .logo-container {
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+    .logo-text {
+        font-family: 'Inter', sans-serif;
+        font-size: 4rem;
+        font-weight: 800;
+        background: linear-gradient(90deg, #1e40af, #3b82f6);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        letter-spacing: -0.05em;
+    }
+    .logo-line {
+        width: 60px;
+        height: 4px;
+        background: linear-gradient(90deg, #1e40af, #3b82f6);
+        margin: 1.5rem auto;
+        border-radius: 2px;
+    }
+    .author {
+        font-size: 1.25rem;
+        color: #64748b;
+        font-weight: 500;
+        margin-bottom: 2rem;
+    }
+    .enter-button {
+        background: white;
+        color: #1e40af;
+        padding: 1rem 2.5rem;
+        border-radius: 12px;
+        font-weight: 600;
+        font-size: 1.125rem;
+        border: 2px solid #e2e8f0;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-decoration: none;
+    }
+    .enter-button:hover {
+        background: #1e40af;
+        color: white;
+        border-color: #1e40af;
+        transform: translateY(-2px);
+    }
+    /* Hide Streamlit Components */
+    .stDeployButton, footer, header {
+        display: none !important;
+    }
 </style>
 """, unsafe_allow_html=True)
 
@@ -314,6 +372,12 @@ if 'logged_in' not in st.session_state:
     st.session_state.logged_in = False
 if 'show_signup' not in st.session_state:
     st.session_state.show_signup = False
+if 'show_home' not in st.session_state:
+    st.session_state.show_home = True
+
+def switch_to_auth():
+    st.session_state.show_home = False
+    st.experimental_rerun()
 
 def switch_to_signup():
     st.session_state.show_signup = True
@@ -321,8 +385,24 @@ def switch_to_signup():
 def switch_to_login():
     st.session_state.show_signup = False
 
-# Signup/Login Page
-if not st.session_state.logged_in:
+# Homepage
+if st.session_state.show_home:
+    st.markdown("""
+    <div class="homepage">
+        <div class="logo-container">
+            <div class="logo-text">AquiPro</div>
+            <div class="logo-line"></div>
+            <div class="author">By Dhruv Atluri</div>
+        </div>
+        <a href="#" class="enter-button" onclick="document.querySelector('.enter-app-button').click()">Enter Platform</a>
+    </div>
+    """, unsafe_allow_html=True)
+    
+    # Hidden button for JavaScript click
+    if st.button("Enter App", key="enter-app-button", help=None):
+        switch_to_auth()
+
+elif not st.session_state.logged_in:
     if not st.session_state.show_signup:
         # Login Form
         st.markdown("""
