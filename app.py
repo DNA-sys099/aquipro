@@ -915,13 +915,13 @@ else:
         stat_col1, stat_col2, stat_col3 = st.columns(3)
         
         with stat_col1:
-            st.metric("Active Workflows", "12", "+2")
+            st.metric("Active Workflows", "12", "")
         
         with stat_col2:
-            st.metric("Tasks Automated", "127", "+15")
+            st.metric("Tasks Automated", "127", "")
             
         with stat_col3:
-            st.metric("Time Saved (hrs/week)", "45", "+5")
+            st.metric("Time Saved (hrs/week)", "45", "")
             
         # Recent Automation Activity
         st.subheader("Recent Activity")
@@ -1002,7 +1002,7 @@ else:
 
                 The key is that these need to be something they can use immediately. For example, we created a simple 
                 Google Ads budget calculator. It helps businesses figure out exactly how much they need to spend to hit 
-                their goals. That single lead magnet brought in over 200 qualified leads in just two months.
+                their goals.
 
                 The second type is what I call the 'Quick Win' guide. This isn't your typical PDF - it's a super specific, 
                 step-by-step process that solves ONE problem. For example, we created a "5-Minute LinkedIn Optimization 
@@ -1228,8 +1228,6 @@ else:
                 Here's a quick tip you can implement right now: [actionable tip]
 
                 Want to discuss how to take advantage of this?
-
-                In the next section, I'll show you how to customize these templates and when to use each one.
                 """)
 
                 col1, col2 = st.columns(2)
@@ -1564,7 +1562,7 @@ else:
                 • Optimizing your top 20 product pages (identified in our audit)
                 • Creating 12 industry-specific blog posts
                 • Building 15 high-authority backlinks
-                Expected result: 40% increase in organic traffic within 90 days"
+                Expected result: 
 
                 4. The Social Proof Section
                 Bad: "We've helped many companies."
@@ -1574,8 +1572,8 @@ else:
                 5. The Investment Section
                 Bad: "Our fee is $5,000 per month."
                 Good: "Investment: $5,000 per month
-                Expected ROI: $25,000 in additional revenue (based on your current conversion values)
-                Time to break even: 60 days"
+                Expected ROI: 
+                Time to break even: 
 
                 In the next section, I'll show you how to present this proposal in a way that makes it almost impossible 
                 to say no.
@@ -1618,7 +1616,7 @@ else:
                 Then walk through each section:
                 • Reflect their challenges (show you listened)
                 • Present the solution (focus on outcomes)
-                • Share relevant results
+                • Share relevant insights
                 • Explain the investment (focus on ROI)
 
                 Step 3: The Close
@@ -1703,14 +1701,6 @@ else:
                 • Set measurable goals
                 • Create 90-day roadmap
                 • Assign team members
-
-                Here's what happened when we implemented this system:
-                • Client churn dropped by 60%
-                • Project delays reduced by 45%
-                • Referrals increased by 80%
-
-                In the next section, I'll show you exactly what to include in your welcome package and how to run your 
-                kickoff calls for maximum impact.
                 """)
 
                 if st.button("Next Page →", key="onboarding_next_1"):
