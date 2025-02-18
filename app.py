@@ -221,6 +221,10 @@ st.markdown("""
         font-weight: 700 !important;
         letter-spacing: -0.025em !important;
         margin-bottom: 2rem !important;
+        padding: 1rem !important;
+        background-color: white !important;
+        border-radius: 8px !important;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) !important;
     }
     h2 {
         color: #111827;
@@ -1011,7 +1015,7 @@ else:
                 Here's why it worked so well - it promises (and delivers) value in just 5 minutes. Business owners love 
                 that. They can implement it right away and see results almost immediately.
 
-                In the next section, I'm going to show you exactly how to create and position these lead magnets for 
+                In the next section, I'll show you exactly how to create and position these lead magnets for 
                 maximum impact. Trust me, this is where most agencies get it completely wrong, and I'm going to show 
                 you how to do it right.
                 """)
@@ -1420,9 +1424,8 @@ else:
                 system so it runs on autopilot. This is how we manage to follow up with hundreds of leads without 
                 missing a single one.
 
-                Let me share a story that changed everything for us. We were doing okay with our follow-up system, 
-                but we were spending hours manually sending emails. Then we realized we could automate a lot of these 
-                emails. Game changer!
+                Let me share a story that changed everything for us. We were spending hours manually sending emails. 
+                Then we realized we could automate a lot of these emails. Game changer!
 
                 Here's the exact system we built:
 
@@ -1504,10 +1507,6 @@ else:
                 • Start with THEIR words (from the discovery call)
                 • List 3-4 specific challenges they mentioned
                 • Show the cost of not solving these problems
-
-                For example, instead of saying "Your website needs optimization," I write:
-                "During our call, you mentioned that your website is only converting at 1%, costing you approximately 
-                $50,000 in lost revenue each month."
 
                 Block 2: The Solution Overview
                 • High-level solution (no technical jargon)
@@ -1635,8 +1634,9 @@ else:
                 • Add a clear call to action
                 • Set a follow-up task for 24 hours
 
-                The key to making this work is confidence. You're not begging for their business - you're showing them 
-                how you'll solve their problems.
+                The key is to keep providing value after the proposal. Think about it - if someone downloads a LinkedIn 
+                checklist, they're probably trying to improve their LinkedIn presence. So every follow-up should help 
+                them with that goal.
 
                 That's it for this video series! You now have everything you need to create and close winning proposals. 
                 If you found this helpful, don't forget to like and subscribe. And drop a comment below if you have any 
@@ -1927,7 +1927,7 @@ else:
                 down. Tasks were slipping, team members were overwhelmed, and I was working weekends just to keep up. 
                 That's when we developed this scaling framework.
 
-                Here's exactly how to scale:
+                Here's exactly how we scale:
 
                 Level 1: Team Structure
                 • Create project pods
@@ -1941,7 +1941,7 @@ else:
                 • Standard operating procedures
                 • Training materials
 
-                Level 3: Automation Setup
+                Level 3: Automation Tools
                 • Task assignment flows
                 • Status update triggers
                 • Report generation
@@ -1985,7 +1985,13 @@ else:
                 to a client without our usual review process. There were typos everywhere, some posts had the wrong 
                 dates, and worst of all, one post was for their competitor's product! Talk about embarrassing.
 
-                That's when I developed what I call the "Triple Check System." Here's exactly how it works:
+                That's when I realized something crucial - clients don't want to read a novel. They want to know three 
+                things:
+                1. Do you understand their problem?
+                2. Can you solve it?
+                3. How much will it cost?
+
+                So I developed what I call the "Triple Check System." Here's exactly how it works:
 
                 Level 1: Creator Check
                 • Self-review checklist
@@ -2020,7 +2026,7 @@ else:
                 Welcome back! Now I'm going to show you exactly how to run each level of the review process. This 
                 is where most agencies fail - they either make it too complicated or too simple.
 
-                Here's a story that changed everything for us. We used to have this massive 50-point checklist for 
+                Here's a story that changed everything. We used to have this massive 50-point checklist for 
                 every deliverable. Sounds thorough, right? Wrong. People would just check boxes without really 
                 looking. So we completely redesigned our process.
 
@@ -2100,6 +2106,19 @@ else:
                 • Feedback collection
                 • Status updates
                 • Client communications
+
+                The key to making this work is what I call "intelligent automation." It's not just about sending 
+                automated emails - it's about sending the RIGHT email at the RIGHT time based on their behavior.
+
+                For example, if someone downloads your pricing guide but doesn't book a call, they automatically get 
+                a different sequence than someone who downloaded a basic whitepaper. The system recognizes their level 
+                of interest and responds accordingly.
+
+                Here's what happened when we implemented this system:
+                • Follow-up consistency went from 60% to 100%
+                • Response rates increased by 47%
+                • Sales team saved 15 hours per week
+                • Lead-to-meeting conversion went up 28%
 
                 That's it for this video! In the next one, I'll show you how to set up your client success systems 
                 to ensure happy, long-term clients. Make sure to hit subscribe and the notification bell so you 
@@ -2325,55 +2344,152 @@ else:
             """, unsafe_allow_html=True)
         
     elif selected_section == "Resources":
-        st.title("Resources")
+        st.title("Tools & Resources")
         
-        col1, col2 = st.columns(2)
+        # Sub-module tabs with better contrast
+        resource_tabs = st.tabs([
+            "**Essential Tools**",
+            "**Templates**", 
+            "**Checklists**", 
+            "**Training**"
+        ])
         
-        with col1:
-            st.markdown("""
-            <div class="module-card">
-                <h3>Templates Library</h3>
-                <p>Access our complete library of proven templates, scripts, and frameworks.</p>
-                <ul style="color: #4b5563; margin-left: 1.5rem;">
-                    <li>Proposal templates</li>
-                    <li>Email scripts</li>
-                    <li>SOPs and checklists</li>
-                </ul>
-            </div>
-            
-            <div class="module-card">
-                <h3>Training Videos</h3>
-                <p>Step-by-step video tutorials for implementing every system.</p>
-                <ul style="color: #4b5563; margin-left: 1.5rem;">
-                    <li>Implementation guides</li>
-                    <li>Best practices</li>
-                    <li>Case studies</li>
-                </ul>
-            </div>
-            """, unsafe_allow_html=True)
-        
-        with col2:
-            st.markdown("""
-            <div class="module-card">
-                <h3>Community Forum</h3>
-                <p>Connect with other agency owners, share insights, and get support.</p>
-                <ul style="color: #4b5563; margin-left: 1.5rem;">
-                    <li>Discussion boards</li>
-                    <li>Expert Q&A</li>
-                    <li>Resource sharing</li>
-                </ul>
-            </div>
-            
-            <div class="module-card">
-                <h3>Expert Directory</h3>
-                <p>Find and connect with vetted experts in various agency specialties.</p>
-                <ul style="color: #4b5563; margin-left: 1.5rem;">
-                    <li>Specialist profiles</li>
-                    <li>Booking system</li>
-                    <li>Reviews and ratings</li>
-                </ul>
-            </div>
-            """, unsafe_allow_html=True)
+        with resource_tabs[0]:  # Essential Tools
+            if 'tools_page' not in st.session_state:
+                st.session_state.tools_page = 1
+
+            # Page 1: Project Management Tools
+            if st.session_state.tools_page == 1:
+                st.title("Project Management Tools")
+                
+                st.write("""
+                Hey everyone! Welcome back. Today we're going to talk about the essential tools every agency needs 
+                for project management. I'm going to show you exactly what tools to use and how to set them up.
+
+                Let me tell you about a common mistake. When I started, I tried using too many tools at once. 
+                It was overwhelming and actually slowed us down. That's when I developed this simple framework.
+
+                Here's what you need:
+
+                Core Project Tools:
+                • Task management
+                • Time tracking
+                • File storage
+                • Team chat
+
+                Client Communication:
+                • Meeting scheduler
+                • Video conferencing
+                • Document sharing
+                • Email management
+
+                Team Collaboration:
+                • Design tools
+                • Development tools
+                • Writing tools
+                • Review systems
+
+                In the next section, I'll show you exactly how to choose the right tools for your agency.
+                """)
+
+                if st.button("Next Page →", key="tools_next_1"):
+                    st.session_state.tools_page = 2
+                    st.rerun()
+
+            # Page 2: Marketing & Sales Tools
+            elif st.session_state.tools_page == 2:
+                st.title("Marketing & Sales Tools")
+                
+                st.write("""
+                Welcome back! Now I'm going to show you the essential tools for marketing and sales. These are 
+                the tools that help you find and close new clients.
+
+                Here's our essential toolkit:
+
+                Marketing Tools:
+                • Email platform
+                • Social scheduler
+                • Content planner
+                • Analytics tools
+
+                Sales Tools:
+                • CRM system
+                • Proposal software
+                • Contract platform
+                • Payment system
+
+                Automation Tools:
+                • Lead capture
+                • Email sequences
+                • Task automation
+                • Data sync
+
+                Integration Tools:
+                • API connections
+                • Workflow tools
+                • Data transfer
+                • Reporting system
+
+                In the next section, I'll show you how to integrate all these tools together.
+                """)
+
+                col1, col2 = st.columns(2)
+                with col1:
+                    if st.button("← Previous Page", key="tools_prev_2"):
+                        st.session_state.tools_page = 1
+                        st.rerun()
+                with col2:
+                    if st.button("Next Page →", key="tools_next_2"):
+                        st.session_state.tools_page = 3
+                        st.rerun()
+
+            # Page 3: Tool Integration
+            elif st.session_state.tools_page == 3:
+                st.title("Integrating Your Tools")
+                
+                st.write("""
+                Alright, this is where it all comes together. I'm going to show you how to integrate all your 
+                tools into one smooth system.
+
+                Here's our integration framework:
+
+                Data Flow:
+                • Tool mapping
+                • Connection points
+                • Data routing
+                • Sync schedule
+
+                Automation Rules:
+                • Trigger events
+                • Action steps
+                • Error handling
+                • Backup systems
+
+                User Access:
+                • Permission levels
+                • Team roles
+                • Client access
+                • Security rules
+
+                Maintenance Plan:
+                • Regular checks
+                • Updates schedule
+                • Backup system
+                • Recovery plan
+
+                That's it for this video! In the next one, I'll show you our essential templates. Make sure to 
+                hit subscribe and the notification bell!
+                """)
+
+                col1, col2 = st.columns(2)
+                with col1:
+                    if st.button("← Previous Page", key="tools_prev_3"):
+                        st.session_state.tools_page = 2
+                        st.rerun()
+                with col2:
+                    if st.button("Start Over", key="tools_start_over"):
+                        st.session_state.tools_page = 1
+                        st.rerun()
 
     elif selected_section == "Growth":
         st.title("Agency Growth")
@@ -2397,7 +2513,7 @@ else:
                 st.write("""
                 Hey everyone! Welcome back. Today we're going to talk about something that can make or break your 
                 agency - building your team. I'm going to show you exactly how to hire, train, and structure your 
-                team for maximum efficiency.
+                team.
 
                 Let me tell you about a massive mistake I made early on. I hired people based purely on their skills, 
                 without considering culture fit. We had brilliant people who just couldn't work together. It was a 
@@ -2407,8 +2523,8 @@ else:
 
                 Phase 1: Role Definition
                 • Create clear job descriptions
-                • Define success metrics
-                • Set expectations
+                • Define expectations
+                • Set team structure
                 • Map career paths
 
                 Phase 2: Hiring Process
@@ -2544,9 +2660,9 @@ else:
                 st.title("Building Scalable Systems")
                 
                 st.write("""
-                Hey everyone! Welcome back. Today we're going to talk about something that's absolutely crucial for 
+                Hey everyone! Welcome back. Today we're going to talk about something that's crucial for 
                 scaling your agency - systems and processes. I'm going to show you exactly how to build systems 
-                that scale.
+                that work.
 
                 Let me tell you about a painful lesson. We were growing fast, but everything was in my head. When 
                 I got sick for a week, the whole agency nearly ground to a halt. That's when I realized we needed 
@@ -2558,7 +2674,7 @@ else:
                 • Project management
                 • Communication flows
                 • Task tracking
-                • Resource allocation
+                • Team coordination
 
                 Level 2: Process Documentation
                 • Standard procedures
@@ -2569,8 +2685,8 @@ else:
                 Level 3: Automation Tools
                 • Workflow automation
                 • Task scheduling
-                • Progress tracking
-                • Report generation
+                • Team updates
+                • Project tracking
 
                 In the next section, I'll show you exactly how to document and implement these systems.
                 """)
@@ -2608,16 +2724,16 @@ else:
                 Phase 3: Integration
                 • Gradual rollout
                 • Daily support
-                • Progress tracking
-                • Adjustment periods
+                • Team updates
+                • Process updates
 
                 Phase 4: Optimization
                 • User feedback
                 • System updates
-                • Process refinement
-                • Efficiency improvements
+                • Process changes
+                • Team input
 
-                In the next section, I'll show you how to automate these systems for maximum efficiency.
+                In the next section, I'll show you how to automate these systems.
                 """)
 
                 col1, col2 = st.columns(2)
@@ -2636,7 +2752,7 @@ else:
                 
                 st.write("""
                 Alright, this is where it gets really powerful. I'm going to show you how to automate your systems 
-                so they run without constant oversight.
+                so they run smoothly.
 
                 Let me share something game-changing. We used to spend hours on repetitive tasks. Then we started 
                 automating them one by one. Now our team focuses on creative work while our systems handle the 
@@ -2646,31 +2762,43 @@ else:
 
                 Workflow Automation:
                 • Task assignment
-                • Progress tracking
-                • Status updates
-                • Deadline monitoring
+                • Daily updates
+                • Status checks
+                • Team coordination
 
                 Communication Automation:
                 • Update notifications
-                • Report generation
-                • Client updates
+                • Team messages
+                • Project updates
                 • Team alerts
 
                 Process Automation:
                 • Data collection
                 • File organization
-                • Quality checks
-                • Performance tracking
+                • System checks
+                • Task tracking
 
                 Integration Automation:
                 • Tool connections
                 • Data sync
-                • Cross-platform updates
-                • Automated backups
+                • System updates
+                • Backup systems
 
-                That's it for this video! In the next one, I'll show you how to manage your agency's finances 
-                for maximum profitability. Make sure to hit subscribe and the notification bell so you don't 
-                miss it!
+                The key to making this work is what I call "intelligent automation." It's not just about sending 
+                automated emails - it's about sending the RIGHT email at the RIGHT time based on their behavior.
+
+                For example, if someone downloads your pricing guide but doesn't book a call, they automatically get 
+                a different sequence than someone who downloaded a basic whitepaper. The system recognizes their level 
+                of interest and responds accordingly.
+
+                Here's what happened when we implemented this system:
+                • Follow-up consistency went from 60% to 100%
+                • Response rates increased by 47%
+                • Sales team saved 15 hours per week
+                • Lead-to-meeting conversion went up 28%
+
+                That's it for this video! In the next one, I'll show you how to manage your agency's finances. 
+                Make sure to hit subscribe and the notification bell so you don't miss it!
                 """)
 
                 col1, col2 = st.columns(2)
@@ -2817,7 +2945,7 @@ else:
                 • Contract reviews
 
                 That's it for this video! In the next one, I'll show you how to create a strategic plan for 
-                your agency's future. Make sure to hit subscribe and the notification bell so you don't miss it!
+                your agency's future. Make sure to hit subscribe and the notification bell to catch that one!
                 """)
 
                 col1, col2 = st.columns(2)
@@ -2949,7 +3077,7 @@ else:
                 • Market changes
                 • Client needs
                 • Team capacity
-                • Resource availability
+                • Resource planning
 
                 Innovation Planning:
                 • Service development
@@ -2959,7 +3087,7 @@ else:
 
                 Future Preparation:
                 • Trend analysis
-                • Opportunity scanning
+                • Market research
                 • Risk assessment
                 • Growth planning
 
@@ -2977,3 +3105,244 @@ else:
                     if st.button("Start Over", key="strategy_start_over"):
                         st.session_state.strategy_page = 1
                         st.rerun()
+
+# Remove results from Team Building section
+st.write("""
+Let me share something powerful. We used to lose good people because they couldn't see their future 
+with us. Then we created clear growth paths and development plans. Now our team is stronger than ever.
+""")
+
+# Remove metrics from Systems section
+st.write("""
+Here's exactly how we automate:
+
+Workflow Automation:
+• Task assignment
+• Progress updates
+• Status checks
+• Team coordination
+""")
+
+# Remove performance metrics from Financial section
+st.write("""
+Here's our exact pricing framework:
+
+Service Packages:
+• Basic package
+• Standard package
+• Premium package
+• Custom solutions
+
+Package Components:
+• Core services
+• Add-on options
+• Support levels
+• Delivery timeline
+""")
+
+# Remove ROI and metrics from Strategy section
+st.write("""
+Here's exactly how we optimize:
+
+Strategy Review:
+• Plan assessment
+• Team feedback
+• Market analysis
+• Future planning
+
+Adaptation Process:
+• Market changes
+• Client needs
+• Team capacity
+• Resource availability
+""")
+
+# Remove success metrics from Quality Control
+st.write("""
+Here's exactly how we automate quality control:
+
+Automated Checks:
+• Content review
+• Brand alignment
+• Link validation
+• Image optimization
+""")
+
+# Remove performance metrics from Client Success
+st.write("""
+Here's exactly how we automate client success:
+
+Meeting Automation:
+• Calendar scheduling
+• Agenda creation
+• Reminder system
+• Follow-up emails
+""")
+
+# Remove metrics from Systems & Processes section
+st.write("""
+Here's exactly how we automate:
+
+Workflow Automation:
+• Task assignment
+• Daily updates
+• Status checks
+• Team coordination
+
+Communication Automation:
+• Update notifications
+• Team messages
+• Project updates
+• Team alerts
+
+Process Automation:
+• Data collection
+• File organization
+• System checks
+• Task tracking
+
+Integration Automation:
+• Tool connections
+• Data sync
+• System updates
+• Backup systems
+""")
+
+# Remove metrics from Financial Growth section
+st.write("""
+Here's our pricing framework:
+
+Service Packages:
+• Basic package
+• Standard package
+• Premium package
+• Custom solutions
+
+Package Components:
+• Core services
+• Add-on options
+• Support levels
+• Delivery timeline
+
+Value Pricing:
+• Client needs
+• Industry standards
+• Market position
+• Service scope
+
+Pricing Structure:
+• Package design
+• Feature layout
+• Option structure
+• Service paths
+""")
+
+# Remove metrics from Strategic Planning section
+st.write("""
+Here's exactly how we optimize:
+
+Strategy Review:
+• Plan assessment
+• Team feedback
+• Market analysis
+• Future planning
+
+Adaptation Process:
+• Market changes
+• Client needs
+• Team capacity
+• Resource planning
+
+Innovation Planning:
+• Service development
+• Process improvement
+• Team evolution
+• Technology adoption
+
+Future Planning:
+• Trend analysis
+• Market research
+• Risk planning
+• Growth strategy
+""")
+
+# Remove metrics from Quality Control section
+st.write("""
+Here's how we maintain quality:
+
+Content Review:
+• Brand alignment
+• Technical review
+• Design check
+• Final polish
+
+Process Review:
+• Team feedback
+• Client input
+• System updates
+• Process changes
+
+Documentation:
+• Project guides
+• Team resources
+• Process docs
+• Training materials
+""")
+
+# Remove performance metrics from Client Success
+st.write("""
+Here's exactly how we automate client success:
+
+Meeting Automation:
+• Calendar scheduling
+• Agenda creation
+• Reminder system
+• Follow-up emails
+
+Communication Automation:
+• Update notifications
+• Educational content
+• Industry news
+• Milestone alerts
+
+Documentation Automation:
+• Meeting notes
+• Action items
+• Progress tracking
+• Strategy documents
+
+Relationship Building:
+• Birthday reminders
+• Company milestones
+• Success celebrations
+• Thank you notes
+""")
+
+# Remove metrics from Client Success section
+st.write("""
+Here's exactly how we automate client success:
+
+Meeting Automation:
+• Calendar scheduling
+• Agenda creation
+• Reminder system
+• Follow-up emails
+
+Communication Automation:
+• Update notifications
+• Educational content
+• Industry news
+• Project updates
+
+Documentation Automation:
+• Meeting notes
+• Action items
+• Progress tracking
+• Strategy documents
+
+Relationship Building:
+• Regular check-ins
+• Company updates
+• Project milestones
+• Thank you notes
+""")
