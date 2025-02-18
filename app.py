@@ -496,38 +496,34 @@ st.markdown("""
 # Add styles for better contrast
 st.markdown("""
 <style>
-.module-card {
-    background-color: white !important;
-    padding: 1.5rem;
-    border-radius: 8px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    margin-bottom: 1rem;
-}
-.module-card h3 {
+.main-title {
     color: #1a202c !important;
-    font-size: 1.25rem;
-    margin-bottom: 0.5rem;
-    font-weight: 600;
+    font-size: 2rem !important;
+    font-weight: 700 !important;
+    margin-bottom: 2rem !important;
+    padding: 1rem !important;
+    background-color: white !important;
+    border-radius: 8px !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) !important;
 }
-.module-card p {
-    color: #4a5568 !important;
-    margin-bottom: 1rem;
-}
-.module-card ul {
-    color: #4a5568 !important;
-    margin-left: 1.5rem;
-}
-.step-container {
+.conversation-box {
     background-color: white;
     padding: 2rem;
     border-radius: 8px;
     margin-bottom: 1rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
-.step-header {
+.bot-message {
     color: #1a202c;
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    font-weight: 600;
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+.highlight {
+    background-color: #EDF2F7;
+    padding: 1rem;
+    border-radius: 8px;
+    margin: 1rem 0;
 }
 </style>
 """, unsafe_allow_html=True)
@@ -802,7 +798,7 @@ else:
             """, unsafe_allow_html=True)
 
     elif selected_section == "Acquisition":
-        st.title("Client Acquisition")
+        st.markdown('<h1 class="main-title">Client Acquisition</h1>', unsafe_allow_html=True)
         
         # Sub-module tabs
         tab1, tab2, tab3, tab4 = st.tabs(["Lead Generation", "Sales System", "Follow-up", "Proposals"])
@@ -810,32 +806,59 @@ else:
         with tab1:
             if st.session_state.step == 1:
                 st.markdown("""
-                <div class="step-container">
-                    <div class="step-header">Step 1: Define Your Target Client</div>
+                <div class="conversation-box">
+                    <p class="bot-message">Hi! I'll help you create a lead generation strategy for your agency. First, let's talk about your ideal client. This will help us create targeted marketing that resonates with the right audience.</p>
                 </div>
                 """, unsafe_allow_html=True)
                 
-                industry = st.selectbox("What industry does your ideal client work in?",
+                industry = st.selectbox("What industry would you like to focus on?",
                     ["Technology", "E-commerce", "Healthcare", "Real Estate", "Other"])
-                company_size = st.selectbox("What's their company size?",
+                
+                st.markdown("""
+                <div class="conversation-box">
+                    <p class="bot-message">Great choice! The {industry} industry has a lot of potential. Now, let's narrow down the size of companies you want to work with.</p>
+                </div>
+                """, unsafe_allow_html=True)
+                
+                company_size = st.selectbox("What size companies do you want to target?",
                     ["1-10 employees", "11-50 employees", "51-200 employees", "201+ employees"])
-                budget = st.selectbox("What's their typical monthly marketing budget?",
+                
+                st.markdown("""
+                <div class="conversation-box">
+                    <p class="bot-message">Perfect! This will help us determine the right approach and messaging. One last question about your ideal client...</p>
+                </div>
+                """, unsafe_allow_html=True)
+                
+                budget = st.selectbox("What's their typical marketing budget range?",
                     ["$1,000 - $5,000", "$5,001 - $10,000", "$10,001 - $25,000", "$25,000+"])
                 
-                if st.button("Next Step →"):
+                st.markdown("""
+                <div class="highlight">
+                    Based on your answers, we'll focus on {industry} companies with {company_size} and a budget of {budget}.
+                </div>
+                """, unsafe_allow_html=True)
+                
+                if st.button("Let's talk about lead magnets →"):
                     st.session_state.step = 2
                     st.rerun()
             
             elif st.session_state.step == 2:
                 st.markdown("""
-                <div class="step-container">
-                    <div class="step-header">Step 2: Create Your Lead Magnet</div>
+                <div class="conversation-box">
+                    <p class="bot-message">Now that we know your ideal client, let's create something valuable to attract them. What kind of content do you think would be most helpful for your target audience?</p>
                 </div>
                 """, unsafe_allow_html=True)
                 
-                lead_magnet = st.selectbox("What type of lead magnet will you create?",
+                lead_magnet = st.selectbox("Choose a lead magnet type:",
                     ["Free Consultation", "Industry Report", "Video Training", "Template/Tool"])
-                delivery = st.selectbox("How will you deliver it?",
+                
+                st.markdown("""
+                <div class="conversation-box">
+                    <p class="bot-message">Great choice! This type of lead magnet works well for your target market. How would you like to deliver it to them?</p>
+                </div>
+                """, unsafe_allow_html=True)
+                
+                delivery = st.selectbox("Select delivery method:",
                     ["Email", "Download Page", "Member Portal", "Video Platform"])
                 
                 col1, col2 = st.columns(2)
@@ -850,29 +873,29 @@ else:
             
             elif st.session_state.step == 3:
                 st.markdown("""
-                <div class="step-container">
-                    <div class="step-header">Step 3: Implementation Plan</div>
+                <div class="conversation-box">
+                    <p class="bot-message">Perfect! I've created a personalized action plan based on our conversation. Here's what you should focus on:</p>
+                    
+                    <div class="highlight">
+                        1. Create your {lead_magnet} focused on {industry} companies
+                        2. Set up the delivery system using {delivery}
+                        3. Design a landing page that speaks to companies with {company_size}
+                        4. Create an email nurture sequence
+                    </div>
+                    
+                    <p class="bot-message">Would you like to implement this plan or should we revise anything?</p>
                 </div>
                 """, unsafe_allow_html=True)
                 
-                st.markdown("""
-                <div class="module-card">
-                    <h3>Action Steps</h3>
-                    <ol style="color: #4a5568; margin-left: 1.5rem;">
-                        <li>Create your lead magnet content</li>
-                        <li>Set up delivery system</li>
-                        <li>Create landing page</li>
-                        <li>Set up tracking</li>
-                    </ol>
-                </div>
-                """, unsafe_allow_html=True)
-                
-                if st.button("← Back to Step 2"):
-                    st.session_state.step = 2
-                    st.rerun()
-                if st.button("Start Over"):
-                    st.session_state.step = 1
-                    st.rerun()
+                col1, col2 = st.columns(2)
+                with col1:
+                    if st.button("← Let's revise the lead magnet"):
+                        st.session_state.step = 2
+                        st.rerun()
+                with col2:
+                    if st.button("Start Over"):
+                        st.session_state.step = 1
+                        st.rerun()
 
     elif selected_section == "Delivery":
         st.title("Service Delivery")
