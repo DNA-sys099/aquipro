@@ -844,10 +844,15 @@ else:
     elif selected_section == "Acquisition":
         st.markdown('<h1 class="main-title">Client Acquisition</h1>', unsafe_allow_html=True)
         
-        # Sub-module tabs
-        tab1, tab2, tab3, tab4 = st.tabs(["**Lead Generation**", "**Sales System**", "**Follow-up**", "**Proposals**"])
-        
-        with tab1:  # Lead Generation
+        # Sub-module tabs with better contrast and unique names
+        tabs = st.tabs([
+            "**Lead Magnet Creation**",
+            "**Sales Framework**", 
+            "**Follow-up System**", 
+            "**Proposal Writing**"
+        ])
+
+        with tabs[0]:  # Lead Generation
             if 'lead_gen_page' not in st.session_state:
                 st.session_state.lead_gen_page = 1
 
@@ -892,7 +897,7 @@ else:
                 you how to do it right.
                 """)
 
-                if st.button("Next Page →"):
+                if st.button("Next Page →", key="lead_gen_next_1"):
                     st.session_state.lead_gen_page = 2
                     st.rerun()
 
@@ -936,17 +941,18 @@ else:
                 3. Offer the lead magnet as additional value
                 4. Don't ask for anything in return
 
-                In the next section, I'll show you exactly how to convert these leads into paying clients. This is 
-                where the real magic happens.
+                In the next section, I'll show you exactly how to convert these leads into paying clients. This is where 
+                it gets really good, because I'm going to share the exact words I use to handle objections and close 
+                high-ticket deals.
                 """)
 
                 col1, col2 = st.columns(2)
                 with col1:
-                    if st.button("← Previous Page"):
+                    if st.button("← Previous Page", key="lead_gen_prev_2"):
                         st.session_state.lead_gen_page = 1
                         st.rerun()
                 with col2:
-                    if st.button("Next Page →"):
+                    if st.button("Next Page →", key="lead_gen_next_2"):
                         st.session_state.lead_gen_page = 3
                         st.rerun()
 
@@ -1000,15 +1006,15 @@ else:
 
                 col1, col2 = st.columns(2)
                 with col1:
-                    if st.button("← Previous Page"):
+                    if st.button("← Previous Page", key="lead_gen_prev_3"):
                         st.session_state.lead_gen_page = 2
                         st.rerun()
                 with col2:
-                    if st.button("Start Over"):
+                    if st.button("Start Over", key="lead_gen_start_over"):
                         st.session_state.lead_gen_page = 1
                         st.rerun()
 
-        with tab2:  # Sales System
+        with tabs[1]:  # Sales System
             if 'sales_page' not in st.session_state:
                 st.session_state.sales_page = 1
 
@@ -1025,41 +1031,33 @@ else:
                 sales calls. I mean really bad. I would get on these calls and just start pitching right away. I'd talk 
                 about our services, our process, how great we were... and guess what? I barely closed any deals.
 
-                Then one day, I had this call with a potential client, and instead of pitching, I just shut up and listened. 
-                I asked questions about their business, and suddenly, the whole conversation changed. They opened up about 
-                their problems, their goals, their fears. And that's when it hit me - this is what a discovery call should be.
+                Then I had this breakthrough moment. I was looking at our CRM data and noticed something interesting. 
+                The clients who ended up signing with us had an average of 7-8 touchpoints before they signed. But 
+                we were giving up after 2-3 emails.
 
-                So let me break down exactly how I structure these calls now. First, when someone gets on a call with you, 
-                you need to establish authority immediately. Here's what I say: "Thanks for taking the time today. I've 
-                looked at your website and noticed a few things we could improve, but first I'd love to hear more about 
-                your business."
+                So I developed what I call the "Value Ladder Follow-up System." Here's how it works:
 
-                See what I did there? I've already shown them I did my homework, and I'm giving them a chance to talk about 
-                themselves. People love talking about their business, and this is where you'll get your most valuable information.
+                Day 1: Send a value-packed resource
+                • Something they can use immediately
+                • No pitch, just pure value
+                • Ask for feedback
 
-                Now, during the first 15 minutes, you want to ask these specific questions:
-                "What made you start looking for marketing help now?"
-                "What have you tried so far?"
-                "What would success look like 12 months from now?"
+                Day 3: Share a client case study
+                • Make it relevant to their industry
+                • Focus on the process, not just results
+                • Include specific numbers and timelines
 
-                Let me tell you why these questions are so powerful. The first question gets at their pain points and 
-                motivation. The second question tells you what hasn't worked - this is gold for your proposal. And the 
-                third question? That's where you get their vision, their goals, their dreams for their business.
+                Day 5: Send an industry insight
+                • Share a trend or opportunity they might have missed
+                • Position yourself as an expert
+                • Make it actionable
 
-                But here's what most people get wrong - they rush through these questions. Don't do that. When they answer, 
-                stay quiet for a moment. Let them think. Let them add more details. The silence might feel uncomfortable, 
-                but trust me, this is where the magic happens.
-
-                I remember one call where I asked about their previous marketing efforts, and after their initial answer, 
-                I just stayed quiet. That silence led them to open up about a bad experience with another agency - 
-                information that was crucial for me to position our services correctly.
-
-                In the next section, I'll show you exactly how to qualify these leads so you're only working with clients 
-                who can afford your services and are ready to start. Trust me, this next part is crucial - it's where you 
-                separate the tire-kickers from serious clients.
+                The key is that each touchpoint adds value. We're not just "checking in" - we're giving them a reason 
+                to respond. And in the next section, I'll show you exactly how to create each of these touchpoints 
+                and what to say in each one.
                 """)
 
-                if st.button("Next Page →"):
+                if st.button("Next Page →", key="sales_next_1"):
                     st.session_state.sales_page = 2
                     st.rerun()
 
@@ -1068,58 +1066,72 @@ else:
                 st.title("Qualifying Your Leads")
                 
                 st.write("""
-                Alright, welcome back. Now that you know how to run the discovery call, let me share something really 
-                important. This is actually the biggest mistake I see agency owners make - they get excited about any 
-                potential client and don't properly qualify them.
+                Alright, welcome back. Now I'm going to share the exact email templates we use in our follow-up sequence. These 
+                aren't just any templates - these have been tested and refined over hundreds of leads.
 
-                I learned this the hard way, and let me tell you that story. Early in my agency, I took on a client who 
-                couldn't really afford our services. They were paying $2,000 a month, which was way below our usual rate, 
-                but I was desperate for clients. Well, guess what happened? They turned out to be the most demanding 
-                client we ever had.
+                Let me tell you a quick story about these templates. We had a client who was using generic follow-up 
+                emails and getting a 2% response rate. We implemented these templates, and their response rate shot up 
+                to 23%. That's more than a 10x improvement!
 
-                Every day, there were new requests. Every week, they wanted to know why they weren't ranking #1 on Google 
-                yet. They drained our resources, constantly complained about price, and eventually, we had to part ways. 
-                That experience cost us not just money, but team morale and time we could have spent on better-fit clients.
+                Here's the first email template - the Value Resource Email:
 
-                So here's what you need to ask - and I want you to ask these questions in this exact order, because the 
-                order matters. I'll explain why in a minute.
+                Subject: [Their Industry] Strategy Guide: Implementing What We Discussed
+                
+                Hey [Name],
 
-                First: "What's your current monthly marketing spend?"
-                Don't be shy about this. If they can't afford your services, you need to know right away. When they tell 
-                you a number, don't react. Just note it down. If it's too low, you can end the call early and save 
-                everyone's time.
+                Following up on our conversation about [specific challenge they mentioned].
 
-                Second: "Who else is involved in making marketing decisions?"
-                This is crucial because if you're not talking to the decision-maker, you're wasting your time. I once 
-                spent two weeks going back and forth with someone, creating proposals, having follow-up calls, only to 
-                find out they needed approval from a CEO who had a completely different vision.
+                I put together a quick guide that shows you how to [solve specific problem] - even if you don't end 
+                up working with us. You can find it attached.
 
-                Third: "Have you worked with agencies before?"
-                Their answer will tell you so much about their expectations and past experiences. Listen carefully here. 
-                If they've worked with multiple agencies in the past year, that's a red flag. It usually means they have 
-                unrealistic expectations or they're difficult to work with.
+                Key points covered:
+                • [Specific point 1]
+                • [Specific point 2]
+                • [Specific point 3]
 
-                Fourth: "What's your timeline for making a decision?"
-                This separates the serious prospects from the tire-kickers. If they can't give you a specific timeline, 
-                they're probably not ready to buy. I usually say something like, "Most of our clients make a decision 
-                within two weeks of our call. Does that timeline work for you?"
+                Let me know if you have any questions!
 
-                Now, why this order? Because each question builds on the last. If they don't have the budget, there's no 
-                point asking about decision-making. If they're not the decision-maker, why discuss timeline? See what I 
-                mean?
+                Here's the Case Study Email (Day 3):
 
-                In the next section, I'll show you exactly how to handle their responses and close the deal. This is where 
-                it gets really good, because I'm going to share the exact words I use to handle objections and close 
-                high-ticket deals.
+                Subject: How [Similar Company] Solved [Their Challenge]
+
+                Hey [Name],
+
+                I remembered during our call you mentioned [specific challenge]. We actually helped [similar company] 
+                with the exact same issue.
+
+                Here's what we did:
+                • Step 1: [Specific action]
+                • Step 2: [Specific action]
+                • Result: [Specific result with numbers]
+
+                Would you like to see the full case study?
+
+                And here's the Industry Insight Email (Day 5):
+
+                Subject: Spotted This [Industry] Trend - Thought of You
+
+                Hey [Name],
+
+                Just came across some interesting data about [their industry]:
+                [Share specific insight or trend]
+
+                This could mean [specific opportunity] for [their company name].
+
+                Here's a quick tip you can implement right now: [actionable tip]
+
+                Want to discuss how to take advantage of this?
+
+                In the next section, I'll show you how to customize these templates and when to use each one.
                 """)
 
                 col1, col2 = st.columns(2)
                 with col1:
-                    if st.button("← Previous Page"):
+                    if st.button("← Previous Page", key="sales_prev_2"):
                         st.session_state.sales_page = 1
                         st.rerun()
                 with col2:
-                    if st.button("Next Page →"):
+                    if st.button("Next Page →", key="sales_next_2"):
                         st.session_state.sales_page = 3
                         st.rerun()
 
@@ -1182,34 +1194,198 @@ else:
 
                 col1, col2 = st.columns(2)
                 with col1:
-                    if st.button("← Previous Page"):
+                    if st.button("← Previous Page", key="sales_prev_3"):
                         st.session_state.sales_page = 2
                         st.rerun()
                 with col2:
-                    if st.button("Start Over"):
+                    if st.button("Start Over", key="sales_start_over"):
                         st.session_state.sales_page = 1
                         st.rerun()
 
-        with tab3:
-            st.markdown("""
-            <div class="lesson-box">
-                <div class="lesson-title">Follow-up Email Sequences</div>
-                <div class="lesson-content">
-                    A well-crafted email sequence can significantly improve your chances of closing a deal.
-                </div>
-                
-                <div class="key-point">
-                    <strong>Key Components:</strong><br>
-                    • Introduction Email (sent immediately)<br>
-                    • Value Email (sent 2 days after intro)<br>
-                    • Problem Agitation Solution Email (sent 4 days after intro)<br>
-                    • Case Study Email (sent 6 days after intro)<br>
-                    • Final Follow-up Email (sent 8 days after intro)
-                </div>
-            </div>
-            """, unsafe_allow_html=True)
+        with tabs[2]:  # Follow-up System
+            if 'followup_page' not in st.session_state:
+                st.session_state.followup_page = 1
 
-        with tab4:
+            # Page 1: Follow-up Strategy
+            if st.session_state.followup_page == 1:
+                st.title("The Perfect Follow-up System")
+                
+                st.write("""
+                Hey everyone! Welcome back. Today we're going to dive into something that's making my agency an extra 
+                $25,000 per month - our follow-up system. And the crazy thing? It's almost entirely automated.
+
+                But first, let me tell you about the massive mistake I made when I first started. I used to think 
+                follow-up meant just sending a "checking in" email every few days. You know the ones - "Hey, just 
+                checking in to see if you've made a decision." Guess how well that worked? Exactly. Zero responses.
+
+                Then I had this breakthrough moment. I was looking at our CRM data and noticed something interesting. 
+                The clients who ended up signing with us had an average of 7-8 touchpoints before they signed. But 
+                we were giving up after 2-3 emails.
+
+                So I developed what I call the "Value Ladder Follow-up System." Here's how it works:
+
+                Day 1: Send a value-packed resource
+                • Something they can use immediately
+                • No pitch, just pure value
+                • Ask for feedback
+
+                Day 3: Share a client case study
+                • Make it relevant to their industry
+                • Focus on the process, not just results
+                • Include specific numbers and timelines
+
+                Day 5: Send an industry insight
+                • Share a trend or opportunity they might have missed
+                • Position yourself as an expert
+                • Make it actionable
+
+                The key is that each touchpoint adds value. We're not just "checking in" - we're giving them a reason 
+                to respond. And in the next section, I'll show you exactly how to create each of these touchpoints 
+                and what to say in each one.
+                """)
+
+                if st.button("Next Page →", key="followup_next_1"):
+                    st.session_state.followup_page = 2
+                    st.rerun()
+
+            # Page 2: Email Templates
+            elif st.session_state.followup_page == 2:
+                st.title("Email Templates That Convert")
+                
+                st.write("""
+                Welcome back! Now I'm going to share the exact email templates we use in our follow-up sequence. These 
+                aren't just any templates - these have been tested and refined over hundreds of leads.
+
+                Let me tell you a quick story about these templates. We had a client who was using generic follow-up 
+                emails and getting a 2% response rate. We implemented these templates, and their response rate shot up 
+                to 23%. That's more than a 10x improvement!
+
+                Here's the first email template - the Value Resource Email:
+
+                Subject: [Their Industry] Strategy Guide: Implementing What We Discussed
+                
+                Hey [Name],
+
+                Following up on our conversation about [specific challenge they mentioned].
+
+                I put together a quick guide that shows you how to [solve specific problem] - even if you don't end 
+                up working with us. You can find it attached.
+
+                Key points covered:
+                • [Specific point 1]
+                • [Specific point 2]
+                • [Specific point 3]
+
+                Let me know if you have any questions!
+
+                Here's the Case Study Email (Day 3):
+
+                Subject: How [Similar Company] Solved [Their Challenge]
+
+                Hey [Name],
+
+                I remembered during our call you mentioned [specific challenge]. We actually helped [similar company] 
+                with the exact same issue.
+
+                Here's what we did:
+                • Step 1: [Specific action]
+                • Step 2: [Specific action]
+                • Result: [Specific result with numbers]
+
+                Would you like to see the full case study?
+
+                And here's the Industry Insight Email (Day 5):
+
+                Subject: Spotted This [Industry] Trend - Thought of You
+
+                Hey [Name],
+
+                Just came across some interesting data about [their industry]:
+                [Share specific insight or trend]
+
+                This could mean [specific opportunity] for [their company name].
+
+                Here's a quick tip you can implement right now: [actionable tip]
+
+                Want to discuss how to take advantage of this?
+
+                In the next section, I'll show you how to customize these templates and when to use each one.
+                """)
+
+                col1, col2 = st.columns(2)
+                with col1:
+                    if st.button("← Previous Page", key="followup_prev_2"):
+                        st.session_state.followup_page = 1
+                        st.rerun()
+                with col2:
+                    if st.button("Next Page →", key="followup_next_2"):
+                        st.session_state.followup_page = 3
+                        st.rerun()
+
+            # Page 3: Automation and Scaling
+            elif st.session_state.followup_page == 3:
+                st.title("Automating Your Follow-up System")
+                
+                st.write("""
+                Alright, this is where the magic happens. I'm going to show you how to automate this entire follow-up 
+                system so it runs on autopilot. This is how we manage to follow up with hundreds of leads without 
+                missing a single one.
+
+                Let me share a story that changed everything for us. We were doing okay with our follow-up system, 
+                but we were spending hours each day manually sending emails. Then one of our team members got sick 
+                for a week, and our follow-ups completely fell apart. That's when I realized we needed to automate.
+
+                Here's the exact system we built:
+
+                1. CRM Integration
+                • Set up tags for different lead sources
+                • Create custom fields for tracking responses
+                • Build automated sequences based on lead source
+
+                2. Email Automation Rules
+                • If they open but don't reply → Send follow-up #1 after 3 days
+                • If they click but don't book → Send case study
+                • If no engagement → Switch to different angle
+
+                3. Engagement Tracking
+                • Track email opens and clicks
+                • Monitor website visits
+                • Record content downloads
+
+                4. Response Management
+                • Auto-categorize responses
+                • Priority flagging for hot leads
+                • Automated meeting scheduling
+
+                The key to making this work is what I call "intelligent automation." It's not just about sending 
+                automated emails - it's about sending the RIGHT email at the RIGHT time based on their behavior.
+
+                For example, if someone downloads your pricing guide but doesn't book a call, they automatically get 
+                a different sequence than someone who downloaded a basic whitepaper. The system recognizes their level 
+                of interest and responds accordingly.
+
+                Here's what happened when we implemented this system:
+                • Follow-up consistency went from 60% to 100%
+                • Response rates increased by 47%
+                • Sales team saved 15 hours per week
+                • Lead-to-meeting conversion went up 28%
+
+                That's it for this video! In the next one, I'll show you how to set up your proposal system to close 
+                these leads at a higher rate. Don't forget to hit subscribe and the notification bell to catch that 
+                one. And if this was helpful, smash that like button!
+                """)
+
+                col1, col2 = st.columns(2)
+                with col1:
+                    if st.button("← Previous Page", key="followup_prev_3"):
+                        st.session_state.followup_page = 2
+                        st.rerun()
+                with col2:
+                    if st.button("Start Over", key="followup_start_over"):
+                        st.session_state.followup_page = 1
+                        st.rerun()
+
+        with tabs[3]:
             st.markdown("""
             <div class="lesson-box">
                 <div class="lesson-title">Proposal Templates</div>
