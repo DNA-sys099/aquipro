@@ -616,6 +616,79 @@ h1, h2, h3 {
 # Initialize session states and sections dictionary
 if 'logged_in' not in st.session_state:
     st.session_state.logged_in = False
+
+# Define sections with better contrast
+sections = {
+    "Client Acquisition": {
+        "icon": "🎯",
+        "description": "Build your client pipeline"
+    },
+    "Service Delivery": {
+        "icon": "🚀",
+        "description": "Streamline your operations"
+    },
+    "Agency Growth": {
+        "icon": "📈",
+        "description": "Scale your business"
+    },
+    "Resources": {
+        "icon": "📚",
+        "description": "Access tools and templates"
+    }
+}
+
+# Add styles for better contrast
+st.markdown("""
+<style>
+/* Main Navigation Styles */
+.css-1544g2n {
+    padding: 1rem;
+    background-color: white;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+/* Sidebar Title */
+.sidebar-title {
+    color: white !important;
+    font-size: 2rem !important;
+    font-weight: 700 !important;
+    margin-bottom: 2rem !important;
+    text-align: center !important;
+    padding: 1rem !important;
+    background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%) !important;
+    border-radius: 8px !important;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Section Selection */
+.css-1v0mbdj {
+    margin-top: 1rem;
+}
+.css-1v0mbdj > label {
+    color: white !important;
+    font-size: 1.1rem !important;
+    font-weight: 600 !important;
+    margin-bottom: 0.5rem !important;
+}
+.css-1v0mbdj select {
+    background-color: #2d3748 !important;
+    color: white !important;
+    border: 1px solid #4a5568 !important;
+    border-radius: 6px !important;
+    padding: 0.5rem !important;
+}
+.css-1v0mbdj select option {
+    background-color: #2d3748 !important;
+    color: white !important;
+    padding: 0.5rem !important;
+}
+</style>
+""", unsafe_allow_html=True)
+
+# Initialize session states and sections dictionary
+if 'logged_in' not in st.session_state:
+    st.session_state.logged_in = False
 if 'show_signup' not in st.session_state:
     st.session_state.show_signup = False
 if 'show_home' not in st.session_state:
@@ -761,10 +834,12 @@ else:
 
     # Sidebar
     with st.sidebar:
-        st.markdown("""
-        <h1 style='color: white; margin-bottom: 2rem;'>AquiPro</h1>
-        """, unsafe_allow_html=True)
-        selected_section = st.selectbox("Choose Your Module", list(sections.keys()))
+        st.markdown('<h1 class="sidebar-title">AquiPro</h1>', unsafe_allow_html=True)
+        
+        # Create the selectbox with icons and descriptions
+        options = [f"{v['icon']} {k} - {v['description']}" for k, v in sections.items()]
+        selected_option = st.selectbox("Choose Your Module", options)
+        selected_section = selected_option.split(" - ")[0].split(" ")[1]  # Extract section name
 
     if selected_section == "Dashboard":
         st.title("Agency Automation Hub")
@@ -1230,7 +1305,7 @@ else:
 
                 That's it for this training. In the next video, I'll show you how to handle the follow-up process 
                 and what to do after the call to maximize your chances of closing the deal. Make sure to subscribe and 
-                hit that notification bell so you don't miss it.
+                hit that notification bell so you don't miss it. And if this was helpful, give it a thumbs up!
                 """)
 
                 col1, col2 = st.columns(2)
