@@ -623,6 +623,10 @@ else:
             'team_size': []
         }
 
+    # Initialize session state for sub-module selection
+    if 'sub_module' not in st.session_state:
+        st.session_state.sub_module = 'Lead Generation'
+
     # Sidebar
     with st.sidebar:
         st.markdown("""
@@ -749,64 +753,206 @@ else:
     elif selected_section == "Acquisition":
         st.title("Client Acquisition")
         
-        # Module navigation
-        st.markdown("""
-        <div class="nav-pills">
-            <a href="#" class="nav-pill active">Lead Generation</a>
-            <a href="#" class="nav-pill">Sales System</a>
-            <a href="#" class="nav-pill">Follow-up</a>
-            <a href="#" class="nav-pill">Proposals</a>
-        </div>
-        """, unsafe_allow_html=True)
+        # Sub-module selection
+        st.session_state.sub_module = st.radio(
+            "Select Sub-Module",
+            ["Lead Generation", "Sales System", "Follow-up", "Proposals"],
+            horizontal=True,
+            label_visibility="collapsed"
+        )
         
-        col1, col2 = st.columns(2)
-        
-        with col1:
-            st.markdown("""
-            <div class="module-card">
-                <h3>Lead Generation Strategy</h3>
-                <p>Learn how to consistently generate high-quality leads for your agency.</p>
-                <ul style="color: #4b5563; margin-left: 1.5rem;">
-                    <li>Create your ideal client profile</li>
-                    <li>Build your lead magnet</li>
-                    <li>Set up automated systems</li>
-                </ul>
-            </div>
+        if st.session_state.sub_module == "Lead Generation":
+            col1, col2 = st.columns(2)
+            with col1:
+                st.markdown("""
+                <div class="module-card">
+                    <h3>Ideal Client Profile</h3>
+                    <p>Define and document your perfect client.</p>
+                    <ul style="color: #4b5563; margin-left: 1.5rem;">
+                        <li>Demographics</li>
+                        <li>Pain points</li>
+                        <li>Budget range</li>
+                    </ul>
+                </div>
+                
+                <div class="module-card">
+                    <h3>Lead Magnet Creation</h3>
+                    <p>Create compelling offers to attract leads.</p>
+                    <ul style="color: #4b5563; margin-left: 1.5rem;">
+                        <li>Value proposition</li>
+                        <li>Content creation</li>
+                        <li>Delivery system</li>
+                    </ul>
+                </div>
+                """, unsafe_allow_html=True)
             
-            <div class="module-card">
-                <h3>Sales Process</h3>
-                <p>Master the art of closing high-ticket clients.</p>
-                <ul style="color: #4b5563; margin-left: 1.5rem;">
-                    <li>Discovery call framework</li>
-                    <li>Objection handling</li>
-                    <li>Pricing strategy</li>
-                </ul>
-            </div>
-            """, unsafe_allow_html=True)
+            with col2:
+                st.markdown("""
+                <div class="module-card">
+                    <h3>Traffic Generation</h3>
+                    <p>Drive qualified traffic to your offers.</p>
+                    <ul style="color: #4b5563; margin-left: 1.5rem;">
+                        <li>Channel selection</li>
+                        <li>Content strategy</li>
+                        <li>Ad campaigns</li>
+                    </ul>
+                </div>
+                
+                <div class="module-card">
+                    <h3>Analytics Setup</h3>
+                    <p>Track and optimize your lead generation.</p>
+                    <ul style="color: #4b5563; margin-left: 1.5rem;">
+                        <li>Conversion tracking</li>
+                        <li>ROI measurement</li>
+                        <li>A/B testing</li>
+                    </ul>
+                </div>
+                """, unsafe_allow_html=True)
         
-        with col2:
-            st.markdown("""
-            <div class="module-card">
-                <h3>Follow-up System</h3>
-                <p>Never let leads slip through the cracks.</p>
-                <ul style="color: #4b5563; margin-left: 1.5rem;">
-                    <li>Email sequences</li>
-                    <li>Nurture campaigns</li>
-                    <li>Re-engagement strategies</li>
-                </ul>
-            </div>
+        elif st.session_state.sub_module == "Sales System":
+            col1, col2 = st.columns(2)
+            with col1:
+                st.markdown("""
+                <div class="module-card">
+                    <h3>Discovery Call Framework</h3>
+                    <p>Structure your sales calls for success.</p>
+                    <ul style="color: #4b5563; margin-left: 1.5rem;">
+                        <li>Question framework</li>
+                        <li>Pain point identification</li>
+                        <li>Solution presentation</li>
+                    </ul>
+                </div>
+                
+                <div class="module-card">
+                    <h3>Objection Handling</h3>
+                    <p>Master common objections and responses.</p>
+                    <ul style="color: #4b5563; margin-left: 1.5rem;">
+                        <li>Price objections</li>
+                        <li>Timeline concerns</li>
+                        <li>Competition comparison</li>
+                    </ul>
+                </div>
+                """, unsafe_allow_html=True)
             
-            <div class="module-card">
-                <h3>Proposal Templates</h3>
-                <p>Convert more prospects with winning proposals.</p>
-                <ul style="color: #4b5563; margin-left: 1.5rem;">
-                    <li>High-converting templates</li>
-                    <li>Pricing presentation</li>
-                    <li>Case studies integration</li>
-                </ul>
-            </div>
-            """, unsafe_allow_html=True)
+            with col2:
+                st.markdown("""
+                <div class="module-card">
+                    <h3>Pricing Strategy</h3>
+                    <p>Optimize your pricing for profitability.</p>
+                    <ul style="color: #4b5563; margin-left: 1.5rem;">
+                        <li>Package creation</li>
+                        <li>Value-based pricing</li>
+                        <li>Upsell strategy</li>
+                    </ul>
+                </div>
+                
+                <div class="module-card">
+                    <h3>Sales Tools</h3>
+                    <p>Essential tools for your sales process.</p>
+                    <ul style="color: #4b5563; margin-left: 1.5rem;">
+                        <li>CRM setup</li>
+                        <li>Proposal software</li>
+                        <li>Meeting schedulers</li>
+                    </ul>
+                </div>
+                """, unsafe_allow_html=True)
         
+        elif st.session_state.sub_module == "Follow-up":
+            col1, col2 = st.columns(2)
+            with col1:
+                st.markdown("""
+                <div class="module-card">
+                    <h3>Email Sequences</h3>
+                    <p>Automated follow-up campaigns.</p>
+                    <ul style="color: #4b5563; margin-left: 1.5rem;">
+                        <li>Sequence mapping</li>
+                        <li>Email templates</li>
+                        <li>Timing optimization</li>
+                    </ul>
+                </div>
+                
+                <div class="module-card">
+                    <h3>Lead Nurturing</h3>
+                    <p>Keep leads engaged until they're ready.</p>
+                    <ul style="color: #4b5563; margin-left: 1.5rem;">
+                        <li>Content strategy</li>
+                        <li>Value delivery</li>
+                        <li>Engagement tracking</li>
+                    </ul>
+                </div>
+                """, unsafe_allow_html=True)
+            
+            with col2:
+                st.markdown("""
+                <div class="module-card">
+                    <h3>Re-engagement</h3>
+                    <p>Bring cold leads back to life.</p>
+                    <ul style="color: #4b5563; margin-left: 1.5rem;">
+                        <li>Segmentation</li>
+                        <li>Special offers</li>
+                        <li>Win-back campaigns</li>
+                    </ul>
+                </div>
+                
+                <div class="module-card">
+                    <h3>Follow-up Analytics</h3>
+                    <p>Measure and optimize your follow-up.</p>
+                    <ul style="color: #4b5563; margin-left: 1.5rem;">
+                        <li>Response rates</li>
+                        <li>Conversion tracking</li>
+                        <li>A/B testing</li>
+                    </ul>
+                </div>
+                """, unsafe_allow_html=True)
+        
+        elif st.session_state.sub_module == "Proposals":
+            col1, col2 = st.columns(2)
+            with col1:
+                st.markdown("""
+                <div class="module-card">
+                    <h3>Proposal Templates</h3>
+                    <p>High-converting proposal frameworks.</p>
+                    <ul style="color: #4b5563; margin-left: 1.5rem;">
+                        <li>Structure guidelines</li>
+                        <li>Content blocks</li>
+                        <li>Design elements</li>
+                    </ul>
+                </div>
+                
+                <div class="module-card">
+                    <h3>Case Studies</h3>
+                    <p>Showcase your success stories.</p>
+                    <ul style="color: #4b5563; margin-left: 1.5rem;">
+                        <li>Result highlights</li>
+                        <li>Client testimonials</li>
+                        <li>Process overview</li>
+                    </ul>
+                </div>
+                """, unsafe_allow_html=True)
+            
+            with col2:
+                st.markdown("""
+                <div class="module-card">
+                    <h3>Pricing Presentation</h3>
+                    <p>Present your pricing effectively.</p>
+                    <ul style="color: #4b5563; margin-left: 1.5rem;">
+                        <li>Package comparison</li>
+                        <li>Value justification</li>
+                        <li>ROI calculation</li>
+                    </ul>
+                </div>
+                
+                <div class="module-card">
+                    <h3>Proposal Tools</h3>
+                    <p>Software and tools for proposals.</p>
+                    <ul style="color: #4b5563; margin-left: 1.5rem;">
+                        <li>Proposal software</li>
+                        <li>Design tools</li>
+                        <li>E-signature setup</li>
+                    </ul>
+                </div>
+                """, unsafe_allow_html=True)
+
     elif selected_section == "Delivery":
         st.title("Service Delivery")
         
