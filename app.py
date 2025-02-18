@@ -1192,7 +1192,7 @@ else:
                 Alright, welcome back. Now I'm going to share the exact email templates we use in our follow-up sequence. These 
                 aren't just any templates - these have been tested and refined over hundreds of leads.
 
-                Let me tell you a quick story about these templates. We had a client who was using generic follow-up 
+                Let me tell you about these templates. We had a client who was using generic follow-up 
                 emails and getting a 2% response rate. We implemented these templates, and their response rate shot up 
                 to 23%. That's more than a 10x improvement!
 
@@ -1421,8 +1421,8 @@ else:
                 missing a single one.
 
                 Let me share a story that changed everything for us. We were doing okay with our follow-up system, 
-                but we were spending hours each day manually sending emails. Then one of our team members got sick 
-                for a week, and our follow-ups completely fell apart. That's when I realized we needed to automate.
+                but we were spending hours manually sending emails. Then we realized we could automate a lot of these 
+                emails. Game changer!
 
                 Here's the exact system we built:
 
@@ -2072,7 +2072,7 @@ else:
                 Alright, this is where it gets really interesting. I'm going to show you how to automate your 
                 quality control process so it runs smoothly without constant oversight.
 
-                Let me tell you about a breakthrough moment. We were spending hours manually checking deliverables 
+                Let me share a story that changed everything for us. We were spending hours manually checking deliverables 
                 against our brand guidelines. Then we realized we could automate a lot of these checks. Game changer!
 
                 Here's exactly how we automate quality control:
@@ -2374,3 +2374,606 @@ else:
                 </ul>
             </div>
             """, unsafe_allow_html=True)
+
+    elif selected_section == "Growth":
+        st.title("Agency Growth")
+        
+        # Sub-module tabs with better contrast
+        growth_tabs = st.tabs([
+            "**Team Building**",
+            "**Systems & Processes**", 
+            "**Financial Growth**", 
+            "**Strategic Planning**"
+        ])
+        
+        with growth_tabs[0]:  # Team Building
+            if 'team_page' not in st.session_state:
+                st.session_state.team_page = 1
+
+            # Page 1: Team Structure
+            if st.session_state.team_page == 1:
+                st.title("Building Your Dream Team")
+                
+                st.write("""
+                Hey everyone! Welcome back. Today we're going to talk about something that can make or break your 
+                agency - building your team. I'm going to show you exactly how to hire, train, and structure your 
+                team for maximum efficiency.
+
+                Let me tell you about a massive mistake I made early on. I hired people based purely on their skills, 
+                without considering culture fit. We had brilliant people who just couldn't work together. It was a 
+                nightmare. That's when I developed what I call the "Dream Team Framework."
+
+                Here's exactly how it works:
+
+                Phase 1: Role Definition
+                • Create clear job descriptions
+                • Define success metrics
+                • Set expectations
+                • Map career paths
+
+                Phase 2: Hiring Process
+                • Culture fit assessment
+                • Skills evaluation
+                • Team compatibility
+                • Growth potential
+
+                Phase 3: Onboarding System
+                • Welcome process
+                • Training program
+                • Mentorship setup
+                • Integration plan
+
+                The key is to hire for attitude and train for skills. In the next section, I'll show you exactly 
+                how to run your hiring process to find these perfect-fit team members.
+                """)
+
+                if st.button("Next Page →", key="team_next_1"):
+                    st.session_state.team_page = 2
+                    st.rerun()
+
+            # Page 2: Hiring Process
+            elif st.session_state.team_page == 2:
+                st.title("The Perfect Hiring Process")
+                
+                st.write("""
+                Welcome back! Now I'm going to show you exactly how to run your hiring process. This is where most 
+                agencies mess up - they rush the process and end up with the wrong people.
+
+                Here's a story that changed everything for us. We once spent three months trying to fill a position 
+                because we kept compromising on our standards. When we finally got strict about our process, we 
+                found the perfect person in just two weeks.
+
+                Here's our exact hiring framework:
+
+                Step 1: Initial Screening
+                • Review application
+                • Culture questionnaire
+                • Portfolio review
+                • Quick video intro
+
+                Step 2: Skills Assessment
+                • Practical test project
+                • Tool proficiency
+                • Problem-solving task
+                • Communication test
+
+                Step 3: Team Integration
+                • Team interview
+                • Work style assessment
+                • Scenario handling
+                • Values alignment
+
+                Step 4: Final Evaluation
+                • Reference checks
+                • Team feedback
+                • Offer preparation
+                • Onboarding plan
+
+                In the next section, I'll show you how to train and develop your team for long-term success.
+                """)
+
+                col1, col2 = st.columns(2)
+                with col1:
+                    if st.button("← Previous Page", key="team_prev_2"):
+                        st.session_state.team_page = 1
+                        st.rerun()
+                with col2:
+                    if st.button("Next Page →", key="team_next_2"):
+                        st.session_state.team_page = 3
+                        st.rerun()
+
+            # Page 3: Team Development
+            elif st.session_state.team_page == 3:
+                st.title("Growing Your Team")
+                
+                st.write("""
+                Alright, this is where it gets really exciting. I'm going to show you how to develop your team 
+                into a high-performing unit that can handle anything.
+
+                Let me share something powerful. We used to lose good people because they couldn't see their future 
+                with us. Then we created clear growth paths and development plans. Now our retention is amazing, 
+                and our team is constantly leveling up.
+
+                Here's exactly how we develop our team:
+
+                Individual Development:
+                • Skill assessment
+                • Learning paths
+                • Mentorship program
+                • Growth tracking
+
+                Team Development:
+                • Cross-training
+                • Knowledge sharing
+                • Team workshops
+                • Collaboration tools
+
+                Leadership Development:
+                • Management training
+                • Decision making
+                • Delegation skills
+                • Team building
+
+                Career Progression:
+                • Role advancement
+                • Specialization paths
+                • Leadership tracks
+                • Skill certification
+
+                That's it for this video! In the next one, I'll show you how to build systems and processes that 
+                help your team perform at their best. Don't forget to hit subscribe and the notification bell to 
+                catch that one!
+                """)
+
+                col1, col2 = st.columns(2)
+                with col1:
+                    if st.button("← Previous Page", key="team_prev_3"):
+                        st.session_state.team_page = 2
+                        st.rerun()
+                with col2:
+                    if st.button("Start Over", key="team_start_over"):
+                        st.session_state.team_page = 1
+                        st.rerun()
+
+        with growth_tabs[1]:  # Systems & Processes
+            if 'systems_page' not in st.session_state:
+                st.session_state.systems_page = 1
+
+            # Page 1: Systems Framework
+            if st.session_state.systems_page == 1:
+                st.title("Building Scalable Systems")
+                
+                st.write("""
+                Hey everyone! Welcome back. Today we're going to talk about something that's absolutely crucial for 
+                scaling your agency - systems and processes. I'm going to show you exactly how to build systems 
+                that scale.
+
+                Let me tell you about a painful lesson. We were growing fast, but everything was in my head. When 
+                I got sick for a week, the whole agency nearly ground to a halt. That's when I realized we needed 
+                proper systems.
+
+                Here's what I developed - the "Scalable Systems Framework":
+
+                Level 1: Core Systems
+                • Project management
+                • Communication flows
+                • Task tracking
+                • Resource allocation
+
+                Level 2: Process Documentation
+                • Standard procedures
+                • Work instructions
+                • Quality guidelines
+                • Training materials
+
+                Level 3: Automation Tools
+                • Workflow automation
+                • Task scheduling
+                • Progress tracking
+                • Report generation
+
+                In the next section, I'll show you exactly how to document and implement these systems.
+                """)
+
+                if st.button("Next Page →", key="systems_next_1"):
+                    st.session_state.systems_page = 2
+                    st.rerun()
+
+            # Page 2: Implementation
+            elif st.session_state.systems_page == 2:
+                st.title("Implementing Your Systems")
+                
+                st.write("""
+                Welcome back! Now I'm going to show you exactly how to implement these systems in your agency. 
+                This is where most people fail - they create great systems that nobody actually uses.
+
+                Here's a story that changed everything. We spent months creating this perfect system, but nobody 
+                was using it. Then we realized we needed to make it easier to use than not to use. That's when 
+                everything changed.
+
+                Here's our implementation framework:
+
+                Phase 1: Documentation
+                • Process mapping
+                • Step-by-step guides
+                • Video tutorials
+                • Quick reference cards
+
+                Phase 2: Team Training
+                • System overview
+                • Hands-on practice
+                • Q&A sessions
+                • Feedback collection
+
+                Phase 3: Integration
+                • Gradual rollout
+                • Daily support
+                • Progress tracking
+                • Adjustment periods
+
+                Phase 4: Optimization
+                • User feedback
+                • System updates
+                • Process refinement
+                • Efficiency improvements
+
+                In the next section, I'll show you how to automate these systems for maximum efficiency.
+                """)
+
+                col1, col2 = st.columns(2)
+                with col1:
+                    if st.button("← Previous Page", key="systems_prev_2"):
+                        st.session_state.systems_page = 1
+                        st.rerun()
+                with col2:
+                    if st.button("Next Page →", key="systems_next_2"):
+                        st.session_state.systems_page = 3
+                        st.rerun()
+
+            # Page 3: Automation
+            elif st.session_state.systems_page == 3:
+                st.title("Automating Your Systems")
+                
+                st.write("""
+                Alright, this is where it gets really powerful. I'm going to show you how to automate your systems 
+                so they run without constant oversight.
+
+                Let me share something game-changing. We used to spend hours on repetitive tasks. Then we started 
+                automating them one by one. Now our team focuses on creative work while our systems handle the 
+                routine stuff.
+
+                Here's exactly how we automate:
+
+                Workflow Automation:
+                • Task assignment
+                • Progress tracking
+                • Status updates
+                • Deadline monitoring
+
+                Communication Automation:
+                • Update notifications
+                • Report generation
+                • Client updates
+                • Team alerts
+
+                Process Automation:
+                • Data collection
+                • File organization
+                • Quality checks
+                • Performance tracking
+
+                Integration Automation:
+                • Tool connections
+                • Data sync
+                • Cross-platform updates
+                • Automated backups
+
+                That's it for this video! In the next one, I'll show you how to manage your agency's finances 
+                for maximum profitability. Make sure to hit subscribe and the notification bell so you don't 
+                miss it!
+                """)
+
+                col1, col2 = st.columns(2)
+                with col1:
+                    if st.button("← Previous Page", key="systems_prev_3"):
+                        st.session_state.systems_page = 2
+                        st.rerun()
+                with col2:
+                    if st.button("Start Over", key="systems_start_over"):
+                        st.session_state.systems_page = 1
+                        st.rerun()
+
+        with growth_tabs[2]:  # Financial Growth
+            if 'finance_page' not in st.session_state:
+                st.session_state.finance_page = 1
+
+            # Page 1: Financial Framework
+            if st.session_state.finance_page == 1:
+                st.title("Managing Agency Finances")
+                
+                st.write("""
+                Hey everyone! Welcome back. Today we're going to talk about something that's crucial for your 
+                agency's success - financial management. I'm going to show you exactly how to structure your 
+                finances for sustainable growth.
+
+                Let me tell you about a scary moment I had. Early in my agency, I was making good money but 
+                couldn't figure out why I never had enough cash for payroll. That's when I realized I needed a 
+                proper financial system.
+
+                Here's what I developed - the "Profit First Framework":
+
+                Phase 1: Account Structure
+                • Operating account
+                • Tax savings
+                • Profit holdings
+                • Owner's compensation
+
+                Phase 2: Revenue Allocation
+                • Project income
+                • Retainer payments
+                • Service packages
+                • Additional services
+
+                Phase 3: Expense Management
+                • Fixed costs
+                • Variable expenses
+                • Team costs
+                • Growth investments
+
+                In the next section, I'll show you exactly how to set up these systems in your agency.
+                """)
+
+                if st.button("Next Page →", key="finance_next_1"):
+                    st.session_state.finance_page = 2
+                    st.rerun()
+
+            # Page 2: Pricing Strategy
+            elif st.session_state.finance_page == 2:
+                st.title("Pricing Your Services")
+                
+                st.write("""
+                Welcome back! Now I'm going to show you exactly how to price your services. This is where most 
+                agencies leave money on the table - they don't price based on value.
+
+                Here's a story that changed everything. We used to price based on time and materials, but we were 
+                always struggling to make good profits. Then we switched to value-based pricing, and everything 
+                changed.
+
+                Here's our exact pricing framework:
+
+                Service Packages:
+                • Basic package
+                • Standard package
+                • Premium package
+                • Custom solutions
+
+                Package Components:
+                • Core services
+                • Add-on options
+                • Support levels
+                • Delivery timeline
+
+                Value Pricing:
+                • Client outcomes
+                • Industry standards
+                • Market position
+                • Competitive edge
+
+                Pricing Psychology:
+                • Package naming
+                • Feature presentation
+                • Option structure
+                • Upgrade paths
+
+                In the next section, I'll show you how to manage and optimize your agency's finances.
+                """)
+
+                col1, col2 = st.columns(2)
+                with col1:
+                    if st.button("← Previous Page", key="finance_prev_2"):
+                        st.session_state.finance_page = 1
+                        st.rerun()
+                with col2:
+                    if st.button("Next Page →", key="finance_next_2"):
+                        st.session_state.finance_page = 3
+                        st.rerun()
+
+            # Page 3: Financial Management
+            elif st.session_state.finance_page == 3:
+                st.title("Financial Growth Strategies")
+                
+                st.write("""
+                Alright, this is where it gets exciting. I'm going to show you how to manage and grow your 
+                agency's finances strategically.
+
+                Let me share something powerful. We used to just look at our bank balance to make decisions. 
+                Then we developed this financial management system, and it completely transformed how we run 
+                the agency.
+
+                Here's exactly how we manage finances:
+
+                Cash Flow Management:
+                • Income tracking
+                • Expense planning
+                • Reserve building
+                • Cash forecasting
+
+                Growth Investment:
+                • Team expansion
+                • Tool upgrades
+                • Training programs
+                • Marketing budget
+
+                Financial Planning:
+                • Monthly reviews
+                • Quarterly planning
+                • Annual strategy
+                • Growth targets
+
+                Risk Management:
+                • Emergency fund
+                • Insurance coverage
+                • Legal protection
+                • Contract reviews
+
+                That's it for this video! In the next one, I'll show you how to create a strategic plan for 
+                your agency's future. Make sure to hit subscribe and the notification bell so you don't miss it!
+                """)
+
+                col1, col2 = st.columns(2)
+                with col1:
+                    if st.button("← Previous Page", key="finance_prev_3"):
+                        st.session_state.finance_page = 2
+                        st.rerun()
+                with col2:
+                    if st.button("Start Over", key="finance_start_over"):
+                        st.session_state.finance_page = 1
+                        st.rerun()
+
+        with growth_tabs[3]:  # Strategic Planning
+            if 'strategy_page' not in st.session_state:
+                st.session_state.strategy_page = 1
+
+            # Page 1: Strategic Framework
+            if st.session_state.strategy_page == 1:
+                st.title("Strategic Planning Framework")
+                
+                st.write("""
+                Hey everyone! Welcome back. Today we're going to talk about something that's absolutely crucial 
+                for your agency's future - strategic planning. I'm going to show you exactly how to plan for 
+                sustainable growth.
+
+                Let me tell you about a big mistake I made. I used to just focus on getting more clients, 
+                without any real strategy. We grew, but it was chaotic and stressful. That's when I developed 
+                the "Strategic Growth Framework."
+
+                Here's exactly how it works:
+
+                Vision Setting:
+                • Agency mission
+                • Core values
+                • Long-term goals
+                • Market position
+
+                Market Analysis:
+                • Industry trends
+                • Competitor research
+                • Client needs
+                • Opportunity gaps
+
+                Growth Planning:
+                • Service expansion
+                • Market targeting
+                • Team development
+                • Resource allocation
+
+                In the next section, I'll show you exactly how to implement this framework in your agency.
+                """)
+
+                if st.button("Next Page →", key="strategy_next_1"):
+                    st.session_state.strategy_page = 2
+                    st.rerun()
+
+            # Page 2: Implementation
+            elif st.session_state.strategy_page == 2:
+                st.title("Implementing Your Strategy")
+                
+                st.write("""
+                Welcome back! Now I'm going to show you exactly how to implement your strategic plan. This is 
+                where most agencies fail - they make great plans but never execute them properly.
+
+                Here's a story that changed everything. We had this beautiful strategic plan, but six months 
+                later, nothing had changed. Then we developed this implementation system, and everything started 
+                moving forward.
+
+                Here's our implementation framework:
+
+                90-Day Sprints:
+                • Key objectives
+                • Action items
+                • Team assignments
+                • Progress tracking
+
+                Monthly Reviews:
+                • Goal progress
+                • Strategy alignment
+                • Resource check
+                • Plan adjustments
+
+                Weekly Actions:
+                • Task priorities
+                • Team updates
+                • Blocker removal
+                • Quick wins
+
+                Daily Management:
+                • Morning planning
+                • Progress checks
+                • Team support
+                • End-day review
+
+                In the next section, I'll show you how to adjust and optimize your strategy over time.
+                """)
+
+                col1, col2 = st.columns(2)
+                with col1:
+                    if st.button("← Previous Page", key="strategy_prev_2"):
+                        st.session_state.strategy_page = 1
+                        st.rerun()
+                with col2:
+                    if st.button("Next Page →", key="strategy_next_2"):
+                        st.session_state.strategy_page = 3
+                        st.rerun()
+
+            # Page 3: Strategy Optimization
+            elif st.session_state.strategy_page == 3:
+                st.title("Optimizing Your Strategy")
+                
+                st.write("""
+                Alright, this is where it all comes together. I'm going to show you how to continuously 
+                optimize your strategy for maximum impact.
+
+                Let me share something powerful. We used to stick to our plans no matter what, even when 
+                things weren't working. Then we learned to be more flexible and adaptive, and our growth 
+                really took off.
+
+                Here's exactly how we optimize:
+
+                Performance Review:
+                • Strategy assessment
+                • Goal evaluation
+                • Team feedback
+                • Market response
+
+                Adaptation Process:
+                • Market changes
+                • Client needs
+                • Team capacity
+                • Resource availability
+
+                Innovation Planning:
+                • Service development
+                • Process improvement
+                • Team evolution
+                • Technology adoption
+
+                Future Preparation:
+                • Trend analysis
+                • Opportunity scanning
+                • Risk assessment
+                • Growth planning
+
+                That's it for this video series! You now have everything you need to create and implement a 
+                powerful strategic plan for your agency. If you found this helpful, don't forget to like and 
+                subscribe. And drop a comment below if you have any questions!
+                """)
+
+                col1, col2 = st.columns(2)
+                with col1:
+                    if st.button("← Previous Page", key="strategy_prev_3"):
+                        st.session_state.strategy_page = 2
+                        st.rerun()
+                with col2:
+                    if st.button("Start Over", key="strategy_start_over"):
+                        st.session_state.strategy_page = 1
+                        st.rerun()
