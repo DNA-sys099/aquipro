@@ -1033,36 +1033,40 @@ else:
                 a social media audit template. It was genuinely good stuff. But I just put it on our website and expected 
                 people to find it. Guess what happened? Nothing. Absolutely nothing.
 
-                That's when I developed what I call the "Triple Threat" promotion strategy. Here's exactly how it works:
+                Then I realized something crucial - it's not about the number of downloads, it's about what happens AFTER 
+                the download. Here's the exact follow-up sequence we developed that now converts 20% of our leads into 
+                sales calls:
 
-                First, we use LinkedIn. But not just regular posts - we do it strategically. Here's my exact process:
-                1. Post valuable content for 2 weeks straight
-                2. Build engagement with your target audience
-                3. Then, on week 3, introduce your lead magnet
-                4. Important: Don't just drop a link - tell a story about why you created it
+                Immediately after download:
+                • Send the lead magnet (obviously)
+                • Include a 2-minute video explaining how to get the most value from it
+                • Add one quick win they can implement right now
 
-                I'll give you a real example. We posted daily LinkedIn tips for two weeks. Each post got good engagement. 
-                Then, when we introduced our LinkedIn optimization checklist, it was an instant hit. People already knew 
-                we knew our stuff.
+                24 hours later:
+                • Send an industry insight
+                • Ask if they've had a chance to implement the quick win
+                • Offer help if they're stuck
 
-                The second part of the Triple Threat is paid ads. But here's the trick - we don't promote the lead 
-                magnet directly. Instead, we promote a valuable post that naturally leads to the lead magnet. This 
-                works so much better than direct promotion.
+                3 days later:
+                • Share another valuable tip (something not in the lead magnet)
+                • Ask about their biggest challenge in [topic area]
+                • This email gets the most responses - people love sharing their challenges
 
-                For example, we'll boost a post about "The 3 Biggest LinkedIn Mistakes CEOs Make" and then naturally 
-                mention our checklist as the solution. The conversion rate on this approach is insane - we're talking 
-                25-30% versus the usual 2-3% from direct promotion.
+                5 days later:
+                • Send a "common mistakes" email
+                • Show how your service helps avoid these mistakes
+                • Include a calendar link for those who want to learn more
 
-                The third part is email outreach. But not cold email - we call it "warm prospecting." Here's exactly 
-                how it works:
-                1. Find someone who engaged with your content
-                2. Send them a personalized message
-                3. Offer the lead magnet as additional value
-                4. Don't ask for anything in return
+                Here's what most people get wrong - they try to sell too soon. We don't pitch our services until day 5, 
+                and even then, it's soft. We're just offering more help.
 
-                In the next section, I'll show you exactly how to convert these leads into paying clients. This is where 
-                it gets really good, because I'm going to share the exact words I use to handle objections and close 
-                high-ticket deals.
+                The key is to keep providing value after the lead magnet. Think about it - if someone downloads a LinkedIn 
+                checklist, they're probably trying to improve their LinkedIn presence. So every follow-up should help 
+                them with that goal.
+
+                That's it for this video! In the next one, I'll show you how to scale this entire process using 
+                automation. Make sure to hit subscribe and the notification bell so you don't miss it. And hey, if 
+                you've gotten value from this, give it a thumbs up - it really helps the channel.
                 """)
 
                 col1, col2 = st.columns(2)
@@ -1097,7 +1101,7 @@ else:
                 • Add one quick win they can implement right now
 
                 24 hours later:
-                • Send a case study related to their industry
+                • Send an industry insight
                 • Ask if they've had a chance to implement the quick win
                 • Offer help if they're stuck
 
@@ -1161,7 +1165,7 @@ else:
                 • No pitch, just pure value
                 • Ask for feedback
 
-                Day 3: Share a client case study
+                Day 3: Share relevant results
                 • Make it relevant to their industry
                 • Focus on the process, not just results
                 • Include specific numbers and timelines
@@ -1210,23 +1214,7 @@ else:
 
                 Let me know if you have any questions!
 
-                Here's the Case Study Email (Day 3):
-
-                Subject: How [Similar Company] Solved [Their Challenge]
-
-                Hey [Name],
-
-                I remembered during our call you mentioned [specific challenge]. We actually helped [similar company] 
-                with the exact same issue.
-
-                Here's what we did:
-                • Step 1: [Specific action]
-                • Step 2: [Specific action]
-                • Result: [Specific result with numbers]
-
-                Would you like to see the full case study?
-
-                And here's the Industry Insight Email (Day 5):
+                Here's the Industry Insight Email (Day 3):
 
                 Subject: Spotted This [Industry] Trend - Thought of You
 
@@ -1348,7 +1336,7 @@ else:
                 • No pitch, just pure value
                 • Ask for feedback
 
-                Day 3: Share a client case study
+                Day 3: Share relevant results
                 • Make it relevant to their industry
                 • Focus on the process, not just results
                 • Include specific numbers and timelines
@@ -1397,23 +1385,7 @@ else:
 
                 Let me know if you have any questions!
 
-                Here's the Case Study Email (Day 3):
-
-                Subject: How [Similar Company] Solved [Their Challenge]
-
-                Hey [Name],
-
-                I remembered during our call you mentioned [specific challenge]. We actually helped [similar company] 
-                with the exact same issue.
-
-                Here's what we did:
-                • Step 1: [Specific action]
-                • Step 2: [Specific action]
-                • Result: [Specific result with numbers]
-
-                Would you like to see the full case study?
-
-                And here's the Industry Insight Email (Day 5):
+                Here's the Industry Insight Email (Day 3):
 
                 Subject: Spotted This [Industry] Trend - Thought of You
 
@@ -1646,6 +1618,7 @@ else:
                 Then walk through each section:
                 • Reflect their challenges (show you listened)
                 • Present the solution (focus on outcomes)
+                • Share relevant results
                 • Explain the investment (focus on ROI)
 
                 Step 3: The Close
