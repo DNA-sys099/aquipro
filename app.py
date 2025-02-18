@@ -955,59 +955,158 @@ else:
                     st.rerun()
 
         with tab2:  # Sales System
-            st.markdown("""
-            <div class="lesson-box">
-                <div class="lesson-title">1. Discovery Call Framework</div>
-                <div class="lesson-content">
-                    The discovery call is your first real contact with a potential client. Here's how to structure it for maximum effectiveness.
-                </div>
-                
-                <div class="key-point">
-                    <strong>Key Components:</strong><br>
-                    • Build Rapport (2-3 minutes)<br>
-                    • Set Agenda (1 minute)<br>
-                    • Current Situation (5-7 minutes)<br>
-                    • Goals and Challenges (10 minutes)<br>
-                    • Solution Presentation (10 minutes)<br>
-                    • Next Steps (5 minutes)
-                </div>
-            </div>
+            if 'sales_page' not in st.session_state:
+                st.session_state.sales_page = 1
 
-            <div class="lesson-box">
-                <div class="lesson-title">2. Qualifying Questions</div>
-                <div class="lesson-content">
-                    Ask these questions to determine if the prospect is a good fit for your agency.
-                </div>
-                
-                <div class="key-point">
-                    <strong>Essential Questions:</strong><br>
-                    • What's your current marketing budget?<br>
-                    • Who makes the final decisions?<br>
-                    • What's your timeline for implementation?<br>
-                    • Have you worked with agencies before?<br>
-                    • What would success look like for you?
-                </div>
-            </div>
+            # Page 1: Discovery Call Framework
+            if st.session_state.sales_page == 1:
+                st.markdown("""
+                <div style="background-color: white; padding: 2rem; border-radius: 8px; margin-bottom: 1rem;">
+                    <h2 style="color: #1a202c; font-size: 1.8rem; margin-bottom: 1rem;">The Perfect Discovery Call</h2>
+                    
+                    <p style="color: #4a5568; font-size: 1.1rem; line-height: 1.6; margin-bottom: 1.5rem;">
+                        Your discovery call is the foundation of your client relationship. This is where you establish trust,
+                        understand their needs, and position your agency as the solution. Let's break down each component
+                        of a successful discovery call.
+                    </p>
 
-            <div class="lesson-box">
-                <div class="lesson-title">3. Handling Objections</div>
-                <div class="lesson-content">
-                    Common objections you'll encounter and how to address them professionally.
+                    <div style="background-color: #EDF2F7; padding: 1.5rem; border-radius: 8px; margin-bottom: 1.5rem;">
+                        <h3 style="color: #2D3748; margin-bottom: 1rem;">Call Structure (35-40 minutes)</h3>
+                        <ul style="color: #4A5568;">
+                            <li style="margin-bottom: 0.5rem;">✓ Rapport Building (2-3 minutes)</li>
+                            <li style="margin-bottom: 0.5rem;">✓ Agenda Setting (1-2 minutes)</li>
+                            <li style="margin-bottom: 0.5rem;">✓ Background Questions (5-7 minutes)</li>
+                            <li style="margin-bottom: 0.5rem;">✓ Deep Dive Discussion (15-20 minutes)</li>
+                            <li style="margin-bottom: 0.5rem;">✓ Solution Preview (5-7 minutes)</li>
+                            <li style="margin-bottom: 0.5rem;">✓ Next Steps (3-5 minutes)</li>
+                        </ul>
+                    </div>
+
+                    <div style="background-color: #EDF2F7; padding: 1.5rem; border-radius: 8px;">
+                        <h3 style="color: #2D3748; margin-bottom: 1rem;">Pre-Call Preparation</h3>
+                        <ul style="color: #4A5568;">
+                            <li>Research their company and industry</li>
+                            <li>Review their website and social media</li>
+                            <li>Prepare customized questions</li>
+                            <li>Have case studies ready</li>
+                            <li>Test your video/audio equipment</li>
+                        </ul>
+                    </div>
                 </div>
-                
-                <div class="key-point">
-                    <strong>Price Objections:</strong><br>
-                    • "That's more than we budgeted"<br>
-                    Response: Focus on ROI and value delivery<br><br>
-                    <strong>Timeline Concerns:</strong><br>
-                    • "We need results faster"<br>
-                    Response: Explain realistic timelines and quick wins<br><br>
-                    <strong>Trust Issues:</strong><br>
-                    • "How do we know this will work?"<br>
-                    Response: Share case studies and testimonials
+                """, unsafe_allow_html=True)
+
+                if st.button("Next: Qualification Process →"):
+                    st.session_state.sales_page = 2
+                    st.rerun()
+
+            # Page 2: Qualification Process
+            elif st.session_state.sales_page == 2:
+                st.markdown("""
+                <div style="background-color: white; padding: 2rem; border-radius: 8px; margin-bottom: 1rem;">
+                    <h2 style="color: #1a202c; font-size: 1.8rem; margin-bottom: 1rem;">Client Qualification Framework</h2>
+                    
+                    <p style="color: #4a5568; font-size: 1.1rem; line-height: 1.6; margin-bottom: 1.5rem;">
+                        Not every prospect is the right fit for your agency. Use this qualification framework to identify
+                        ideal clients and avoid costly mismatches. Remember: it's better to turn down a client than to
+                        struggle with a poor fit.
+                    </p>
+
+                    <div style="background-color: #EDF2F7; padding: 1.5rem; border-radius: 8px; margin-bottom: 1.5rem;">
+                        <h3 style="color: #2D3748; margin-bottom: 1rem;">The BANT Framework</h3>
+                        <ul style="color: #4A5568;">
+                            <li style="margin-bottom: 1rem;">
+                                <strong>Budget:</strong><br>
+                                "What's your monthly marketing budget?"
+                            </li>
+                            <li style="margin-bottom: 1rem;">
+                                <strong>Authority:</strong><br>
+                                "Who else is involved in the decision-making process?"
+                            </li>
+                            <li style="margin-bottom: 1rem;">
+                                <strong>Need:</strong><br>
+                                "What are your main marketing challenges right now?"
+                            </li>
+                            <li style="margin-bottom: 1rem;">
+                                <strong>Timeline:</strong><br>
+                                "When are you looking to start seeing results?"
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div style="background-color: #EDF2F7; padding: 1.5rem; border-radius: 8px;">
+                        <h3 style="color: #2D3748; margin-bottom: 1rem;">Red Flags to Watch For</h3>
+                        <ul style="color: #4A5568;">
+                            <li>Unrealistic expectations about results</li>
+                            <li>Unwillingness to share important information</li>
+                            <li>History of frequently changing agencies</li>
+                            <li>Unclear decision-making process</li>
+                            <li>Budget doesn't match their goals</li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-            """, unsafe_allow_html=True)
+                """, unsafe_allow_html=True)
+
+                col1, col2 = st.columns(2)
+                with col1:
+                    if st.button("← Back to Discovery Call"):
+                        st.session_state.sales_page = 1
+                        st.rerun()
+                with col2:
+                    if st.button("Next: Closing Process →"):
+                        st.session_state.sales_page = 3
+                        st.rerun()
+
+            # Page 3: Closing Process
+            elif st.session_state.sales_page == 3:
+                st.markdown("""
+                <div style="background-color: white; padding: 2rem; border-radius: 8px; margin-bottom: 1rem;">
+                    <h2 style="color: #1a202c; font-size: 1.8rem; margin-bottom: 1rem;">The Closing Process</h2>
+                    
+                    <p style="color: #4a5568; font-size: 1.1rem; line-height: 1.6; margin-bottom: 1.5rem;">
+                        The closing process is where many agencies stumble. Use this systematic approach to guide prospects
+                        to a confident decision while maintaining your agency's value proposition.
+                    </p>
+
+                    <div style="background-color: #EDF2F7; padding: 1.5rem; border-radius: 8px; margin-bottom: 1.5rem;">
+                        <h3 style="color: #2D3748; margin-bottom: 1rem;">Handling Common Objections</h3>
+                        <ul style="color: #4A5568;">
+                            <li style="margin-bottom: 1rem;">
+                                <strong>"Your price is too high"</strong><br>
+                                Response: "Let's look at the ROI. Based on your current numbers..."
+                            </li>
+                            <li style="margin-bottom: 1rem;">
+                                <strong>"We need to think about it"</strong><br>
+                                Response: "What specific concerns would you like to discuss?"
+                            </li>
+                            <li style="margin-bottom: 1rem;">
+                                <strong>"We want to try it internally first"</strong><br>
+                                Response: "Let's compare the costs and timeline of both approaches..."
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div style="background-color: #EDF2F7; padding: 1.5rem; border-radius: 8px;">
+                        <h3 style="color: #2D3748; margin-bottom: 1rem;">Next Steps After Closing</h3>
+                        <ol style="color: #4A5568;">
+                            <li>Send welcome package within 24 hours</li>
+                            <li>Schedule kick-off meeting</li>
+                            <li>Begin onboarding process</li>
+                            <li>Set up initial reporting dashboard</li>
+                            <li>Plan first 30-day strategy</li>
+                        </ol>
+                    </div>
+                </div>
+                """, unsafe_allow_html=True)
+
+                col1, col2 = st.columns(2)
+                with col1:
+                    if st.button("← Back to Qualification"):
+                        st.session_state.sales_page = 2
+                        st.rerun()
+                with col2:
+                    if st.button("Start Over"):
+                        st.session_state.sales_page = 1
+                        st.rerun()
 
         with tab3:
             st.markdown("""
