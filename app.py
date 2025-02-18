@@ -539,6 +539,39 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
+# Add custom styles
+st.markdown("""
+<style>
+/* Fix tab text contrast */
+.stTabs [data-baseweb="tab-list"] {
+    gap: 2rem;
+    background-color: white;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+.stTabs [data-baseweb="tab-list"] button [data-testid="stMarkdownContainer"] p {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #4a5568 !important;
+}
+
+.stTabs [data-baseweb="tab-list"] button[aria-selected="true"] [data-testid="stMarkdownContainer"] p {
+    color: #2563eb !important;
+}
+
+/* General text contrast fixes */
+p, li {
+    color: #1a202c !important;
+}
+
+h1, h2, h3 {
+    color: #1a202c !important;
+}
+</style>
+""", unsafe_allow_html=True)
+
 # Initialize session states and sections dictionary
 if 'logged_in' not in st.session_state:
     st.session_state.logged_in = False
@@ -812,7 +845,7 @@ else:
         st.markdown('<h1 class="main-title">Client Acquisition</h1>', unsafe_allow_html=True)
         
         # Sub-module tabs
-        tab1, tab2, tab3, tab4 = st.tabs(["Lead Generation", "Sales System", "Follow-up", "Proposals"])
+        tab1, tab2, tab3, tab4 = st.tabs(["**Lead Generation**", "**Sales System**", "**Follow-up**", "**Proposals**"])
         
         with tab1:
             if st.session_state.step == 1:
