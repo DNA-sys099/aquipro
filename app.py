@@ -954,6 +954,100 @@ else:
                     st.session_state.step = 1
                     st.rerun()
 
+        with tab2:  # Sales System
+            st.markdown("""
+            <div class="lesson-box">
+                <div class="lesson-title">1. Discovery Call Framework</div>
+                <div class="lesson-content">
+                    The discovery call is your first real contact with a potential client. Here's how to structure it for maximum effectiveness.
+                </div>
+                
+                <div class="key-point">
+                    <strong>Key Components:</strong><br>
+                    • Build Rapport (2-3 minutes)<br>
+                    • Set Agenda (1 minute)<br>
+                    • Current Situation (5-7 minutes)<br>
+                    • Goals and Challenges (10 minutes)<br>
+                    • Solution Presentation (10 minutes)<br>
+                    • Next Steps (5 minutes)
+                </div>
+            </div>
+
+            <div class="lesson-box">
+                <div class="lesson-title">2. Qualifying Questions</div>
+                <div class="lesson-content">
+                    Ask these questions to determine if the prospect is a good fit for your agency.
+                </div>
+                
+                <div class="key-point">
+                    <strong>Essential Questions:</strong><br>
+                    • What's your current marketing budget?<br>
+                    • Who makes the final decisions?<br>
+                    • What's your timeline for implementation?<br>
+                    • Have you worked with agencies before?<br>
+                    • What would success look like for you?
+                </div>
+            </div>
+
+            <div class="lesson-box">
+                <div class="lesson-title">3. Handling Objections</div>
+                <div class="lesson-content">
+                    Common objections you'll encounter and how to address them professionally.
+                </div>
+                
+                <div class="key-point">
+                    <strong>Price Objections:</strong><br>
+                    • "That's more than we budgeted"<br>
+                    Response: Focus on ROI and value delivery<br><br>
+                    <strong>Timeline Concerns:</strong><br>
+                    • "We need results faster"<br>
+                    Response: Explain realistic timelines and quick wins<br><br>
+                    <strong>Trust Issues:</strong><br>
+                    • "How do we know this will work?"<br>
+                    Response: Share case studies and testimonials
+                </div>
+            </div>
+            """, unsafe_allow_html=True)
+
+        with tab3:
+            st.markdown("""
+            <div class="lesson-box">
+                <div class="lesson-title">Follow-up Email Sequences</div>
+                <div class="lesson-content">
+                    A well-crafted email sequence can significantly improve your chances of closing a deal.
+                </div>
+                
+                <div class="key-point">
+                    <strong>Key Components:</strong><br>
+                    • Introduction Email (sent immediately)<br>
+                    • Value Email (sent 2 days after intro)<br>
+                    • Problem Agitation Solution Email (sent 4 days after intro)<br>
+                    • Case Study Email (sent 6 days after intro)<br>
+                    • Final Follow-up Email (sent 8 days after intro)
+                </div>
+            </div>
+            """, unsafe_allow_html=True)
+
+        with tab4:
+            st.markdown("""
+            <div class="lesson-box">
+                <div class="lesson-title">Proposal Templates</div>
+                <div class="lesson-content">
+                    A well-structured proposal can make all the difference in winning a client.
+                </div>
+                
+                <div class="key-point">
+                    <strong>Key Components:</strong><br>
+                    • Executive Summary<br>
+                    • Company Overview<br>
+                    • Problem Statement<br>
+                    • Solution Overview<br>
+                    • Implementation Plan<br>
+                    • Pricing and Packages
+                </div>
+            </div>
+            """, unsafe_allow_html=True)
+
     elif selected_section == "Delivery":
         st.title("Service Delivery")
         
