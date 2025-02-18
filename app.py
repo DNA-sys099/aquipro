@@ -963,14 +963,22 @@ else:
                 st.title("The Perfect Discovery Call")
                 
                 st.write("""
-                Hey everyone, today I'm going to show you exactly how I run my discovery calls that have been converting at over 80%. 
-                This is the exact same process I've used to close over $500,000 in client deals in the past year alone.
+                Hey everyone, welcome back to another video. Today I'm going to break down exactly how I run my discovery 
+                calls that have been converting at over 80%. This is the exact same process I've used to close over 
+                $500,000 in client deals in the past year alone.
 
-                Let me break this down for you step by step.
+                Now, before I dive in, let me tell you a quick story. When I first started my agency, I was terrible at 
+                sales calls. I mean really bad. I would get on these calls and just start pitching right away. I'd talk 
+                about our services, our process, how great we were... and guess what? I barely closed any deals.
 
-                First, when someone gets on a call with you, you need to establish authority immediately. Here's what I say:
-                "Thanks for taking the time today. I've looked at your website and noticed a few things we could improve, 
-                but first I'd love to hear more about your business."
+                Then one day, I had this call with a potential client, and instead of pitching, I just shut up and listened. 
+                I asked questions about their business, and suddenly, the whole conversation changed. They opened up about 
+                their problems, their goals, their fears. And that's when it hit me - this is what a discovery call should be.
+
+                So let me break down exactly how I structure these calls now. First, when someone gets on a call with you, 
+                you need to establish authority immediately. Here's what I say: "Thanks for taking the time today. I've 
+                looked at your website and noticed a few things we could improve, but first I'd love to hear more about 
+                your business."
 
                 See what I did there? I've already shown them I did my homework, and I'm giving them a chance to talk about 
                 themselves. People love talking about their business, and this is where you'll get your most valuable information.
@@ -980,10 +988,21 @@ else:
                 "What have you tried so far?"
                 "What would success look like 12 months from now?"
 
-                Write these down - these are golden questions that get to the heart of their problems.
+                Let me tell you why these questions are so powerful. The first question gets at their pain points and 
+                motivation. The second question tells you what hasn't worked - this is gold for your proposal. And the 
+                third question? That's where you get their vision, their goals, their dreams for their business.
+
+                But here's what most people get wrong - they rush through these questions. Don't do that. When they answer, 
+                stay quiet for a moment. Let them think. Let them add more details. The silence might feel uncomfortable, 
+                but trust me, this is where the magic happens.
+
+                I remember one call where I asked about their previous marketing efforts, and after their initial answer, 
+                I just stayed quiet. That silence led them to open up about a bad experience with another agency - 
+                information that was crucial for me to position our services correctly.
 
                 In the next section, I'll show you exactly how to qualify these leads so you're only working with clients 
-                who can afford your services and are ready to start.
+                who can afford your services and are ready to start. Trust me, this next part is crucial - it's where you 
+                separate the tire-kickers from serious clients.
                 """)
 
                 if st.button("Next Page →"):
@@ -995,29 +1014,49 @@ else:
                 st.title("Qualifying Your Leads")
                 
                 st.write("""
-                Alright, now that you know how to run the discovery call, let me share something really important. 
-                This is actually the biggest mistake I see agency owners make - they get excited about any potential client 
-                and don't properly qualify them.
+                Alright, welcome back. Now that you know how to run the discovery call, let me share something really 
+                important. This is actually the biggest mistake I see agency owners make - they get excited about any 
+                potential client and don't properly qualify them.
 
-                I learned this the hard way. I once took on a client who couldn't really afford our services, and guess what? 
-                They were the most demanding client we ever had. They drained our resources, constantly complained about price, 
-                and eventually, we had to part ways. That experience taught me the importance of proper qualification.
+                I learned this the hard way, and let me tell you that story. Early in my agency, I took on a client who 
+                couldn't really afford our services. They were paying $2,000 a month, which was way below our usual rate, 
+                but I was desperate for clients. Well, guess what happened? They turned out to be the most demanding 
+                client we ever had.
 
-                So here's what you need to ask - and I want you to ask these questions in this exact order:
+                Every day, there were new requests. Every week, they wanted to know why they weren't ranking #1 on Google 
+                yet. They drained our resources, constantly complained about price, and eventually, we had to part ways. 
+                That experience cost us not just money, but team morale and time we could have spent on better-fit clients.
+
+                So here's what you need to ask - and I want you to ask these questions in this exact order, because the 
+                order matters. I'll explain why in a minute.
 
                 First: "What's your current monthly marketing spend?"
-                Don't be shy about this. If they can't afford your services, you need to know right away.
+                Don't be shy about this. If they can't afford your services, you need to know right away. When they tell 
+                you a number, don't react. Just note it down. If it's too low, you can end the call early and save 
+                everyone's time.
 
                 Second: "Who else is involved in making marketing decisions?"
-                This is crucial because if you're not talking to the decision-maker, you're wasting your time.
+                This is crucial because if you're not talking to the decision-maker, you're wasting your time. I once 
+                spent two weeks going back and forth with someone, creating proposals, having follow-up calls, only to 
+                find out they needed approval from a CEO who had a completely different vision.
 
                 Third: "Have you worked with agencies before?"
-                Their answer will tell you so much about their expectations and past experiences.
+                Their answer will tell you so much about their expectations and past experiences. Listen carefully here. 
+                If they've worked with multiple agencies in the past year, that's a red flag. It usually means they have 
+                unrealistic expectations or they're difficult to work with.
 
                 Fourth: "What's your timeline for making a decision?"
-                This separates the serious prospects from the tire-kickers.
+                This separates the serious prospects from the tire-kickers. If they can't give you a specific timeline, 
+                they're probably not ready to buy. I usually say something like, "Most of our clients make a decision 
+                within two weeks of our call. Does that timeline work for you?"
 
-                In the next section, I'll show you exactly how to handle their responses and close the deal.
+                Now, why this order? Because each question builds on the last. If they don't have the budget, there's no 
+                point asking about decision-making. If they're not the decision-maker, why discuss timeline? See what I 
+                mean?
+
+                In the next section, I'll show you exactly how to handle their responses and close the deal. This is where 
+                it gets really good, because I'm going to share the exact words I use to handle objections and close 
+                high-ticket deals.
                 """)
 
                 col1, col2 = st.columns(2)
@@ -1035,36 +1074,56 @@ else:
                 st.title("Closing The Deal")
                 
                 st.write("""
-                This is where it all comes together. I'm going to show you exactly how I close deals, and more importantly, 
-                how to handle those common objections that always come up.
+                Welcome to the final part of this training. This is where it all comes together. I'm going to show you 
+                exactly how I close deals, and more importantly, how to handle those common objections that always come up.
+
+                But first, let me tell you about the biggest deal I almost lost. This was a $15,000 per month client, 
+                and I nearly blew it because I handled the close wrong. I got nervous about the price, started rambling 
+                about features and benefits, and almost talked them out of it. Luckily, I caught myself, shut up, and 
+                used the framework I'm about to share with you.
 
                 Here's my exact closing script. When you're ready to present your solution, say this:
                 "Based on what you've shared, there are three main challenges we need to address..."
-                Then list their challenges using their exact words - this is crucial.
+                Then list their challenges using their exact words - this is crucial. I literally write down their exact 
+                phrases during the discovery part of the call.
 
                 Then say: "Here's how we'll solve each of these..."
-                Present your solution, but keep it high level. Don't get too technical.
+                Present your solution, but keep it high level. Don't get too technical. I made this mistake early on, 
+                getting into the weeds about SEO algorithms and social media strategies. You'll lose them. Keep it focused 
+                on outcomes.
 
                 Finally: "The investment for this solution is $X per month..."
-                Then - and this is crucial - be completely silent. Let them respond first.
+                Then - and this is crucial - be completely silent. Don't say another word. Let them respond first. This 
+                silence might feel uncomfortable, but it's powerful. I count to ten in my head if I need to.
 
                 Now, here's what they're going to say, and exactly how you should respond:
 
                 When they say "I need to think about it":
                 You say: "What specific aspects would you like to think about?"
-                This helps you address their real concerns immediately.
+                This helps you address their real concerns immediately. Often, "I need to think about it" really means 
+                "I have an objection I'm not comfortable sharing."
 
                 When they say "It's too expensive":
                 You say: "Let me show you the ROI calculation based on your current numbers..."
-                Always focus on value, never apologize for your prices.
+                Always focus on value, never apologize for your prices. I learned this the hard way - the moment you 
+                apologize for your price or try to justify it, you've lost.
 
                 When they say "We want to try it internally first":
                 You say: "Let me show you a comparison of in-house versus agency costs..."
-                Then break down the real costs of hiring and training an internal team.
+                Then break down the real costs of hiring and training an internal team. Include salary, benefits, 
+                software costs, training time - everything. This usually opens their eyes.
 
                 Remember, your job isn't to convince them. It's to help them make a clear decision about whether this is 
                 right for their business. Sometimes that decision will be no, and that's okay. Better to know now than 
                 after you've started working together.
+
+                I used to think sales was about persuasion and closing techniques. But really, it's about asking the right 
+                questions, listening carefully, and then showing people how you can help them get what they want. Do this 
+                right, and the closing takes care of itself.
+
+                That's it for this training. In the next video, I'll show you exactly how to handle the follow-up process 
+                and what to do after the call to maximize your chances of closing the deal. Make sure to subscribe and 
+                hit that notification bell so you don't miss it.
                 """)
 
                 col1, col2 = st.columns(2)
