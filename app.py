@@ -847,145 +847,166 @@ else:
         # Sub-module tabs
         tab1, tab2, tab3, tab4 = st.tabs(["**Lead Generation**", "**Sales System**", "**Follow-up**", "**Proposals**"])
         
-        with tab1:
-            if st.session_state.step == 1:
-                st.markdown("""
-                <div class="lesson-box">
-                    <div class="lesson-title">Understanding Your Ideal Client</div>
-                    <div class="lesson-content">
-                        The foundation of successful lead generation is having a clear understanding of your ideal client. 
-                        Let's explore the key characteristics that make up your perfect client profile.
-                    </div>
-                    
-                    <div class="key-point">
-                        <strong>Industry Focus:</strong><br>
-                        • Technology companies often need help with product marketing<br>
-                        • E-commerce businesses require ongoing conversion optimization<br>
-                        • Healthcare providers seek compliance-aware marketing<br>
-                        • Real estate firms need consistent lead generation
-                    </div>
-                    
-                    <div class="lesson-content">
-                        When choosing your target industry, consider:<br>
-                        • Your existing expertise and experience<br>
-                        • Market size and potential<br>
-                        • Competition level<br>
-                        • Typical marketing budgets
-                    </div>
-                </div>
-                """, unsafe_allow_html=True)
+        with tab1:  # Lead Generation
+            if 'lead_gen_page' not in st.session_state:
+                st.session_state.lead_gen_page = 1
+
+            # Page 1: Lead Magnet Strategy
+            if st.session_state.lead_gen_page == 1:
+                st.title("Creating Irresistible Lead Magnets")
                 
-                st.markdown("""
-                <div class="lesson-box">
-                    <div class="lesson-title">Client Size and Budget</div>
-                    <div class="lesson-content">
-                        Different company sizes have different needs and challenges. Understanding these helps you position your services effectively.
-                    </div>
-                    
-                    <div class="key-point">
-                        <strong>Company Size Breakdown:</strong><br>
-                        • 1-10 employees: Need done-for-you solutions<br>
-                        • 11-50 employees: Seeking scalable systems<br>
-                        • 51-200 employees: Require strategic guidance<br>
-                        • 201+ employees: Want comprehensive solutions
-                    </div>
-                </div>
-                """, unsafe_allow_html=True)
-                
-                if st.button("Continue to Lead Magnet Strategy →"):
-                    st.session_state.step = 2
+                st.write("""
+                Hey everyone! Welcome back to another video. Today we're going to talk about something that's absolutely 
+                crucial for your agency - lead magnets. I'm going to show you exactly how I create lead magnets that 
+                convert at 47% or higher. Yes, you heard that right - 47%.
+
+                But first, let me tell you a quick story. When I first started my agency, I made the biggest mistake 
+                possible with lead magnets. I created this massive 50-page ebook about digital marketing. Spent weeks 
+                on it. Guess what happened? Nobody downloaded it. Not a single person.
+
+                That's when I realized something crucial - busy business owners don't want another ebook to read. They 
+                want something they can use RIGHT NOW to solve a specific problem.
+
+                So let me show you what actually works. There are three types of lead magnets that I've found convert 
+                incredibly well for agencies:
+
+                First, we have templates. These are absolute gold. I'm talking about things like:
+                • Social media content calendars
+                • Email campaign templates
+                • Marketing budget spreadsheets
+                • ROI calculators
+
+                The key is that these need to be something they can use immediately. For example, we created a simple 
+                Google Ads budget calculator. It helps businesses figure out exactly how much they need to spend to hit 
+                their goals. That single lead magnet brought in over 200 qualified leads in just two months.
+
+                The second type is what I call the 'Quick Win' guide. This isn't your typical PDF - it's a super specific, 
+                step-by-step process that solves ONE problem. For example, we created a "5-Minute LinkedIn Optimization 
+                Checklist" that shows exactly how to improve your LinkedIn profile for B2B lead generation.
+
+                Here's why it worked so well - it promises (and delivers) value in just 5 minutes. Business owners love 
+                that. They can implement it right away and see results almost immediately.
+
+                In the next section, I'm going to show you exactly how to create and position these lead magnets for 
+                maximum impact. Trust me, this is where most agencies get it completely wrong, and I'm going to show 
+                you how to do it right.
+                """)
+
+                if st.button("Next Page →"):
+                    st.session_state.lead_gen_page = 2
                     st.rerun()
-            
-            elif st.session_state.step == 2:
-                st.markdown("""
-                <div class="lesson-box">
-                    <div class="lesson-title">Creating Effective Lead Magnets</div>
-                    <div class="lesson-content">
-                        A lead magnet is your first value exchange with potential clients. It needs to solve a specific problem while showcasing your expertise.
-                    </div>
-                    
-                    <div class="key-point">
-                        <strong>Effective Lead Magnet Types:</strong><br>
-                        • Industry Reports: Establish authority through data<br>
-                        • Templates/Tools: Provide immediate practical value<br>
-                        • Video Training: Build trust through education<br>
-                        • Free Consultations: Demonstrate expertise directly
-                    </div>
-                    
-                    <div class="lesson-content">
-                        The key is matching your lead magnet to your client's stage in the buyer's journey. Early-stage prospects need educational content, while those closer to buying prefer practical tools.
-                    </div>
-                </div>
-                """, unsafe_allow_html=True)
+
+            # Page 2: Lead Generation Strategy
+            elif st.session_state.lead_gen_page == 2:
+                st.title("Promoting Your Lead Magnet")
                 
-                st.markdown("""
-                <div class="lesson-box">
-                    <div class="lesson-title">Delivery Systems</div>
-                    <div class="lesson-content">
-                        Your delivery method impacts both conversion rates and user experience. Choose based on your content type and audience preferences.
-                    </div>
-                    
-                    <div class="key-point">
-                        <strong>Delivery Methods Compared:</strong><br>
-                        • Email: High engagement, easy tracking<br>
-                        • Download Page: Simple setup, instant access<br>
-                        • Member Portal: Premium feel, better organization<br>
-                        • Video Platform: Rich content, analytics available
-                    </div>
-                </div>
-                """, unsafe_allow_html=True)
+                st.write("""
+                Welcome back! Now that you know how to create a killer lead magnet, let's talk about getting it in front 
+                of the right people. This is where I see so many agencies mess up - they create something great but 
+                nobody ever sees it.
+
+                Let me tell you about a massive failure I had when I first started. I created this amazing lead magnet - 
+                a social media audit template. It was genuinely good stuff. But I just put it on our website and expected 
+                people to find it. Guess what happened? Nothing. Absolutely nothing.
+
+                That's when I developed what I call the "Triple Threat" promotion strategy. Here's exactly how it works:
+
+                First, we use LinkedIn. But not just regular posts - we do it strategically. Here's my exact process:
+                1. Post valuable content for 2 weeks straight
+                2. Build engagement with your target audience
+                3. Then, on week 3, introduce your lead magnet
+                4. Important: Don't just drop a link - tell a story about why you created it
+
+                I'll give you a real example. We posted daily LinkedIn tips for two weeks. Each post got good engagement. 
+                Then, when we introduced our LinkedIn optimization checklist, it was an instant hit. People already knew 
+                we knew our stuff.
+
+                The second part of the Triple Threat is paid ads. But here's the trick - we don't promote the lead 
+                magnet directly. Instead, we promote a valuable post that naturally leads to the lead magnet. This 
+                works so much better than direct promotion.
+
+                For example, we'll boost a post about "The 3 Biggest LinkedIn Mistakes CEOs Make" and then naturally 
+                mention our checklist as the solution. The conversion rate on this approach is insane - we're talking 
+                25-30% versus the usual 2-3% from direct promotion.
+
+                The third part is email outreach. But not cold email - we call it "warm prospecting." Here's exactly 
+                how it works:
+                1. Find someone who engaged with your content
+                2. Send them a personalized message
+                3. Offer the lead magnet as additional value
+                4. Don't ask for anything in return
+
+                In the next section, I'll show you exactly how to convert these leads into paying clients. This is 
+                where the real magic happens.
+                """)
+
+                col1, col2 = st.columns(2)
+                with col1:
+                    if st.button("← Previous Page"):
+                        st.session_state.lead_gen_page = 1
+                        st.rerun()
+                with col2:
+                    if st.button("Next Page →"):
+                        st.session_state.lead_gen_page = 3
+                        st.rerun()
+
+            # Page 3: Converting Leads
+            elif st.session_state.lead_gen_page == 3:
+                st.title("Converting Leads Into Clients")
                 
-                if st.button("← Back to Ideal Client"):
-                    st.session_state.step = 1
-                    st.rerun()
-                if st.button("Continue to Implementation →"):
-                    st.session_state.step = 3
-                    st.rerun()
-            
-            elif st.session_state.step == 3:
-                st.markdown("""
-                <div class="lesson-box">
-                    <div class="lesson-title">Implementation Strategy</div>
-                    <div class="lesson-content">
-                        Success in lead generation comes from systematic implementation. Here's your roadmap for putting everything together.
-                    </div>
-                    
-                    <div class="key-point">
-                        <strong>Implementation Steps:</strong><br>
-                        1. Create your lead magnet content<br>
-                        2. Set up your delivery system<br>
-                        3. Design a compelling landing page<br>
-                        4. Implement tracking and analytics<br>
-                        5. Create follow-up email sequences
-                    </div>
-                    
-                    <div class="lesson-content">
-                        Remember to test each component before full launch. Start with a small audience and gather feedback to refine your approach.
-                    </div>
-                </div>
-                
-                <div class="lesson-box">
-                    <div class="lesson-title">Success Metrics</div>
-                    <div class="lesson-content">
-                        Track these key metrics to measure and improve your lead generation:
-                    </div>
-                    
-                    <div class="key-point">
-                        • Conversion rate on landing page<br>
-                        • Lead magnet download/usage rates<br>
-                        • Email open and click rates<br>
-                        • Consultation booking rates<br>
-                        • Cost per qualified lead
-                    </div>
-                </div>
-                """, unsafe_allow_html=True)
-                
-                if st.button("← Back to Lead Magnets"):
-                    st.session_state.step = 2
-                    st.rerun()
-                if st.button("Start Over"):
-                    st.session_state.step = 1
-                    st.rerun()
+                st.write("""
+                Alright, this is the final and most important part. You've got your lead magnet, you're promoting it 
+                well, and now you're getting downloads. But how do you turn these leads into paying clients?
+
+                Let me share a story that completely changed how I think about lead conversion. We had this lead magnet 
+                that was getting tons of downloads - like 50-60 per week. But we weren't converting any of them into 
+                clients. I was getting frustrated, thinking maybe lead magnets don't work.
+
+                Then I realized something crucial - it's not about the number of downloads, it's about what happens AFTER 
+                the download. Here's the exact follow-up sequence we developed that now converts 20% of our leads into 
+                sales calls:
+
+                Immediately after download:
+                • Send the lead magnet (obviously)
+                • Include a 2-minute video explaining how to get the most value from it
+                • Add one quick win they can implement right now
+
+                24 hours later:
+                • Send a case study related to their industry
+                • Ask if they've had a chance to implement the quick win
+                • Offer help if they're stuck
+
+                3 days later:
+                • Share another valuable tip (something not in the lead magnet)
+                • Ask about their biggest challenge in [topic area]
+                • This email gets the most responses - people love sharing their challenges
+
+                5 days later:
+                • Send a "common mistakes" email
+                • Show how your service helps avoid these mistakes
+                • Include a calendar link for those who want to learn more
+
+                Here's what most people get wrong - they try to sell too soon. We don't pitch our services until day 5, 
+                and even then, it's soft. We're just offering more help.
+
+                The key is to keep providing value after the lead magnet. Think about it - if someone downloads a LinkedIn 
+                checklist, they're probably trying to improve their LinkedIn presence. So every follow-up should help 
+                them with that goal.
+
+                That's it for this video! In the next one, I'll show you how to scale this entire process using 
+                automation. Make sure to hit subscribe and the notification bell so you don't miss it. And hey, if 
+                you've gotten value from this, give it a thumbs up - it really helps the channel.
+                """)
+
+                col1, col2 = st.columns(2)
+                with col1:
+                    if st.button("← Previous Page"):
+                        st.session_state.lead_gen_page = 2
+                        st.rerun()
+                with col2:
+                    if st.button("Start Over"):
+                        st.session_state.lead_gen_page = 1
+                        st.rerun()
 
         with tab2:  # Sales System
             if 'sales_page' not in st.session_state:
