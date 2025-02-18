@@ -493,6 +493,45 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
+# Add styles for better contrast
+st.markdown("""
+<style>
+.module-card {
+    background-color: white !important;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1rem;
+}
+.module-card h3 {
+    color: #1a202c !important;
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+.module-card p {
+    color: #4a5568 !important;
+    margin-bottom: 1rem;
+}
+.module-card ul {
+    color: #4a5568 !important;
+    margin-left: 1.5rem;
+}
+.step-container {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+.step-header {
+    color: #1a202c;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+</style>
+""", unsafe_allow_html=True)
+
 # Initialize session states and sections dictionary
 if 'logged_in' not in st.session_state:
     st.session_state.logged_in = False
@@ -635,6 +674,10 @@ else:
     if 'user_responses' not in st.session_state:
         st.session_state.user_responses = {}
 
+    # Initialize step state if not exists
+    if 'step' not in st.session_state:
+        st.session_state.step = 1
+
     # Sidebar
     with st.sidebar:
         st.markdown("""
@@ -761,200 +804,75 @@ else:
     elif selected_section == "Acquisition":
         st.title("Client Acquisition")
         
-        # Sub-module selection using tabs instead of custom pills
-        st.session_state.sub_module = st.tabs(["Lead Generation", "Sales System", "Follow-up", "Proposals"])[0]
+        # Sub-module tabs
+        tab1, tab2, tab3, tab4 = st.tabs(["Lead Generation", "Sales System", "Follow-up", "Proposals"])
         
-        if st.session_state.sub_module == "Lead Generation":
-            col1, col2 = st.columns(2)
-            with col1:
+        with tab1:
+            if st.session_state.step == 1:
                 st.markdown("""
-                <div class="module-card">
-                    <h3>Lead Generation Strategy</h3>
-                    <p>Learn how to consistently generate high-quality leads.</p>
-                    <ul style="color: #4b5563; margin-left: 1.5rem;">
-                        <li>Create your ideal client profile</li>
-                        <li>Build your lead magnet</li>
-                        <li>Set up automated systems</li>
-                    </ul>
-                </div>
-                
-                <div class="module-card">
-                    <h3>Traffic Generation</h3>
-                    <p>Drive qualified traffic to your offers.</p>
-                    <ul style="color: #4b5563; margin-left: 1.5rem;">
-                        <li>Channel selection</li>
-                        <li>Content strategy</li>
-                        <li>Ad campaigns</li>
-                    </ul>
+                <div class="step-container">
+                    <div class="step-header">Step 1: Define Your Target Client</div>
                 </div>
                 """, unsafe_allow_html=True)
+                
+                industry = st.selectbox("What industry does your ideal client work in?",
+                    ["Technology", "E-commerce", "Healthcare", "Real Estate", "Other"])
+                company_size = st.selectbox("What's their company size?",
+                    ["1-10 employees", "11-50 employees", "51-200 employees", "201+ employees"])
+                budget = st.selectbox("What's their typical monthly marketing budget?",
+                    ["$1,000 - $5,000", "$5,001 - $10,000", "$10,001 - $25,000", "$25,000+"])
+                
+                if st.button("Next Step →"):
+                    st.session_state.step = 2
+                    st.rerun()
             
-            with col2:
+            elif st.session_state.step == 2:
                 st.markdown("""
-                <div class="module-card">
-                    <h3>Lead Magnet Creation</h3>
-                    <p>Create compelling offers to attract leads.</p>
-                    <ul style="color: #4b5563; margin-left: 1.5rem;">
-                        <li>Value proposition</li>
-                        <li>Content creation</li>
-                        <li>Delivery system</li>
-                    </ul>
-                </div>
-                
-                <div class="module-card">
-                    <h3>Analytics Setup</h3>
-                    <p>Track and optimize your lead generation.</p>
-                    <ul style="color: #4b5563; margin-left: 1.5rem;">
-                        <li>Conversion tracking</li>
-                        <li>ROI measurement</li>
-                        <li>A/B testing</li>
-                    </ul>
+                <div class="step-container">
+                    <div class="step-header">Step 2: Create Your Lead Magnet</div>
                 </div>
                 """, unsafe_allow_html=True)
-        
-        elif st.session_state.sub_module == "Sales System":
-            col1, col2 = st.columns(2)
-            with col1:
-                st.markdown("""
-                <div class="module-card">
-                    <h3>Discovery Call Framework</h3>
-                    <p>Structure your sales calls for success.</p>
-                    <ul style="color: #4b5563; margin-left: 1.5rem;">
-                        <li>Question framework</li>
-                        <li>Pain point identification</li>
-                        <li>Solution presentation</li>
-                    </ul>
-                </div>
                 
-                <div class="module-card">
-                    <h3>Objection Handling</h3>
-                    <p>Master common objections and responses.</p>
-                    <ul style="color: #4b5563; margin-left: 1.5rem;">
-                        <li>Price objections</li>
-                        <li>Timeline concerns</li>
-                        <li>Competition comparison</li>
-                    </ul>
-                </div>
-                """, unsafe_allow_html=True)
+                lead_magnet = st.selectbox("What type of lead magnet will you create?",
+                    ["Free Consultation", "Industry Report", "Video Training", "Template/Tool"])
+                delivery = st.selectbox("How will you deliver it?",
+                    ["Email", "Download Page", "Member Portal", "Video Platform"])
+                
+                col1, col2 = st.columns(2)
+                with col1:
+                    if st.button("← Previous"):
+                        st.session_state.step = 1
+                        st.rerun()
+                with col2:
+                    if st.button("Next →"):
+                        st.session_state.step = 3
+                        st.rerun()
             
-            with col2:
+            elif st.session_state.step == 3:
                 st.markdown("""
-                <div class="module-card">
-                    <h3>Pricing Strategy</h3>
-                    <p>Optimize your pricing for profitability.</p>
-                    <ul style="color: #4b5563; margin-left: 1.5rem;">
-                        <li>Package creation</li>
-                        <li>Value-based pricing</li>
-                        <li>Upsell strategy</li>
-                    </ul>
-                </div>
-                
-                <div class="module-card">
-                    <h3>Sales Tools</h3>
-                    <p>Essential tools for your sales process.</p>
-                    <ul style="color: #4b5563; margin-left: 1.5rem;">
-                        <li>CRM setup</li>
-                        <li>Proposal software</li>
-                        <li>Meeting schedulers</li>
-                    </ul>
+                <div class="step-container">
+                    <div class="step-header">Step 3: Implementation Plan</div>
                 </div>
                 """, unsafe_allow_html=True)
-        
-        elif st.session_state.sub_module == "Follow-up":
-            col1, col2 = st.columns(2)
-            with col1:
+                
                 st.markdown("""
                 <div class="module-card">
-                    <h3>Email Sequences</h3>
-                    <p>Automated follow-up campaigns.</p>
-                    <ul style="color: #4b5563; margin-left: 1.5rem;">
-                        <li>Sequence mapping</li>
-                        <li>Email templates</li>
-                        <li>Timing optimization</li>
-                    </ul>
-                </div>
-                
-                <div class="module-card">
-                    <h3>Lead Nurturing</h3>
-                    <p>Keep leads engaged until they're ready.</p>
-                    <ul style="color: #4b5563; margin-left: 1.5rem;">
-                        <li>Content strategy</li>
-                        <li>Value delivery</li>
-                        <li>Engagement tracking</li>
-                    </ul>
+                    <h3>Action Steps</h3>
+                    <ol style="color: #4a5568; margin-left: 1.5rem;">
+                        <li>Create your lead magnet content</li>
+                        <li>Set up delivery system</li>
+                        <li>Create landing page</li>
+                        <li>Set up tracking</li>
+                    </ol>
                 </div>
                 """, unsafe_allow_html=True)
-            
-            with col2:
-                st.markdown("""
-                <div class="module-card">
-                    <h3>Re-engagement</h3>
-                    <p>Bring cold leads back to life.</p>
-                    <ul style="color: #4b5563; margin-left: 1.5rem;">
-                        <li>Segmentation</li>
-                        <li>Special offers</li>
-                        <li>Win-back campaigns</li>
-                    </ul>
-                </div>
                 
-                <div class="module-card">
-                    <h3>Follow-up Analytics</h3>
-                    <p>Measure and optimize your follow-up.</p>
-                    <ul style="color: #4b5563; margin-left: 1.5rem;">
-                        <li>Response rates</li>
-                        <li>Conversion tracking</li>
-                        <li>A/B testing</li>
-                    </ul>
-                </div>
-                """, unsafe_allow_html=True)
-        
-        elif st.session_state.sub_module == "Proposals":
-            col1, col2 = st.columns(2)
-            with col1:
-                st.markdown("""
-                <div class="module-card">
-                    <h3>Proposal Templates</h3>
-                    <p>High-converting proposal frameworks.</p>
-                    <ul style="color: #4b5563; margin-left: 1.5rem;">
-                        <li>Structure guidelines</li>
-                        <li>Content blocks</li>
-                        <li>Design elements</li>
-                    </ul>
-                </div>
-                
-                <div class="module-card">
-                    <h3>Case Studies</h3>
-                    <p>Showcase your success stories.</p>
-                    <ul style="color: #4b5563; margin-left: 1.5rem;">
-                        <li>Result highlights</li>
-                        <li>Client testimonials</li>
-                        <li>Process overview</li>
-                    </ul>
-                </div>
-                """, unsafe_allow_html=True)
-            
-            with col2:
-                st.markdown("""
-                <div class="module-card">
-                    <h3>Pricing Presentation</h3>
-                    <p>Present your pricing effectively.</p>
-                    <ul style="color: #4b5563; margin-left: 1.5rem;">
-                        <li>Package comparison</li>
-                        <li>Value justification</li>
-                        <li>ROI calculation</li>
-                    </ul>
-                </div>
-                
-                <div class="module-card">
-                    <h3>Proposal Tools</h3>
-                    <p>Software and tools for proposals.</p>
-                    <ul style="color: #4b5563; margin-left: 1.5rem;">
-                        <li>Proposal software</li>
-                        <li>Design tools</li>
-                        <li>E-signature setup</li>
-                    </ul>
-                </div>
-                """, unsafe_allow_html=True)
+                if st.button("← Back to Step 2"):
+                    st.session_state.step = 2
+                    st.rerun()
+                if st.button("Start Over"):
+                    st.session_state.step = 1
+                    st.rerun()
 
     elif selected_section == "Delivery":
         st.title("Service Delivery")
