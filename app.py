@@ -506,24 +506,35 @@ st.markdown("""
     border-radius: 8px !important;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) !important;
 }
-.conversation-box {
+.lesson-box {
     background-color: white;
     padding: 2rem;
     border-radius: 8px;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
-.bot-message {
+.lesson-title {
     color: #1a202c;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+.lesson-content {
+    color: #4a5568;
     font-size: 1.1rem;
-    margin-bottom: 1.5rem;
     line-height: 1.6;
 }
-.highlight {
+.key-point {
     background-color: #EDF2F7;
     padding: 1rem;
     border-radius: 8px;
     margin: 1rem 0;
+    color: #2D3748;
+}
+.navigation {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
 }
 </style>
 """, unsafe_allow_html=True)
@@ -806,96 +817,142 @@ else:
         with tab1:
             if st.session_state.step == 1:
                 st.markdown("""
-                <div class="conversation-box">
-                    <p class="bot-message">Hi! I'll help you create a lead generation strategy for your agency. First, let's talk about your ideal client. This will help us create targeted marketing that resonates with the right audience.</p>
+                <div class="lesson-box">
+                    <div class="lesson-title">Understanding Your Ideal Client</div>
+                    <div class="lesson-content">
+                        The foundation of successful lead generation is having a clear understanding of your ideal client. 
+                        Let's explore the key characteristics that make up your perfect client profile.
+                    </div>
+                    
+                    <div class="key-point">
+                        <strong>Industry Focus:</strong><br>
+                        • Technology companies often need help with product marketing<br>
+                        • E-commerce businesses require ongoing conversion optimization<br>
+                        • Healthcare providers seek compliance-aware marketing<br>
+                        • Real estate firms need consistent lead generation
+                    </div>
+                    
+                    <div class="lesson-content">
+                        When choosing your target industry, consider:<br>
+                        • Your existing expertise and experience<br>
+                        • Market size and potential<br>
+                        • Competition level<br>
+                        • Typical marketing budgets
+                    </div>
                 </div>
                 """, unsafe_allow_html=True)
-                
-                industry = st.selectbox("What industry would you like to focus on?",
-                    ["Technology", "E-commerce", "Healthcare", "Real Estate", "Other"])
                 
                 st.markdown("""
-                <div class="conversation-box">
-                    <p class="bot-message">Great choice! The {industry} industry has a lot of potential. Now, let's narrow down the size of companies you want to work with.</p>
+                <div class="lesson-box">
+                    <div class="lesson-title">Client Size and Budget</div>
+                    <div class="lesson-content">
+                        Different company sizes have different needs and challenges. Understanding these helps you position your services effectively.
+                    </div>
+                    
+                    <div class="key-point">
+                        <strong>Company Size Breakdown:</strong><br>
+                        • 1-10 employees: Need done-for-you solutions<br>
+                        • 11-50 employees: Seeking scalable systems<br>
+                        • 51-200 employees: Require strategic guidance<br>
+                        • 201+ employees: Want comprehensive solutions
+                    </div>
                 </div>
                 """, unsafe_allow_html=True)
                 
-                company_size = st.selectbox("What size companies do you want to target?",
-                    ["1-10 employees", "11-50 employees", "51-200 employees", "201+ employees"])
-                
-                st.markdown("""
-                <div class="conversation-box">
-                    <p class="bot-message">Perfect! This will help us determine the right approach and messaging. One last question about your ideal client...</p>
-                </div>
-                """, unsafe_allow_html=True)
-                
-                budget = st.selectbox("What's their typical marketing budget range?",
-                    ["$1,000 - $5,000", "$5,001 - $10,000", "$10,001 - $25,000", "$25,000+"])
-                
-                st.markdown("""
-                <div class="highlight">
-                    Based on your answers, we'll focus on {industry} companies with {company_size} and a budget of {budget}.
-                </div>
-                """, unsafe_allow_html=True)
-                
-                if st.button("Let's talk about lead magnets →"):
+                if st.button("Continue to Lead Magnet Strategy →"):
                     st.session_state.step = 2
                     st.rerun()
             
             elif st.session_state.step == 2:
                 st.markdown("""
-                <div class="conversation-box">
-                    <p class="bot-message">Now that we know your ideal client, let's create something valuable to attract them. What kind of content do you think would be most helpful for your target audience?</p>
+                <div class="lesson-box">
+                    <div class="lesson-title">Creating Effective Lead Magnets</div>
+                    <div class="lesson-content">
+                        A lead magnet is your first value exchange with potential clients. It needs to solve a specific problem while showcasing your expertise.
+                    </div>
+                    
+                    <div class="key-point">
+                        <strong>Effective Lead Magnet Types:</strong><br>
+                        • Industry Reports: Establish authority through data<br>
+                        • Templates/Tools: Provide immediate practical value<br>
+                        • Video Training: Build trust through education<br>
+                        • Free Consultations: Demonstrate expertise directly
+                    </div>
+                    
+                    <div class="lesson-content">
+                        The key is matching your lead magnet to your client's stage in the buyer's journey. Early-stage prospects need educational content, while those closer to buying prefer practical tools.
+                    </div>
                 </div>
                 """, unsafe_allow_html=True)
-                
-                lead_magnet = st.selectbox("Choose a lead magnet type:",
-                    ["Free Consultation", "Industry Report", "Video Training", "Template/Tool"])
                 
                 st.markdown("""
-                <div class="conversation-box">
-                    <p class="bot-message">Great choice! This type of lead magnet works well for your target market. How would you like to deliver it to them?</p>
+                <div class="lesson-box">
+                    <div class="lesson-title">Delivery Systems</div>
+                    <div class="lesson-content">
+                        Your delivery method impacts both conversion rates and user experience. Choose based on your content type and audience preferences.
+                    </div>
+                    
+                    <div class="key-point">
+                        <strong>Delivery Methods Compared:</strong><br>
+                        • Email: High engagement, easy tracking<br>
+                        • Download Page: Simple setup, instant access<br>
+                        • Member Portal: Premium feel, better organization<br>
+                        • Video Platform: Rich content, analytics available
+                    </div>
                 </div>
                 """, unsafe_allow_html=True)
                 
-                delivery = st.selectbox("Select delivery method:",
-                    ["Email", "Download Page", "Member Portal", "Video Platform"])
-                
-                col1, col2 = st.columns(2)
-                with col1:
-                    if st.button("← Previous"):
-                        st.session_state.step = 1
-                        st.rerun()
-                with col2:
-                    if st.button("Next →"):
-                        st.session_state.step = 3
-                        st.rerun()
+                if st.button("← Back to Ideal Client"):
+                    st.session_state.step = 1
+                    st.rerun()
+                if st.button("Continue to Implementation →"):
+                    st.session_state.step = 3
+                    st.rerun()
             
             elif st.session_state.step == 3:
                 st.markdown("""
-                <div class="conversation-box">
-                    <p class="bot-message">Perfect! I've created a personalized action plan based on our conversation. Here's what you should focus on:</p>
-                    
-                    <div class="highlight">
-                        1. Create your {lead_magnet} focused on {industry} companies
-                        2. Set up the delivery system using {delivery}
-                        3. Design a landing page that speaks to companies with {company_size}
-                        4. Create an email nurture sequence
+                <div class="lesson-box">
+                    <div class="lesson-title">Implementation Strategy</div>
+                    <div class="lesson-content">
+                        Success in lead generation comes from systematic implementation. Here's your roadmap for putting everything together.
                     </div>
                     
-                    <p class="bot-message">Would you like to implement this plan or should we revise anything?</p>
+                    <div class="key-point">
+                        <strong>Implementation Steps:</strong><br>
+                        1. Create your lead magnet content<br>
+                        2. Set up your delivery system<br>
+                        3. Design a compelling landing page<br>
+                        4. Implement tracking and analytics<br>
+                        5. Create follow-up email sequences
+                    </div>
+                    
+                    <div class="lesson-content">
+                        Remember to test each component before full launch. Start with a small audience and gather feedback to refine your approach.
+                    </div>
+                </div>
+                
+                <div class="lesson-box">
+                    <div class="lesson-title">Success Metrics</div>
+                    <div class="lesson-content">
+                        Track these key metrics to measure and improve your lead generation:
+                    </div>
+                    
+                    <div class="key-point">
+                        • Conversion rate on landing page<br>
+                        • Lead magnet download/usage rates<br>
+                        • Email open and click rates<br>
+                        • Consultation booking rates<br>
+                        • Cost per qualified lead
+                    </div>
                 </div>
                 """, unsafe_allow_html=True)
                 
-                col1, col2 = st.columns(2)
-                with col1:
-                    if st.button("← Let's revise the lead magnet"):
-                        st.session_state.step = 2
-                        st.rerun()
-                with col2:
-                    if st.button("Start Over"):
-                        st.session_state.step = 1
-                        st.rerun()
+                if st.button("← Back to Lead Magnets"):
+                    st.session_state.step = 2
+                    st.rerun()
+                if st.button("Start Over"):
+                    st.session_state.step = 1
+                    st.rerun()
 
     elif selected_section == "Delivery":
         st.title("Service Delivery")
