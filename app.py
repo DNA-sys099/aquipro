@@ -569,6 +569,47 @@ p, li {
 h1, h2, h3 {
     color: #1a202c !important;
 }
+
+/* Sidebar Styles */
+.css-1d391kg, .css-1lcbmhc {
+    background-color: #1e293b !important;
+}
+
+/* Sidebar Text Colors */
+.css-1d391kg .stSelectbox label {
+    color: white !important;
+}
+.css-1d391kg .stSelectbox div[data-baseweb="select"] div {
+    color: white !important;
+}
+
+/* Sidebar Dropdown Styles */
+.stSelectbox [data-testid="stMarkdownContainer"] p {
+    color: white !important;
+}
+.css-81oif8 {
+    color: white !important;
+}
+.css-1d391kg .stSelectbox {
+    color: white !important;
+}
+
+/* Selected Option */
+.css-1d391kg .stSelectbox [aria-selected="true"] {
+    background-color: #2d3748 !important;
+    color: white !important;
+}
+
+/* Dropdown Options */
+.css-1d391kg .stSelectbox [role="listbox"] {
+    background-color: #1e293b !important;
+}
+.css-1d391kg .stSelectbox [role="option"] {
+    color: white !important;
+}
+.css-1d391kg .stSelectbox [role="option"]:hover {
+    background-color: #2d3748 !important;
+}
 </style>
 """, unsafe_allow_html=True)
 
@@ -1035,7 +1076,7 @@ else:
                 The clients who ended up signing with us had an average of 7-8 touchpoints before they signed. But 
                 we were giving up after 2-3 emails.
 
-                So I developed what I call the "Value Ladder Follow-up System." Here's how it works:
+                So I developed what I call the "Value Ladder Follow-up System." Here's exactly how it works:
 
                 Day 1: Send a value-packed resource
                 • Something they can use immediately
@@ -1187,7 +1228,7 @@ else:
                 questions, listening carefully, and then showing people how you can help them get what they want. Do this 
                 right, and the closing takes care of itself.
 
-                That's it for this training. In the next video, I'll show you exactly how to handle the follow-up process 
+                That's it for this training. In the next video, I'll show you how to handle the follow-up process 
                 and what to do after the call to maximize your chances of closing the deal. Make sure to subscribe and 
                 hit that notification bell so you don't miss it.
                 """)
