@@ -619,15 +619,19 @@ if 'logged_in' not in st.session_state:
 
 # Define sections with better contrast
 sections = {
-    "Client Acquisition": {
+    "Dashboard": {
+        "icon": "📊",
+        "description": "Overview and metrics"
+    },
+    "Acquisition": {
         "icon": "🎯",
         "description": "Build your client pipeline"
     },
-    "Service Delivery": {
+    "Delivery": {
         "icon": "🚀",
         "description": "Streamline your operations"
     },
-    "Agency Growth": {
+    "Growth": {
         "icon": "📈",
         "description": "Scale your business"
     },
@@ -837,9 +841,8 @@ else:
         st.markdown('<h1 class="sidebar-title">AquiPro</h1>', unsafe_allow_html=True)
         
         # Create the selectbox with icons and descriptions
-        options = [f"{v['icon']} {k} - {v['description']}" for k, v in sections.items()]
-        selected_option = st.selectbox("Choose Your Module", options)
-        selected_section = selected_option.split(" - ")[0].split(" ")[1]  # Extract section name
+        options = list(sections.keys())  # Simplified to just use the keys for now
+        selected_section = st.selectbox("Choose Your Module", options)
 
     if selected_section == "Dashboard":
         st.title("Agency Automation Hub")
