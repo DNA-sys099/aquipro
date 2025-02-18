@@ -960,56 +960,71 @@ else:
 
             # Page 1: Discovery Call Framework
             if st.session_state.sales_page == 1:
-                st.title("The Perfect Discovery Call")
+                st.title("Let's Master Your Discovery Call")
                 
-                st.write("Your discovery call is the foundation of your client relationship. This is where you establish trust, understand their needs, and position your agency as the solution.")
+                st.write("Welcome! I'm going to walk you through the exact process I use to conduct discovery calls that convert at over 80%. This is the same framework used by top-performing agencies worldwide.")
                 
-                st.subheader("Call Structure (35-40 minutes)")
-                st.write("✓ Rapport Building (2-3 minutes)")
-                st.write("✓ Agenda Setting (1-2 minutes)")
-                st.write("✓ Background Questions (5-7 minutes)")
-                st.write("✓ Deep Dive Discussion (15-20 minutes)")
-                st.write("✓ Solution Preview (5-7 minutes)")
-                st.write("✓ Next Steps (3-5 minutes)")
+                st.info("Remember: The goal of a discovery call isn't to sell - it's to understand if there's a genuine fit between your agency and the prospect.")
                 
-                st.subheader("Pre-Call Preparation")
-                st.write("• Research their company and industry")
-                st.write("• Review their website and social media")
-                st.write("• Prepare customized questions")
-                st.write("• Have case studies ready")
-                st.write("• Test your video/audio equipment")
+                st.subheader("Here's how we'll structure your calls:")
+                
+                st.write("First 5 Minutes - Building Trust")
+                st.markdown("""
+                • Start with: "Thanks for taking the time today. I've reviewed your website and have some ideas, but first I'd love to hear more about your business."
+                • Let them talk about their business
+                • Show you've done your homework by mentioning specific observations
+                """)
+                
+                st.write("Next 15 Minutes - Deep Dive")
+                st.markdown("""
+                • Ask: "What made you start looking for marketing help now?"
+                • Follow up with: "What have you tried so far?"
+                • Then: "What would success look like 12 months from now?"
+                """)
+                
+                st.write("Final 15 Minutes - Solution Preview")
+                st.markdown("""
+                • Reflect back their main challenges
+                • Share a relevant case study
+                • Outline your high-level approach
+                """)
+                
+                st.success("Pro Tip: Record every word they use to describe their problems. Using their exact language in your proposal will significantly increase your chances of winning the deal.")
 
-                if st.button("Next: Qualification Process →"):
+                if st.button("Continue to Page 2: Qualification Framework →"):
                     st.session_state.sales_page = 2
                     st.rerun()
 
             # Page 2: Qualification Process
             elif st.session_state.sales_page == 2:
-                st.title("Client Qualification Framework")
+                st.title("Qualifying Your Perfect Client")
                 
-                st.write("Not every prospect is the right fit for your agency. Use this qualification framework to identify ideal clients and avoid costly mismatches.")
+                st.write("Now that you know how to run a discovery call, let's talk about finding the right clients. I've learned the hard way that taking on the wrong client can cost you more than just money - it can drain your team's morale and damage your agency's reputation.")
                 
-                st.info("Remember: it's better to turn down a client than to struggle with a poor fit.")
+                st.info("I'm about to share the exact questions I use to identify dream clients. These questions have saved me from countless headaches and helped me build a roster of clients who value our work.")
                 
-                st.subheader("The BANT Framework")
-                col1, col2 = st.columns(2)
-                with col1:
-                    st.write("**Budget**")
-                    st.write("What's your monthly marketing budget?")
-                    st.write("**Authority**")
-                    st.write("Who else is involved in the decision-making process?")
-                with col2:
-                    st.write("**Need**")
-                    st.write("What are your main marketing challenges right now?")
-                    st.write("**Timeline**")
-                    st.write("When are you looking to start seeing results?")
+                st.subheader("Ask These Questions (In This Order)")
+                st.markdown("""
+                1. "What's your current monthly marketing spend?"
+                   *Why: This tells you if they can afford your services*
                 
-                st.subheader("Red Flags to Watch For")
-                st.write("• Unrealistic expectations about results")
-                st.write("• Unwillingness to share important information")
-                st.write("• History of frequently changing agencies")
-                st.write("• Unclear decision-making process")
-                st.write("• Budget doesn't match their goals")
+                2. "Who else is involved in the decision-making process?"
+                   *Why: Reveals if you're talking to the real decision-maker*
+                
+                3. "Have you worked with agencies before?"
+                   *Why: Uncovers their expectations and past experiences*
+                
+                4. "What's your timeline for making a decision?"
+                   *Why: Shows their level of urgency and commitment*
+                """)
+                
+                st.error("Warning Signs to Watch For:")
+                st.markdown("""
+                • They can't articulate clear goals
+                • They're focused only on price
+                • They need immediate results
+                • They've worked with multiple agencies in the past year
+                """)
 
                 col1, col2 = st.columns(2)
                 with col1:
@@ -1017,42 +1032,53 @@ else:
                         st.session_state.sales_page = 1
                         st.rerun()
                 with col2:
-                    if st.button("Next: Closing Process →"):
+                    if st.button("Continue to Page 3: Closing →"):
                         st.session_state.sales_page = 3
                         st.rerun()
 
             # Page 3: Closing Process
             elif st.session_state.sales_page == 3:
-                st.title("The Closing Process")
+                st.title("Closing With Confidence")
                 
-                st.write("The closing process is where many agencies stumble. Use this systematic approach to guide prospects to a confident decision while maintaining your agency's value proposition.")
+                st.write("You've made it to the final stage! This is where most agency owners get nervous and start doubting their prices. Don't worry - I'm going to show you exactly how to handle this with confidence.")
                 
-                st.subheader("Handling Common Objections")
-                with st.expander("'Your price is too high'"):
-                    st.write("Response: Let's look at the ROI. Based on your current numbers...")
-                    st.write("• Show value vs cost comparison")
-                    st.write("• Present case studies with ROI")
-                    st.write("• Break down the deliverables")
+                st.info("The key to closing isn't about being pushy - it's about being confident in the value you provide and helping prospects make a clear decision.")
                 
-                with st.expander("'We need to think about it'"):
-                    st.write("Response: What specific concerns would you like to discuss?")
-                    st.write("• Address hesitations directly")
-                    st.write("• Offer social proof")
-                    st.write("• Provide clear next steps")
+                st.subheader("Here's Your Closing Script")
+                st.markdown("""
+                1. Start with a summary:
+                   "Based on what you've shared, there are three main challenges we need to address..."
                 
-                with st.expander("'We want to try it internally first'"):
-                    st.write("Response: Let's compare the costs and timeline of both approaches...")
-                    st.write("• Compare internal vs agency costs")
-                    st.write("• Highlight expertise and experience")
-                    st.write("• Show time-to-results difference")
+                2. Share your solution:
+                   "Here's how we'll solve each of these..."
                 
-                st.subheader("Next Steps After Closing")
+                3. Present your investment:
+                   "The investment for this solution is $X per month..."
+                
+                4. Be silent and wait for their response
+                """)
+                
+                st.subheader("When They Say...")
+                st.markdown("""
+                🤔 "I need to think about it"
+                • "What specific aspects would you like to think about?"
+                • "Would it help to see some case studies?"
+                
+                💰 "It's too expensive"
+                • "Let me show you the ROI calculation..."
+                • "Would you like to see how this compares to doing it in-house?"
+                
+                ⏰ "We're not ready yet"
+                • "What would need to change for you to be ready?"
+                • "What if we started with a smaller scope?"
+                """)
+                
                 st.success("""
-                1. Send welcome package within 24 hours
-                2. Schedule kick-off meeting
-                3. Begin onboarding process
-                4. Set up initial reporting dashboard
-                5. Plan first 30-day strategy
+                Final Words of Wisdom:
+                • Never reduce your price without reducing scope
+                • Always follow up within 24 hours
+                • Send a proposal within 48 hours
+                • Include everything discussed in the call
                 """)
 
                 col1, col2 = st.columns(2)
