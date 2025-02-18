@@ -1385,25 +1385,183 @@ else:
                         st.session_state.followup_page = 1
                         st.rerun()
 
-        with tabs[3]:
-            st.markdown("""
-            <div class="lesson-box">
-                <div class="lesson-title">Proposal Templates</div>
-                <div class="lesson-content">
-                    A well-structured proposal can make all the difference in winning a client.
-                </div>
+        with tabs[3]:  # Proposal Writing
+            if 'proposal_page' not in st.session_state:
+                st.session_state.proposal_page = 1
+
+            # Page 1: Proposal Structure
+            if st.session_state.proposal_page == 1:
+                st.title("Writing High-Converting Proposals")
                 
-                <div class="key-point">
-                    <strong>Key Components:</strong><br>
-                    • Executive Summary<br>
-                    • Company Overview<br>
-                    • Problem Statement<br>
-                    • Solution Overview<br>
-                    • Implementation Plan<br>
-                    • Pricing and Packages
-                </div>
-            </div>
-            """, unsafe_allow_html=True)
+                st.write("""
+                Hey everyone! Welcome back. Today I'm going to show you exactly how I write proposals that convert at 
+                85%. Yes, you heard that right - 85%. And I'm not talking about small projects either. These are 
+                five and six-figure deals.
+
+                But first, let me tell you about the worst proposal I ever wrote. It was for a $120,000 website project. 
+                I spent three days writing this monster - 25 pages of technical details, process breakdowns, and 
+                fancy graphics. I was so proud of it. The client's response? "This is way too complicated." We lost 
+                the deal.
+
+                That's when I realized something crucial - clients don't want to read a novel. They want to know three 
+                things:
+                1. Do you understand their problem?
+                2. Can you solve it?
+                3. How much will it cost?
+
+                So I developed what I call the "3-Block Proposal Framework." Here's exactly how it works:
+
+                Block 1: The Problem Statement
+                • Start with THEIR words (from the discovery call)
+                • List 3-4 specific challenges they mentioned
+                • Show the cost of not solving these problems
+
+                For example, instead of saying "Your website needs optimization," I write:
+                "During our call, you mentioned that your website is only converting at 1%, costing you approximately 
+                $50,000 in lost revenue each month."
+
+                Block 2: The Solution Overview
+                • High-level solution (no technical jargon)
+                • Expected outcomes
+                • Timeline for results
+
+                Block 3: The Investment
+                • Clear pricing structure
+                • Payment terms
+                • Start date and next steps
+
+                Here's what happened when I switched to this framework:
+                • Proposal length went from 25 pages to 5
+                • Time to write went from 3 days to 2 hours
+                • Close rate went from 30% to 85%
+
+                In the next section, I'll show you exactly how to write each block and what language to use to maximize 
+                your chances of closing the deal.
+                """)
+
+                if st.button("Next Page →", key="proposal_next_1"):
+                    st.session_state.proposal_page = 2
+                    st.rerun()
+
+            # Page 2: Writing Each Section
+            elif st.session_state.proposal_page == 2:
+                st.title("The Perfect Proposal Language")
+                
+                st.write("""
+                Welcome back! Now I'm going to show you exactly what to write in each section of your proposal. I'm 
+                talking specific phrases that trigger emotional responses and drive decisions.
+
+                Let me share a quick story. We had this client who was reviewing three different agency proposals. All 
+                had similar pricing and services. But they chose us because, in their words, "Your proposal felt like 
+                you were reading our minds." I'm going to show you how to create that same effect.
+
+                Let's break down each section:
+
+                1. The Opening Statement
+                Bad: "Thank you for the opportunity to submit this proposal."
+                Good: "Based on our discussion about [specific challenge], here's how we'll help [company name] achieve 
+                [specific goal] within [timeframe]."
+
+                2. The Problem Statement
+                Bad: "Your website needs improvement."
+                Good: "Your current website conversion rate of 1.2% is significantly below the industry standard of 3%, 
+                resulting in approximately 450 lost leads per month."
+
+                3. The Solution Section
+                Bad: "We'll implement SEO best practices."
+                Good: "We'll increase your organic traffic by:
+                • Optimizing your top 20 product pages (identified in our audit)
+                • Creating 12 industry-specific blog posts
+                • Building 15 high-authority backlinks
+                Expected result: 40% increase in organic traffic within 90 days"
+
+                4. The Social Proof Section
+                Bad: "We've helped many companies."
+                Good: "We recently helped [similar company] increase their conversion rate from 1.2% to 3.8% in 60 days, 
+                resulting in 127 additional leads per month."
+
+                5. The Investment Section
+                Bad: "Our fee is $5,000 per month."
+                Good: "Investment: $5,000 per month
+                Expected ROI: $25,000 in additional revenue (based on your current conversion values)
+                Time to break even: 60 days"
+
+                In the next section, I'll show you how to present this proposal in a way that makes it almost impossible 
+                to say no.
+                """)
+
+                col1, col2 = st.columns(2)
+                with col1:
+                    if st.button("← Previous Page", key="proposal_prev_2"):
+                        st.session_state.proposal_page = 1
+                        st.rerun()
+                with col2:
+                    if st.button("Next Page →", key="proposal_next_2"):
+                        st.session_state.proposal_page = 3
+                        st.rerun()
+
+            # Page 3: Presenting and Following Up
+            elif st.session_state.proposal_page == 3:
+                st.title("Presenting Your Proposal")
+                
+                st.write("""
+                Alright, this is where most people mess up. They send the proposal via email and wait. Big mistake. 
+                Let me show you the exact process that's helped us close 85% of our proposals.
+
+                First, a story. We once had this huge proposal - $250,000 project. I was tempted to just email it 
+                because I was nervous about the size. But I stuck to our process. We ended up closing that deal, and 
+                the client later told me it was our presentation approach that won them over.
+
+                Here's the exact process:
+
+                Step 1: The Setup
+                • Never send the proposal before presenting it
+                • Schedule a 30-minute video call
+                • Send a calendar invite with clear agenda
+                • Have your screen share ready to go
+
+                Step 2: The Presentation Script
+                "Thanks for joining today. I'm going to walk you through our proposed solution for [specific challenge]. 
+                I've kept this brief and focused on the outcomes you mentioned were most important to you."
+
+                Then walk through each section:
+                • Reflect their challenges (show you listened)
+                • Present the solution (focus on outcomes)
+                • Explain the investment (focus on ROI)
+
+                Step 3: The Close
+                • "Based on what I've shared, do you have any questions?"
+                • Address questions immediately
+                • "Would you like to move forward?"
+
+                If they say "We need to think about it":
+                • "Of course. What specific aspects would you like to think about?"
+                • Address concerns right there
+                • Suggest a follow-up date
+
+                Step 4: After the Call
+                • Send the proposal immediately
+                • Include a summary of discussed points
+                • Add a clear call to action
+                • Set a follow-up task for 24 hours
+
+                The key to making this work is confidence. You're not begging for their business - you're showing them 
+                how you'll solve their problems.
+
+                That's it for this video series! You now have everything you need to create and close winning proposals. 
+                If you found this helpful, don't forget to like and subscribe. And drop a comment below if you have any 
+                questions!
+                """)
+
+                col1, col2 = st.columns(2)
+                with col1:
+                    if st.button("← Previous Page", key="proposal_prev_3"):
+                        st.session_state.proposal_page = 2
+                        st.rerun()
+                with col2:
+                    if st.button("Start Over", key="proposal_start_over"):
+                        st.session_state.proposal_page = 1
+                        st.rerun()
 
     elif selected_section == "Delivery":
         st.title("Service Delivery")
