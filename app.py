@@ -1818,6 +1818,452 @@ else:
                         st.session_state.onboarding_page = 1
                         st.rerun()
 
+        with delivery_tabs[1]:  # Project Management
+            if 'project_page' not in st.session_state:
+                st.session_state.project_page = 1
+
+            # Page 1: Project Setup
+            if st.session_state.project_page == 1:
+                st.title("Setting Up Your Project Management System")
+                
+                st.write("""
+                Hey everyone! Welcome back. Today we're going to talk about something that completely transformed my 
+                agency - our project management system. I'm going to show you exactly how we set up and run projects 
+                so nothing falls through the cracks.
+
+                But first, let me tell you about a nightmare situation I had. We were managing everything through 
+                email and spreadsheets. One day, we missed a crucial deadline because an email got buried in someone's 
+                inbox. The client was furious, and we almost lost them.
+
+                That's when I developed what I call the "Clear Vision Project System." Here's exactly how it works:
+
+                Phase 1: Project Setup
+                • Create project hub
+                • Set up communication channels
+                • Define project milestones
+                • Assign team roles
+
+                Phase 2: Task Organization
+                • Break down deliverables
+                • Set dependencies
+                • Create task templates
+                • Schedule check-ins
+
+                Phase 3: Workflow Automation
+                • Automate status updates
+                • Set up reminders
+                • Create report templates
+                • Configure notifications
+
+                The key is to make everything visible and accessible. No more digging through emails or wondering 
+                what's happening with a task. In the next section, I'll show you exactly how to set up each part 
+                of this system.
+                """)
+
+                if st.button("Next Page →", key="project_next_1"):
+                    st.session_state.project_page = 2
+                    st.rerun()
+
+            # Page 2: Daily Operations
+            elif st.session_state.project_page == 2:
+                st.title("Running Your Daily Operations")
+                
+                st.write("""
+                Welcome back! Now I'm going to show you exactly how to run your daily operations using this system. 
+                This is where most agencies struggle - they have a system, but they don't know how to use it effectively.
+
+                Let me tell you about a game-changing moment. We were struggling with our morning meetings - they were 
+                taking too long and people weren't prepared. Then we implemented this daily routine, and everything 
+                changed.
+
+                Here's the exact daily schedule we use:
+
+                9:00 AM - Morning Huddle
+                • Review priority tasks
+                • Address blockers
+                • Align on daily goals
+                • Quick team updates
+
+                11:00 AM - Focus Time
+                • No meetings allowed
+                • Deep work sessions
+                • Task completion
+                • Document progress
+
+                2:00 PM - Client Updates
+                • Send progress reports
+                • Schedule check-ins
+                • Address questions
+                • Update timelines
+
+                4:00 PM - Team Sync
+                • Share accomplishments
+                • Plan for tomorrow
+                • Discuss challenges
+                • Celebrate wins
+
+                In the next section, I'll show you how to scale this system as your agency grows.
+                """)
+
+                col1, col2 = st.columns(2)
+                with col1:
+                    if st.button("← Previous Page", key="project_prev_2"):
+                        st.session_state.project_page = 1
+                        st.rerun()
+                with col2:
+                    if st.button("Next Page →", key="project_next_2"):
+                        st.session_state.project_page = 3
+                        st.rerun()
+
+            # Page 3: Scaling Operations
+            elif st.session_state.project_page == 3:
+                st.title("Scaling Your Project Management")
+                
+                st.write("""
+                Alright, this is where it gets exciting. I'm going to show you how to scale your project management 
+                system as your agency grows. This is crucial because what works for 5 clients won't work for 50.
+
+                Let me share a story. We hit a point where we had so many projects that our system started breaking 
+                down. Tasks were slipping, team members were overwhelmed, and I was working weekends just to keep up. 
+                That's when we developed this scaling framework.
+
+                Here's exactly how to scale:
+
+                Level 1: Team Structure
+                • Create project pods
+                • Assign pod leaders
+                • Define escalation paths
+                • Set communication protocols
+
+                Level 2: Process Documentation
+                • Create process wikis
+                • Build template library
+                • Standard operating procedures
+                • Training materials
+
+                Level 3: Automation Setup
+                • Task assignment flows
+                • Status update triggers
+                • Report generation
+                • Client communication
+
+                Level 4: Quality Control
+                • Review checkpoints
+                • Feedback loops
+                • Performance metrics
+                • Improvement systems
+
+                That's it for this video! In the next one, I'll show you how to implement quality control systems 
+                that keep your deliverables consistent. Don't forget to hit subscribe and the notification bell to 
+                catch that one!
+                """)
+
+                col1, col2 = st.columns(2)
+                with col1:
+                    if st.button("← Previous Page", key="project_prev_3"):
+                        st.session_state.project_page = 2
+                        st.rerun()
+                with col2:
+                    if st.button("Start Over", key="project_start_over"):
+                        st.session_state.project_page = 1
+                        st.rerun()
+
+        with delivery_tabs[2]:  # Quality Control
+            if 'quality_page' not in st.session_state:
+                st.session_state.quality_page = 1
+
+            # Page 1: Quality Framework
+            if st.session_state.quality_page == 1:
+                st.title("Building Your Quality Control System")
+                
+                st.write("""
+                Hey everyone! Welcome back. Today we're going to talk about something that's absolutely crucial for your 
+                agency - quality control. I'm going to show you exactly how we maintain consistent quality 
+                across all our deliverables.
+
+                Let me tell you about a wake-up call I had. Early in my agency, we sent out a social media calendar 
+                to a client without our usual review process. There were typos everywhere, some posts had the wrong 
+                dates, and worst of all, one post was for their competitor's product! Talk about embarrassing.
+
+                That's when I developed what I call the "Triple Check System." Here's exactly how it works:
+
+                Level 1: Creator Check
+                • Self-review checklist
+                • Brand guidelines review
+                • Technical requirements
+                • Content accuracy
+
+                Level 2: Peer Review
+                • Fresh eyes review
+                • Technical validation
+                • Brand consistency
+                • User experience
+
+                Level 3: Final Approval
+                • Project manager review
+                • Client requirements check
+                • Strategic alignment
+                • Final polish
+
+                In the next section, I'll show you exactly what goes into each level of this system.
+                """)
+
+                if st.button("Next Page →", key="quality_next_1"):
+                    st.session_state.quality_page = 2
+                    st.rerun()
+
+            # Page 2: Review Process
+            elif st.session_state.quality_page == 2:
+                st.title("The Perfect Review Process")
+                
+                st.write("""
+                Welcome back! Now I'm going to show you exactly how to run each level of the review process. This 
+                is where most agencies fail - they either make it too complicated or too simple.
+
+                Here's a story that changed everything for us. We used to have this massive 50-point checklist for 
+                every deliverable. Sounds thorough, right? Wrong. People would just check boxes without really 
+                looking. So we completely redesigned our process.
+
+                Here's our exact review framework:
+
+                Creator Check Process:
+                • Complete the work
+                • Step away for 10 minutes
+                • Review with fresh eyes
+                • Run through basic checklist
+
+                Basic Checklist:
+                • Spelling and grammar
+                • Links and buttons work
+                • Images and media load
+                • Formatting is consistent
+
+                Peer Review Process:
+                • Assign to fresh eyes
+                • Provide context
+                • Set review deadline
+                • Gather feedback
+
+                Final Approval Process:
+                • Strategic alignment check
+                • Client requirement review
+                • Final polish
+                • Delivery prep
+
+                In the next section, I'll show you how to automate parts of this process to make it even more 
+                efficient.
+                """)
+
+                col1, col2 = st.columns(2)
+                with col1:
+                    if st.button("← Previous Page", key="quality_prev_2"):
+                        st.session_state.quality_page = 1
+                        st.rerun()
+                with col2:
+                    if st.button("Next Page →", key="quality_next_2"):
+                        st.session_state.quality_page = 3
+                        st.rerun()
+
+            # Page 3: Quality Automation
+            elif st.session_state.quality_page == 3:
+                st.title("Automating Your Quality Control")
+                
+                st.write("""
+                Alright, this is where it gets really interesting. I'm going to show you how to automate your 
+                quality control process so it runs smoothly without constant oversight.
+
+                Let me tell you about a breakthrough moment. We were spending hours manually checking deliverables 
+                against our brand guidelines. Then we realized we could automate a lot of these checks. Game changer!
+
+                Here's exactly how we automate quality control:
+
+                Automated Checks:
+                • Spelling and grammar
+                • Brand term usage
+                • Link validation
+                • Image optimization
+
+                Workflow Automation:
+                • Review assignments
+                • Deadline reminders
+                • Status updates
+                • Approval routing
+
+                Template System:
+                • Review checklists
+                • Feedback forms
+                • Client presentations
+                • Delivery documents
+
+                Communication Automation:
+                • Review notifications
+                • Feedback collection
+                • Status updates
+                • Client communications
+
+                That's it for this video! In the next one, I'll show you how to set up your client success systems 
+                to ensure happy, long-term clients. Make sure to hit subscribe and the notification bell so you 
+                don't miss it!
+                """)
+
+                col1, col2 = st.columns(2)
+                with col1:
+                    if st.button("← Previous Page", key="quality_prev_3"):
+                        st.session_state.quality_page = 2
+                        st.rerun()
+                with col2:
+                    if st.button("Start Over", key="quality_start_over"):
+                        st.session_state.quality_page = 1
+                        st.rerun()
+
+        with delivery_tabs[3]:  # Client Success
+            if 'success_page' not in st.session_state:
+                st.session_state.success_page = 1
+
+            # Page 1: Success Framework
+            if st.session_state.success_page == 1:
+                st.title("Building Your Client Success System")
+                
+                st.write("""
+                Hey everyone! Welcome back. Today we're going to talk about something that's absolutely crucial for your 
+                agency - client success. I'm going to show you exactly how we keep our clients happy and 
+                engaged long-term.
+
+                Let me tell you about a painful lesson I learned. We used to think that good work was enough to 
+                keep clients happy. Then we lost three clients in one month - all of them said they just didn't 
+                feel valued. That's when I realized we needed a real client success system.
+
+                Here's what I developed - the "Client Joy System." Here's exactly how it works:
+
+                Phase 1: Regular Check-ins
+                • Weekly progress calls
+                • Monthly strategy sessions
+                • Quarterly reviews
+                • Annual planning
+
+                Phase 2: Proactive Communication
+                • Industry updates
+                • New opportunity alerts
+                • Strategy suggestions
+                • Educational content
+
+                Phase 3: Value Demonstration
+                • Progress tracking
+                • Strategy alignment
+                • Goal monitoring
+                • Innovation planning
+
+                In the next section, I'll show you exactly how to run each type of client meeting for maximum impact.
+                """)
+
+                if st.button("Next Page →", key="success_next_1"):
+                    st.session_state.success_page = 2
+                    st.rerun()
+
+            # Page 2: Client Meetings
+            elif st.session_state.success_page == 2:
+                st.title("Running Effective Client Meetings")
+                
+                st.write("""
+                Welcome back! Now I'm going to show you exactly how to run each type of client meeting. This is 
+                where most agencies mess up - they wing it and waste everyone's time.
+
+                Here's a story that changed everything for us. We had this client who was always frustrated after 
+                our calls. Turns out, we were talking about what WE thought was important, not what THEY cared 
+                about. Once we fixed that, everything changed.
+
+                Here's our exact meeting framework:
+
+                Weekly Progress Calls:
+                • Review this week's work
+                • Address any concerns
+                • Plan next week's tasks
+                • Collect feedback
+
+                Monthly Strategy Sessions:
+                • Review monthly goals
+                • Discuss market changes
+                • Adjust strategies
+                • Plan next month
+
+                Quarterly Reviews:
+                • Goal progress review
+                • Strategy assessment
+                • Market analysis
+                • Future planning
+
+                Annual Planning:
+                • Year in review
+                • Goal setting
+                • Strategy development
+                • Innovation planning
+
+                In the next section, I'll show you how to automate parts of this process while keeping it personal.
+                """)
+
+                col1, col2 = st.columns(2)
+                with col1:
+                    if st.button("← Previous Page", key="success_prev_2"):
+                        st.session_state.success_page = 1
+                        st.rerun()
+                with col2:
+                    if st.button("Next Page →", key="success_next_2"):
+                        st.session_state.success_page = 3
+                        st.rerun()
+
+            # Page 3: Success Automation
+            elif st.session_state.success_page == 3:
+                st.title("Automating Client Success")
+                
+                st.write("""
+                Alright, this is where it all comes together. I'm going to show you how to automate your client 
+                success system while keeping that personal touch that clients love.
+
+                Let me share something interesting. We used to spend hours preparing for client meetings, sending 
+                follow-ups, and tracking action items. Then we automated the routine stuff, which gave us more time 
+                for strategic thinking and personal interaction.
+
+                Here's exactly how we automate client success:
+
+                Meeting Automation:
+                • Calendar scheduling
+                • Agenda creation
+                • Reminder system
+                • Follow-up emails
+
+                Communication Automation:
+                • Update notifications
+                • Educational content
+                • Industry news
+                • Milestone alerts
+
+                Documentation Automation:
+                • Meeting notes
+                • Action items
+                • Progress tracking
+                • Strategy documents
+
+                Relationship Building:
+                • Birthday reminders
+                • Company milestones
+                • Success celebrations
+                • Thank you notes
+
+                That's it for this video series! You now have everything you need to build an amazing client 
+                success system. If you found this helpful, don't forget to like and subscribe. And drop a comment 
+                below if you have any questions!
+                """)
+
+                col1, col2 = st.columns(2)
+                with col1:
+                    if st.button("← Previous Page", key="success_prev_3"):
+                        st.session_state.success_page = 2
+                        st.rerun()
+                with col2:
+                    if st.button("Start Over", key="success_start_over"):
+                        st.session_state.success_page = 1
+                        st.rerun()
+
     elif selected_section == "Growth":
         st.title("Agency Growth")
         
