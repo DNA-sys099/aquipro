@@ -1566,63 +1566,176 @@ else:
     elif selected_section == "Delivery":
         st.title("Service Delivery")
         
-        st.markdown("""
-        <div class="nav-pills">
-            <a href="#" class="nav-pill active">Onboarding</a>
-            <a href="#" class="nav-pill">Project Management</a>
-            <a href="#" class="nav-pill">Quality Assurance</a>
-            <a href="#" class="nav-pill">Client Success</a>
-        </div>
-        """, unsafe_allow_html=True)
+        # Sub-module tabs with better contrast and unique names
+        delivery_tabs = st.tabs([
+            "**Client Onboarding**",
+            "**Project Management**", 
+            "**Quality Control**", 
+            "**Client Success**"
+        ])
         
-        col1, col2 = st.columns(2)
-        
-        with col1:
-            st.markdown("""
-            <div class="module-card">
-                <h3>Client Onboarding</h3>
-                <p>Create an exceptional first impression with a smooth onboarding process.</p>
-                <ul style="color: #4b5563; margin-left: 1.5rem;">
-                    <li>Welcome sequence</li>
-                    <li>Kickoff meeting template</li>
-                    <li>Asset collection</li>
-                </ul>
-            </div>
-            
-            <div class="module-card">
-                <h3>Project Management</h3>
-                <p>Keep projects on track and clients happy.</p>
-                <ul style="color: #4b5563; margin-left: 1.5rem;">
-                    <li>Timeline management</li>
-                    <li>Task delegation</li>
-                    <li>Progress tracking</li>
-                </ul>
-            </div>
-            """, unsafe_allow_html=True)
-        
-        with col2:
-            st.markdown("""
-            <div class="module-card">
-                <h3>Quality Assurance</h3>
-                <p>Maintain high standards across all deliverables.</p>
-                <ul style="color: #4b5563; margin-left: 1.5rem;">
-                    <li>Review process</li>
-                    <li>Quality checklist</li>
-                    <li>Client approval workflow</li>
-                </ul>
-            </div>
-            
-            <div class="module-card">
-                <h3>Client Success</h3>
-                <p>Turn clients into long-term partners.</p>
-                <ul style="color: #4b5563; margin-left: 1.5rem;">
-                    <li>Regular check-ins</li>
-                    <li>Performance reporting</li>
-                    <li>Upsell opportunities</li>
-                </ul>
-            </div>
-            """, unsafe_allow_html=True)
-        
+        with delivery_tabs[0]:  # Client Onboarding
+            if 'onboarding_page' not in st.session_state:
+                st.session_state.onboarding_page = 1
+
+            # Page 1: Onboarding Framework
+            if st.session_state.onboarding_page == 1:
+                st.title("The Perfect Client Onboarding")
+                
+                st.write("""
+                Hey everyone! Welcome back. Today we're going to talk about something that's absolutely crucial for your 
+                agency - client onboarding. I'm going to show you the exact system we use that's resulted in a 95% 
+                client retention rate.
+
+                But first, let me tell you about a complete disaster I had with a client. We signed this big client - 
+                $15,000 per month. I was so excited about landing them that I rushed straight into the work. No proper 
+                onboarding, no clear expectations, no defined processes. Three months later, they fired us. That was a 
+                $180,000 lesson in the importance of proper onboarding.
+
+                Here's what I learned and what we do now. I call it the "5-Star Onboarding System":
+
+                Step 1: Welcome Package (Day 1)
+                • Send welcome video from agency owner
+                • Share onboarding timeline
+                • Include all necessary forms
+                • Set up client portal access
+
+                Step 2: Kickoff Call (Day 3)
+                • Review project scope in detail
+                • Set clear expectations
+                • Define communication channels
+                • Establish reporting schedule
+
+                Step 3: Strategy Session (Day 5)
+                • Deep dive into their business
+                • Set measurable goals
+                • Create 90-day roadmap
+                • Assign team members
+
+                Here's what happened when we implemented this system:
+                • Client churn dropped by 60%
+                • Project delays reduced by 45%
+                • Referrals increased by 80%
+
+                In the next section, I'll show you exactly what to include in your welcome package and how to run your 
+                kickoff calls for maximum impact.
+                """)
+
+                if st.button("Next Page →", key="onboarding_next_1"):
+                    st.session_state.onboarding_page = 2
+                    st.rerun()
+
+            # Page 2: Welcome Package and Kickoff
+            elif st.session_state.onboarding_page == 2:
+                st.title("Welcome Package & Kickoff Call")
+                
+                st.write("""
+                Welcome back! Now I'm going to show you exactly what goes into our welcome package and how to run a 
+                kickoff call that sets you up for success.
+
+                Let me tell you about an interesting experiment we did. We tested two different welcome packages with 
+                100 clients each. The first was just a standard email with forms. The second was our new enhanced 
+                package. The enhanced package group had 40% fewer support requests in the first month and reported 
+                90% higher satisfaction.
+
+                Here's exactly what goes into our welcome package:
+
+                1. Welcome Video Script:
+                "Hi [Client Name], this is [Your Name] from [Agency]. I'm so excited to have you on board! In this 
+                video, I'll walk you through what happens next and introduce you to your team..."
+
+                2. Required Forms (with explanations):
+                • Client Questionnaire: "This helps us understand your brand voice..."
+                • Access Form: "We'll use this to set up your analytics..."
+                • Brand Guidelines: "This ensures all work matches your brand..."
+
+                3. Kickoff Call Agenda:
+                • Introductions (5 minutes)
+                • Project Overview (10 minutes)
+                • Goal Setting (15 minutes)
+                • Timeline Review (10 minutes)
+                • Q&A (20 minutes)
+
+                4. The Success Roadmap:
+                • Week 1: Setup and Strategy
+                • Week 2: Initial Deliverables
+                • Week 3: Review and Adjust
+                • Week 4: Scale and Optimize
+
+                In the next section, I'll show you how to handle the crucial first 30 days to ensure long-term client 
+                success.
+                """)
+
+                col1, col2 = st.columns(2)
+                with col1:
+                    if st.button("← Previous Page", key="onboarding_prev_2"):
+                        st.session_state.onboarding_page = 1
+                        st.rerun()
+                with col2:
+                    if st.button("Next Page →", key="onboarding_next_2"):
+                        st.session_state.onboarding_page = 3
+                        st.rerun()
+
+            # Page 3: First 30 Days
+            elif st.session_state.onboarding_page == 3:
+                st.title("The First 30 Days")
+                
+                st.write("""
+                Alright, this is where the magic happens. The first 30 days will make or break your client 
+                relationship. I'm going to show you exactly how to structure this crucial period.
+
+                Quick story - we once had a client who was ready to cancel after 30 days. We managed to turn them 
+                around using this exact system, and they ended up being our biggest advocate, referring us three other 
+                clients.
+
+                Here's our exact 30-day plan:
+
+                Week 1: Foundation
+                • Day 1: Send welcome package
+                • Day 2: Collect all accesses
+                • Day 3: Kickoff call
+                • Day 5: Strategy session
+                • Day 7: First progress update
+
+                Week 2: Initial Wins
+                • Implement quick wins
+                • Show initial results
+                • Get early feedback
+                • Adjust approach if needed
+
+                Week 3: Deep Implementation
+                • Roll out full strategy
+                • Team check-in
+                • Client feedback session
+                • Progress report
+
+                Week 4: Review and Scale
+                • Results presentation
+                • Strategy refinement
+                • Success celebration
+                • Plan next 60 days
+
+                Key Success Metrics to Track:
+                • Response time to client requests
+                • Task completion rate
+                • Client engagement level
+                • Early wins delivered
+
+                That's it for this video! In the next one, I'll show you how to set up your project management system 
+                for maximum efficiency. Don't forget to hit subscribe and the notification bell to catch that one. 
+                And if this was helpful, give it a thumbs up!
+                """)
+
+                col1, col2 = st.columns(2)
+                with col1:
+                    if st.button("← Previous Page", key="onboarding_prev_3"):
+                        st.session_state.onboarding_page = 2
+                        st.rerun()
+                with col2:
+                    if st.button("Start Over", key="onboarding_start_over"):
+                        st.session_state.onboarding_page = 1
+                        st.rerun()
+
     elif selected_section == "Growth":
         st.title("Agency Growth")
         
