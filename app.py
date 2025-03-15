@@ -495,6 +495,23 @@ h1, h2, h3 {
 </style>
 """, unsafe_allow_html=True)
 
+# Add custom CSS for the download button
+st.markdown("""
+<style>
+div.stButton > button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    margin: 16px 0;
+}
+div.stButton > button:hover {
+    background-color: #45a049;
+}
+</style>
+""", unsafe_allow_html=True)
+
 # Remove metrics initialization
 if 'metrics' in st.session_state:
     del st.session_state['metrics']
@@ -811,51 +828,82 @@ else:
             st.title("Lead Generation Mastery")
             
             st.write("""
-            ## Module Overview
-            In this comprehensive module, you'll master the art and science of generating high-quality leads 
-            for your agency. We've broken down our proven lead generation system into actionable steps that 
-            you can implement immediately.
+            ## Lead Generation Deep Dive
 
-            ### What You'll Learn:
-            • Creating irresistible lead magnets that convert
-            • Building automated lead generation systems
-            • Implementing multi-channel distribution strategies
-            • Optimizing your conversion rates
+            ### 1. Content Marketing Strategy
+            The foundation of successful lead generation is a solid content marketing strategy. Here's how to build one:
 
-            ### Module Structure:
-            1. Content Marketing Strategy
-            2. Lead Magnet Creation
-            3. Distribution Channels
-            4. Automation Systems
-            5. Conversion Optimization
+            #### Content Types
+            • **Blog Posts**: In-depth articles that showcase your expertise
+            • **Video Content**: Tutorials and behind-the-scenes content
+            • **Podcasts**: Industry interviews and expert insights
+            • **Social Media**: Platform-specific content that engages
 
-            ### Implementation Timeline:
-            This module is designed to be completed in 2-3 weeks, with each component building on the previous one.
-            You'll have actionable steps to implement after each section.
+            #### Content Creation Process
+            1. Research Phase
+               • Identify target audience pain points
+               • Analyze competitor content gaps
+               • Research trending topics
+               • Define content goals
+
+            2. Creation Phase
+               • Develop content briefs
+               • Write compelling headlines
+               • Create valuable content
+               • Optimize for SEO
+
+            ### 2. Lead Magnet Creation
+            Your lead magnets should solve specific problems. Here are the most effective types:
+
+            #### Educational Resources
+            • Industry reports
+            • White papers
+            • Strategy guides
+            • Tutorial series
+
+            #### Tools and Templates
+            • ROI calculators
+            • Project planners
+            • Process templates
+            • Checklist systems
+
+            ### 3. Distribution Strategy
+            Getting your content in front of the right audience is crucial:
+
+            #### Channels
+            • **Social Media**: LinkedIn, Twitter, Instagram
+            • **Email Marketing**: Segmented lists, automation
+            • **Paid Advertising**: Platform-specific campaigns
+            • **Partnerships**: Co-marketing opportunities
             """)
 
             # Add PDF download button
             with open("pdfs/lead_generation_guide.md", "r") as f:
+                st.markdown('<div class="stDownloadButton">', unsafe_allow_html=True)
                 btn = st.download_button(
                     label="📥 Download Complete Lead Generation Guide (PDF)",
                     data=f.read(),
                     file_name="agency_lead_generation_guide.pdf",
                     mime="application/pdf"
                 )
+                st.markdown('</div>', unsafe_allow_html=True)
 
             st.write("""
-            ### Getting Started:
-            Begin with the Content Marketing Strategy section. This foundation will inform all your 
-            other lead generation activities. Follow the implementation steps in order, and don't 
-            move to the next section until you've completed the action items from the current one.
+            ### Implementation Steps
+            1. **Week 1**: Set up your content marketing foundation
+               • Choose your primary content types
+               • Create your content calendar
+               • Set up tracking systems
 
-            ### Expert Tips:
-            • Start with one lead magnet and perfect it before creating more
-            • Focus on automation from day one
-            • Test and measure everything
-            • Always prioritize quality over quantity
+            2. **Week 2**: Create your first lead magnets
+               • Choose your lead magnet type
+               • Develop the content
+               • Set up delivery system
 
-            Ready to transform your lead generation? Let's dive in!
+            3. **Week 3**: Launch your distribution strategy
+               • Set up social media accounts
+               • Create email sequences
+               • Plan paid campaigns
             """)
 
         with tabs[1]:  # Sales System
@@ -962,9 +1010,10 @@ else:
                 Welcome back! Now I'm going to share the exact email templates we use in our follow-up sequence. These 
                 aren't just any templates - these have been tested and refined over hundreds of leads.
 
-                Let me tell you a quick story about these templates. We had a client who was using generic follow-up 
-                emails and getting a 2% response rate. We implemented these templates, and their response rate shot up 
-                to 23%. That's more than a 10x improvement!
+                Let me tell you about an interesting experiment we did. We tested two different welcome packages with 
+                100 clients each. The first was just a standard email with forms. The second was our new enhanced 
+                package. The enhanced package group had 40% fewer support requests in the first month and reported 
+                90% higher satisfaction.
 
                 Here's the first email template - the Value Resource Email:
 
@@ -1184,7 +1233,7 @@ else:
 
                 That's it for this training. In the next video, I'll show you how to handle the follow-up process 
                 and what to do after the call to maximize your chances of closing the deal. Make sure to subscribe and 
-                hit that notification bell so you don't miss it. And if this was helpful, give it a thumbs up!
+                hit that notification bell to catch that one. And if this was helpful, give it a thumbs up!
                 """)
 
                 col1, col2 = st.columns(2)
@@ -1291,7 +1340,13 @@ else:
                 onboarding, no clear expectations, no defined processes. Three months later, they fired us. That was a 
                 $180,000 lesson in the importance of proper onboarding.
 
-                Here's what I learned and what we do now. I call it the "5-Star Onboarding System":
+                That's when I realized something crucial - clients don't want to read a novel. They want to know three 
+                things:
+                1. Do you understand their problem?
+                2. Can you solve it?
+                3. How much will it cost?
+
+                So I developed what I call the "5-Star Onboarding System":
 
                 Step 1: Welcome Package (Day 1)
                 • Send welcome video from agency owner
@@ -2586,9 +2641,9 @@ else:
 
                 Performance Review:
                 • Strategy assessment
-                • Goal evaluation
                 • Team feedback
                 • Market response
+                • Future planning
 
                 Adaptation Process:
                 • Market changes
