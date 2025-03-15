@@ -37,100 +37,6 @@ st.markdown("""
         margin: 0 auto;
     }
     
-    /* Metrics Grid */
-    .metrics-grid {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 1.5rem;
-        margin-bottom: 2rem;
-    }
-    .metric-card {
-        background: white;
-        padding: 1.75rem;
-        border-radius: 16px;
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-        transition: all 0.3s ease;
-    }
-    .metric-card:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-    }
-    .metric-title {
-        color: #6b7280;
-        font-size: 0.875rem;
-        font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
-        margin-bottom: 0.75rem;
-    }
-    .metric-value {
-        font-size: 2.25rem;
-        font-weight: 700;
-        color: #111827;
-        margin-bottom: 0.5rem;
-        font-family: 'Inter', sans-serif;
-    }
-    .metric-change {
-        display: flex;
-        align-items: center;
-        gap: 0.375rem;
-        font-size: 0.875rem;
-        font-weight: 500;
-    }
-    .metric-change.positive {
-        color: #059669;
-    }
-    
-    /* Activity Card */
-    .activity-card {
-        background: white;
-        padding: 1.75rem;
-        border-radius: 16px;
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-        margin-bottom: 2rem;
-    }
-    .activity-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 1.5rem;
-    }
-    .activity-title {
-        font-size: 1.25rem;
-        font-weight: 700;
-        color: #111827;
-        letter-spacing: -0.025em;
-    }
-    .activity-item {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 1.25rem 0;
-        border-bottom: 1px solid #e5e7eb;
-    }
-    .activity-item:last-child {
-        border-bottom: none;
-    }
-    .activity-content {
-        display: flex;
-        flex-direction: column;
-        gap: 0.375rem;
-    }
-    .activity-action {
-        font-weight: 600;
-        color: #111827;
-        font-size: 0.9375rem;
-    }
-    .activity-detail {
-        color: #6b7280;
-        font-size: 0.875rem;
-    }
-    .activity-time {
-        color: #9ca3af;
-        font-size: 0.875rem;
-        font-weight: 500;
-    }
-    
     /* Progress Section */
     .progress-section {
         display: grid;
@@ -367,34 +273,6 @@ st.markdown("""
     }
     
     /* Dashboard Styles */
-    .metric-card {
-        background: white;
-        padding: 1.75rem;
-        border-radius: 16px;
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-        transition: transform 0.2s ease, box-shadow 0.2s ease;
-        margin-bottom: 1rem;
-    }
-    .metric-card:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-    }
-    .metric-value {
-        font-family: 'Inter', sans-serif;
-        font-size: 2rem;
-        font-weight: 700;
-        color: #111827;
-        margin: 0.5rem 0;
-    }
-    .metric-label {
-        color: #6b7280;
-        font-size: 0.875rem;
-        font-weight: 500;
-        text-transform: uppercase;
-        letter-spacing: 0.025em;
-    }
-    
-    /* Module Content */
     .module-content {
         padding: 2rem;
         background: white;
@@ -617,79 +495,21 @@ h1, h2, h3 {
 </style>
 """, unsafe_allow_html=True)
 
-# Initialize session states and sections dictionary
-if 'logged_in' not in st.session_state:
-    st.session_state.logged_in = False
+# Remove metrics initialization
+if 'metrics' in st.session_state:
+    del st.session_state['metrics']
 
-# Define sections with better contrast
-sections = {
-    "Dashboard": {
-        "icon": "📊",
-        "description": "Overview and metrics"
-    },
-    "Acquisition": {
-        "icon": "🎯",
-        "description": "Build your client pipeline"
-    },
-    "Delivery": {
-        "icon": "🚀",
-        "description": "Streamline your operations"
-    },
-    "Growth": {
-        "icon": "📈",
-        "description": "Scale your business"
-    },
-    "Resources": {
-        "icon": "📚",
-        "description": "Access tools and templates"
-    }
-}
-
-# Add styles for better contrast
+# Remove case study references
 st.markdown("""
 <style>
-/* Main Navigation Styles */
-.css-1544g2n {
-    padding: 1rem;
-    background-color: white;
-    border-radius: 8px;
-    margin-bottom: 1rem;
+/* Remove metrics styling */
+.metrics-grid, .metric-card, .metric-title, .metric-value, .metric-change {
+    display: none !important;
 }
 
-/* Sidebar Title */
-.sidebar-title {
-    color: white !important;
-    font-size: 2rem !important;
-    font-weight: 700 !important;
-    margin-bottom: 2rem !important;
-    text-align: center !important;
-    padding: 1rem !important;
-    background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%) !important;
-    border-radius: 8px !important;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1) !important;
-}
-
-/* Section Selection */
-.css-1v0mbdj {
-    margin-top: 1rem;
-}
-.css-1v0mbdj > label {
-    color: white !important;
-    font-size: 1.1rem !important;
-    font-weight: 600 !important;
-    margin-bottom: 0.5rem !important;
-}
-.css-1v0mbdj select {
-    background-color: #2d3748 !important;
-    color: white !important;
-    border: 1px solid #4a5568 !important;
-    border-radius: 6px !important;
-    padding: 0.5rem !important;
-}
-.css-1v0mbdj select option {
-    background-color: #2d3748 !important;
-    color: white !important;
-    padding: 0.5rem !important;
+/* Remove case study styling */
+.case-study, .case-study-card {
+    display: none !important;
 }
 </style>
 """, unsafe_allow_html=True)
@@ -697,14 +517,19 @@ st.markdown("""
 # Initialize session states and sections dictionary
 if 'logged_in' not in st.session_state:
     st.session_state.logged_in = False
-if 'show_signup' not in st.session_state:
-    st.session_state.show_signup = False
-if 'show_home' not in st.session_state:
-    st.session_state.show_home = True
 
-# Define sections
+# Define sections with better contrast
 sections = {
-    "Dashboard": "View your agency's performance",
+    "Dashboard": "View your agency's overview",
+    "Acquisition": "Client acquisition strategies",
+    "Delivery": "Service delivery management",
+    "Growth": "Agency growth tactics",
+    "Resources": "Tools and resources"
+}
+
+# Update sections to remove metrics references
+sections = {
+    "Dashboard": "View your agency's overview",
     "Acquisition": "Client acquisition strategies",
     "Delivery": "Service delivery management",
     "Growth": "Agency growth tactics",
@@ -815,15 +640,6 @@ elif not st.session_state.logged_in:
             st.rerun()
 
 else:
-    # Initialize session state for metrics if not exists
-    if 'metrics' not in st.session_state:
-        st.session_state.metrics = {
-            'revenue': [],
-            'clients': [],
-            'projects': [],
-            'team_size': []
-        }
-
     # Initialize session state for sub-module selection
     if 'sub_module' not in st.session_state:
         st.session_state.sub_module = 'Lead Generation'
@@ -851,118 +667,134 @@ else:
     if selected_section == "Dashboard":
         st.title("Agency Automation Hub")
         
+        st.markdown('<div class="content-text">', unsafe_allow_html=True)
+        st.write("""
+        Hey everyone! Welcome back to another video. Today we're going to dive into the heart of agency automation.
+        I'm going to show you exactly how we automate our entire agency to run like a well-oiled machine.
+
+        Let me tell you a quick story. When I first started, I was doing everything manually. It was a mess.
+        I was working 80-hour weeks and still falling behind. Then I discovered these automation categories
+        that changed everything.
+        """)
+        st.markdown('</div>', unsafe_allow_html=True)
+        
         # Automation Categories
         col1, col2 = st.columns(2)
         
         with col1:
             st.markdown("""
             <div class="module-card">
-                <h3>Client Communication</h3>
-                <p>Automated email sequences and follow-ups</p>
-                <ul style="color: #4b5563; margin-left: 1.5rem;">
-                    <li>Welcome sequences</li>
-                    <li>Progress updates</li>
-                    <li>Meeting reminders</li>
+                <h3>Lead Generation</h3>
+                <p>Automate your lead generation process with proven systems.</p>
+                <ul>
+                    <li>Lead magnet automation</li>
+                    <li>Email sequences</li>
+                    <li>Social media automation</li>
                 </ul>
-                <div style="margin-top: 1rem;">
-                    <p style="color: #2563eb; font-weight: 500;">Status: Active</p>
-                </div>
             </div>
             
             <div class="module-card">
-                <h3>Project Management</h3>
-                <p>Task automation and workflow management</p>
-                <ul style="color: #4b5563; margin-left: 1.5rem;">
-                    <li>Task assignments</li>
-                    <li>Deadline tracking</li>
-                    <li>Progress reporting</li>
+                <h3>Client Onboarding</h3>
+                <p>Streamline your client onboarding with automated workflows.</p>
+                <ul>
+                    <li>Welcome sequence</li>
+                    <li>Document collection</li>
+                    <li>Project setup</li>
                 </ul>
-                <div style="margin-top: 1rem;">
-                    <p style="color: #2563eb; font-weight: 500;">Status: Active</p>
-                </div>
             </div>
             """, unsafe_allow_html=True)
         
         with col2:
             st.markdown("""
             <div class="module-card">
-                <h3>Social Media</h3>
-                <p>Content scheduling and posting automation</p>
-                <ul style="color: #4b5563; margin-left: 1.5rem;">
-                    <li>Post scheduling</li>
-                    <li>Analytics tracking</li>
-                    <li>Engagement monitoring</li>
+                <h3>Project Management</h3>
+                <p>Automate your project management tasks and workflows.</p>
+                <ul>
+                    <li>Task automation</li>
+                    <li>Progress tracking</li>
+                    <li>Client updates</li>
                 </ul>
-                <div style="margin-top: 1rem;">
-                    <p style="color: #2563eb; font-weight: 500;">Status: Active</p>
-                </div>
             </div>
             
             <div class="module-card">
-                <h3>Reporting</h3>
-                <p>Automated report generation and delivery</p>
-                <ul style="color: #4b5563; margin-left: 1.5rem;">
-                    <li>Performance reports</li>
-                    <li>Client dashboards</li>
-                    <li>ROI tracking</li>
+                <h3>Client Success</h3>
+                <p>Keep clients happy with automated check-ins and updates.</p>
+                <ul>
+                    <li>Check-in automation</li>
+                    <li>Feedback collection</li>
+                    <li>Success tracking</li>
                 </ul>
-                <div style="margin-top: 1rem;">
-                    <p style="color: #2563eb; font-weight: 500;">Status: Active</p>
-                </div>
             </div>
             """, unsafe_allow_html=True)
+
+        st.markdown('<div class="content-text">', unsafe_allow_html=True)
+        st.write("""
+        That's it for this overview! In the next videos, we'll dive deep into each of these categories.
+        Make sure to hit subscribe and the notification bell so you don't miss any of them!
+        """)
+        st.markdown('</div>', unsafe_allow_html=True)
+
+    elif selected_section == "Growth":
+        st.title("Agency Growth")
+        st.write("""
+        Hey everyone! Today we're going to talk about growing your agency in a sustainable way.
+        I'll show you the exact frameworks and systems we use to scale effectively.
+        """)
+
+        growth_tabs = st.tabs([
+            "Team Building",
+            "Systems & Processes",
+            "Financial Growth",
+            "Strategic Planning"
+        ])
+
+        with growth_tabs[0]:
+            st.write("""
+            Building a strong team is crucial for agency growth. Let's focus on the key areas:
             
-        # Active Automations Overview
-        st.subheader("Active Automations")
-        
-        # Create three columns for automation stats
-        stat_col1, stat_col2, stat_col3 = st.columns(3)
-        
-        with stat_col1:
-            st.metric("Active Workflows", "12", "")
-        
-        with stat_col2:
-            st.metric("Tasks Automated", "127", "")
+            • Clear role definitions
+            • Growth opportunities
+            • Regular feedback
+            • Team recognition
             
-        with stat_col3:
-            st.metric("Time Saved (hrs/week)", "45", "")
+            Remember: your team is your most valuable asset. Invest in them, and they'll invest in your vision.
+            """)
+
+        with growth_tabs[1]:
+            st.write("""
+            Good systems are the foundation of a scalable agency. Here's what to focus on:
             
-        # Recent Automation Activity
-        st.subheader("Recent Activity")
-        
-        activity_data = [
-            {
-                "time": "2 hours ago",
-                "event": "Welcome sequence triggered for new client: Tech Solutions Inc.",
-                "type": "Client Communication"
-            },
-            {
-                "time": "4 hours ago",
-                "event": "Monthly performance reports generated and sent to all clients",
-                "type": "Reporting"
-            },
-            {
-                "time": "Yesterday",
-                "event": "Social media content scheduled for next week",
-                "type": "Social Media"
-            },
-            {
-                "time": "2 days ago",
-                "event": "Project milestone notifications sent to team",
-                "type": "Project Management"
-            }
-        ]
-        
-        for activity in activity_data:
-            st.markdown(f"""
-            <div style="padding: 1rem; background: white; border-radius: 0.5rem; margin-bottom: 0.5rem; border: 1px solid #e5e7eb;">
-                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
-                    <span style="color: #4b5563; font-size: 0.875rem;">{activity['time']}</span>
-                    <span style="color: #2563eb; font-size: 0.875rem;">{activity['type']}</span>
-                </div>
-                <div style="color: #111827;">{activity['event']}</div>
-            </div>
-            """, unsafe_allow_html=True)
+            • Client communication
+            • Project workflows
+            • Quality checks
+            • Team coordination
+            
+            The key is to start small and gradually build up your systems.
+            """)
+
+        with growth_tabs[2]:
+            st.write("""
+            Smart financial management is essential. Focus on these areas:
+            
+            • Cash flow management
+            • Pricing strategy
+            • Expense tracking
+            • Growth planning
+            
+            Remember: good financial management is the foundation of a sustainable agency.
+            """)
+
+        with growth_tabs[3]:
+            st.write("""
+            Strategic planning helps you grow intentionally. Key elements include:
+            
+            • Vision setting
+            • Goal planning
+            • Action steps
+            • Progress reviews
+            
+            Take time to plan your growth - don't just let it happen randomly.
+            """)
 
     elif selected_section == "Acquisition":
         st.markdown('<h1 class="main-title">Client Acquisition</h1>', unsafe_allow_html=True)
@@ -976,340 +808,105 @@ else:
         ])
 
         with tabs[0]:  # Lead Generation
-            if 'lead_gen_page' not in st.session_state:
-                st.session_state.lead_gen_page = 1
+            st.title("Lead Generation Mastery")
+            
+            st.write("""
+            ## Module Overview
+            In this comprehensive module, you'll master the art and science of generating high-quality leads 
+            for your agency. We've broken down our proven lead generation system into actionable steps that 
+            you can implement immediately.
 
-            # Page 1: Lead Magnet Strategy
-            if st.session_state.lead_gen_page == 1:
-                st.title("Creating Irresistible Lead Magnets")
-                
-                st.write("""
-                Hey everyone! Welcome back to another video. Today we're going to talk about something that's absolutely 
-                crucial for your agency - lead magnets. I'm going to show you exactly how I create lead magnets that 
-                convert at 47% or higher. Yes, you heard that right - 47%.
+            ### What You'll Learn:
+            • Creating irresistible lead magnets that convert
+            • Building automated lead generation systems
+            • Implementing multi-channel distribution strategies
+            • Optimizing your conversion rates
 
-                But first, let me tell you a quick story. When I first started my agency, I made the biggest mistake 
-                possible with lead magnets. I created this massive 50-page ebook about digital marketing. Spent weeks 
-                on it. Guess what happened? Nobody downloaded it. Not a single person.
+            ### Module Structure:
+            1. Content Marketing Strategy
+            2. Lead Magnet Creation
+            3. Distribution Channels
+            4. Automation Systems
+            5. Conversion Optimization
 
-                That's when I realized something crucial - busy business owners don't want another ebook to read. They 
-                want something they can use RIGHT NOW to solve a specific problem.
+            ### Implementation Timeline:
+            This module is designed to be completed in 2-3 weeks, with each component building on the previous one.
+            You'll have actionable steps to implement after each section.
+            """)
 
-                So let me show you what actually works. There are three types of lead magnets that I've found convert 
-                incredibly well for agencies:
+            # Add PDF download button
+            with open("pdfs/lead_generation_guide.md", "r") as f:
+                btn = st.download_button(
+                    label="📥 Download Complete Lead Generation Guide (PDF)",
+                    data=f.read(),
+                    file_name="agency_lead_generation_guide.pdf",
+                    mime="application/pdf"
+                )
 
-                First, we have templates. These are absolute gold. I'm talking about things like:
-                • Social media content calendars
-                • Email campaign templates
-                • Marketing budget spreadsheets
-                • ROI calculators
+            st.write("""
+            ### Getting Started:
+            Begin with the Content Marketing Strategy section. This foundation will inform all your 
+            other lead generation activities. Follow the implementation steps in order, and don't 
+            move to the next section until you've completed the action items from the current one.
 
-                The key is that these need to be something they can use immediately. For example, we created a simple 
-                Google Ads budget calculator. It helps businesses figure out exactly how much they need to spend to hit 
-                their goals.
+            ### Expert Tips:
+            • Start with one lead magnet and perfect it before creating more
+            • Focus on automation from day one
+            • Test and measure everything
+            • Always prioritize quality over quantity
 
-                The second type is what I call the 'Quick Win' guide. This isn't your typical PDF - it's a super specific, 
-                step-by-step process that solves ONE problem. For example, we created a "5-Minute LinkedIn Optimization 
-                Checklist" that shows exactly how to improve your LinkedIn profile for B2B lead generation.
-
-                Here's why it worked so well - it promises (and delivers) value in just 5 minutes. Business owners love 
-                that. They can implement it right away and see results almost immediately.
-
-                In the next section, I'll show you exactly how to create and position these lead magnets for 
-                maximum impact. Trust me, this is where most agencies get it completely wrong, and I'm going to show 
-                you how to do it right.
-                """)
-
-                if st.button("Next Page →", key="lead_gen_next_1"):
-                    st.session_state.lead_gen_page = 2
-                    st.rerun()
-
-            # Page 2: Lead Generation Strategy
-            elif st.session_state.lead_gen_page == 2:
-                st.title("Promoting Your Lead Magnet")
-                
-                st.write("""
-                Welcome back! Now that you know how to create a killer lead magnet, let's talk about getting it in front 
-                of the right people. This is where I see so many agencies mess up - they create something great but 
-                nobody ever sees it.
-
-                Let me tell you about a massive failure I had when I first started. I created this amazing lead magnet - 
-                a social media audit template. It was genuinely good stuff. But I just put it on our website and expected 
-                people to find it. Guess what happened? Nothing. Absolutely nothing.
-
-                Then I realized something crucial - it's not about the number of downloads, it's about what happens AFTER 
-                the download. Here's the exact follow-up sequence we developed that now converts 20% of our leads into 
-                sales calls:
-
-                Immediately after download:
-                • Send the lead magnet (obviously)
-                • Include a 2-minute video explaining how to get the most value from it
-                • Add one quick win they can implement right now
-
-                24 hours later:
-                • Send an industry insight
-                • Ask if they've had a chance to implement the quick win
-                • Offer help if they're stuck
-
-                3 days later:
-                • Share another valuable tip (something not in the lead magnet)
-                • Ask about their biggest challenge in [topic area]
-                • This email gets the most responses - people love sharing their challenges
-
-                5 days later:
-                • Send a "common mistakes" email
-                • Show how your service helps avoid these mistakes
-                • Include a calendar link for those who want to learn more
-
-                Here's what most people get wrong - they try to sell too soon. We don't pitch our services until day 5, 
-                and even then, it's soft. We're just offering more help.
-
-                The key is to keep providing value after the lead magnet. Think about it - if someone downloads a LinkedIn 
-                checklist, they're probably trying to improve their LinkedIn presence. So every follow-up should help 
-                them with that goal.
-
-                That's it for this video! In the next one, I'll show you how to scale this entire process using 
-                automation. Make sure to hit subscribe and the notification bell so you don't miss it. And hey, if 
-                you've gotten value from this, give it a thumbs up - it really helps the channel.
-                """)
-
-                col1, col2 = st.columns(2)
-                with col1:
-                    if st.button("← Previous Page", key="lead_gen_prev_2"):
-                        st.session_state.lead_gen_page = 1
-                        st.rerun()
-                with col2:
-                    if st.button("Next Page →", key="lead_gen_next_2"):
-                        st.session_state.lead_gen_page = 3
-                        st.rerun()
-
-            # Page 3: Converting Leads
-            elif st.session_state.lead_gen_page == 3:
-                st.title("Converting Leads Into Clients")
-                
-                st.write("""
-                Alright, this is the final and most important part. You've got your lead magnet, you're promoting it 
-                well, and now you're getting downloads. But how do you turn these leads into paying clients?
-
-                Let me share a story that completely changed how I think about lead conversion. We had this lead magnet 
-                that was getting tons of downloads - like 50-60 per week. But we weren't converting any of them into 
-                clients. I was getting frustrated, thinking maybe lead magnets don't work.
-
-                Then I realized something crucial - it's not about the number of downloads, it's about what happens AFTER 
-                the download. Here's the exact follow-up sequence we developed that now converts 20% of our leads into 
-                sales calls:
-
-                Immediately after download:
-                • Send the lead magnet (obviously)
-                • Include a 2-minute video explaining how to get the most value from it
-                • Add one quick win they can implement right now
-
-                24 hours later:
-                • Send an industry insight
-                • Ask if they've had a chance to implement the quick win
-                • Offer help if they're stuck
-
-                3 days later:
-                • Share another valuable tip (something not in the lead magnet)
-                • Ask about their biggest challenge in [topic area]
-                • This email gets the most responses - people love sharing their challenges
-
-                5 days later:
-                • Send a "common mistakes" email
-                • Show how your service helps avoid these mistakes
-                • Include a calendar link for those who want to learn more
-
-                Here's what most people get wrong - they try to sell too soon. We don't pitch our services until day 5, 
-                and even then, it's soft. We're just offering more help.
-
-                The key is to keep providing value after the lead magnet. Think about it - if someone downloads a LinkedIn 
-                checklist, they're probably trying to improve their LinkedIn presence. So every follow-up should help 
-                them with that goal.
-
-                That's it for this video! In the next one, I'll show you how to scale this entire process using 
-                automation. Make sure to hit subscribe and the notification bell so you don't miss it. And hey, if 
-                you've gotten value from this, give it a thumbs up - it really helps the channel.
-                """)
-
-                col1, col2 = st.columns(2)
-                with col1:
-                    if st.button("← Previous Page", key="lead_gen_prev_3"):
-                        st.session_state.lead_gen_page = 2
-                        st.rerun()
-                with col2:
-                    if st.button("Start Over", key="lead_gen_start_over"):
-                        st.session_state.lead_gen_page = 1
-                        st.rerun()
+            Ready to transform your lead generation? Let's dive in!
+            """)
 
         with tabs[1]:  # Sales System
-            if 'sales_page' not in st.session_state:
-                st.session_state.sales_page = 1
+            st.title("Agency Sales Mastery")
+            
+            st.write("""
+            ## Module Overview
+            Master the art of selling agency services with our proven system. This comprehensive module 
+            breaks down every aspect of the sales process, from initial contact to closing high-ticket deals.
 
-            # Page 1: Discovery Call Framework
-            if st.session_state.sales_page == 1:
-                st.title("The Perfect Discovery Call")
-                
-                st.write("""
-                Hey everyone, welcome back to another video. Today I'm going to break down exactly how I run my discovery 
-                calls that have been converting at over 80%. This is the exact same process I've used to close over 
-                $500,000 in client deals in the past year alone.
+            ### What You'll Learn:
+            • Building a repeatable sales framework
+            • Conducting effective discovery calls
+            • Creating winning proposals
+            • Closing deals with confidence
+            • Following up and nurturing leads
 
-                Now, before I dive in, let me tell you a quick story. When I first started my agency, I was terrible at 
-                sales calls. I mean really bad. I would get on these calls and just start pitching right away. I'd talk 
-                about our services, our process, how great we were... and guess what? I barely closed any deals.
+            ### Module Structure:
+            1. Sales Foundation
+            2. Discovery Process
+            3. Proposal Creation
+            4. Closing Strategy
+            5. Follow-up System
 
-                Then I had this breakthrough moment. I was looking at our CRM data and noticed something interesting. 
-                The clients who ended up signing with us had an average of 7-8 touchpoints before they signed. But 
-                we were giving up after 2-3 emails.
+            ### Implementation Timeline:
+            This module is structured for implementation over 3-4 weeks. Each component builds on the previous, 
+            creating a comprehensive sales system for your agency.
+            """)
 
-                So I developed what I call the "Value Ladder Follow-up System." Here's exactly how it works:
+            # Add PDF download button
+            with open("pdfs/sales_system_guide.md", "r") as f:
+                btn = st.download_button(
+                    label="📥 Download Complete Sales System Guide (PDF)",
+                    data=f.read(),
+                    file_name="agency_sales_system_guide.pdf",
+                    mime="application/pdf"
+                )
 
-                Day 1: Send a value-packed resource
-                • Something they can use immediately
-                • No pitch, just pure value
-                • Ask for feedback
+            st.write("""
+            ### Getting Started:
+            Begin with the Sales Foundation section. This will establish the core framework for your entire 
+            sales process. Complete each section's action items before moving to the next.
 
-                Day 3: Share relevant results
-                • Make it relevant to their industry
-                • Focus on the process, not just results
-                • Include specific numbers and timelines
+            ### Expert Tips:
+            • Focus on value, not features
+            • Listen more than you talk
+            • Always follow up systematically
+            • Document everything for consistency
 
-                Day 5: Send an industry insight
-                • Share a trend or opportunity they might have missed
-                • Position yourself as an expert
-                • Make it actionable
-
-                The key is that each touchpoint adds value. We're not just "checking in" - we're giving them a reason 
-                to respond. And in the next section, I'll show you exactly how to create each of these touchpoints 
-                and what to say in each one.
-                """)
-
-                if st.button("Next Page →", key="sales_next_1"):
-                    st.session_state.sales_page = 2
-                    st.rerun()
-
-            # Page 2: Qualification Process
-            elif st.session_state.sales_page == 2:
-                st.title("Qualifying Your Leads")
-                
-                st.write("""
-                Alright, welcome back. Now I'm going to share the exact email templates we use in our follow-up sequence. These 
-                aren't just any templates - these have been tested and refined over hundreds of leads.
-
-                Let me tell you about these templates. We had a client who was using generic follow-up 
-                emails and getting a 2% response rate. We implemented these templates, and their response rate shot up 
-                to 23%. That's more than a 10x improvement!
-
-                Here's the first email template - the Value Resource Email:
-
-                Subject: [Their Industry] Strategy Guide: Implementing What We Discussed
-                
-                Hey [Name],
-
-                Following up on our conversation about [specific challenge they mentioned].
-
-                I put together a quick guide that shows you how to [solve specific problem] - even if you don't end 
-                up working with us. You can find it attached.
-
-                Key points covered:
-                • [Specific point 1]
-                • [Specific point 2]
-                • [Specific point 3]
-
-                Let me know if you have any questions!
-
-                Here's the Industry Insight Email (Day 3):
-
-                Subject: Spotted This [Industry] Trend - Thought of You
-
-                Hey [Name],
-
-                Just came across some interesting data about [their industry]:
-                [Share specific insight or trend]
-
-                This could mean [specific opportunity] for [their company name].
-
-                Here's a quick tip you can implement right now: [actionable tip]
-
-                Want to discuss how to take advantage of this?
-                """)
-
-                col1, col2 = st.columns(2)
-                with col1:
-                    if st.button("← Previous Page", key="sales_prev_2"):
-                        st.session_state.sales_page = 1
-                        st.rerun()
-                with col2:
-                    if st.button("Next Page →", key="sales_next_2"):
-                        st.session_state.sales_page = 3
-                        st.rerun()
-
-            # Page 3: Closing Process
-            elif st.session_state.sales_page == 3:
-                st.title("Closing The Deal")
-                
-                st.write("""
-                Welcome to the final part of this training. This is where it all comes together. I'm going to show you 
-                exactly how I close deals, and more importantly, how to handle those common objections that always come up.
-
-                But first, let me tell you about the biggest deal I almost lost. This was a $15,000 per month client, 
-                and I nearly blew it because I handled the close wrong. I got nervous about the price, started rambling 
-                about features and benefits, and almost talked them out of it. Luckily, I caught myself, shut up, and 
-                used the framework I'm about to share with you.
-
-                Here's my exact closing script. When you're ready to present your solution, say this:
-                "Based on what you've shared, there are three main challenges we need to address..."
-                Then list their challenges using their exact words - this is crucial. I literally write down their exact 
-                phrases during the discovery part of the call.
-
-                Then say: "Here's how we'll solve each of these..."
-                Present your solution, but keep it high level. Don't get too technical. I made this mistake early on, 
-                getting into the weeds about SEO algorithms and social media strategies. You'll lose them. Keep it focused 
-                on outcomes.
-
-                Finally: "The investment for this solution is $X per month..."
-                Then - and this is crucial - be completely silent. Don't say another word. Let them respond first. This 
-                silence might feel uncomfortable, but it's powerful. I count to ten in my head if I need to.
-
-                Now, here's what they're going to say, and exactly how you should respond:
-
-                When they say "I need to think about it":
-                You say: "What specific aspects would you like to think about?"
-                This helps you address their real concerns immediately. Often, "I need to think about it" really means 
-                "I have an objection I'm not comfortable sharing."
-
-                When they say "It's too expensive":
-                You say: "Let me show you the ROI calculation based on your current numbers..."
-                Always focus on value, never apologize for your prices. I learned this the hard way - the moment you 
-                apologize for your price or try to justify it, you've lost.
-
-                When they say "We want to try it internally first":
-                You say: "Let me show you a comparison of in-house versus agency costs..."
-                Then break down the real costs of hiring and training an internal team. Include salary, benefits, 
-                software costs, training time - everything. This usually opens their eyes.
-
-                Remember, your job isn't to convince them. It's to help them make a clear decision about whether this is 
-                right for their business. Sometimes that decision will be no, and that's okay. Better to know now than 
-                after you've started working together.
-
-                I used to think sales was about persuasion and closing techniques. But really, it's about asking the right 
-                questions, listening carefully, and then showing people how you can help them get what they want. Do this 
-                right, and the closing takes care of itself.
-
-                That's it for this training. In the next video, I'll show you how to handle the follow-up process 
-                and what to do after the call to maximize your chances of closing the deal. Make sure to subscribe and 
-                hit that notification bell so you don't miss it. And if this was helpful, give it a thumbs up!
-                """)
-
-                col1, col2 = st.columns(2)
-                with col1:
-                    if st.button("← Previous Page", key="sales_prev_3"):
-                        st.session_state.sales_page = 2
-                        st.rerun()
-                with col2:
-                    if st.button("Start Over", key="sales_start_over"):
-                        st.session_state.sales_page = 1
-                        st.rerun()
+            Ready to transform your agency's sales process? Let's begin!
+            """)
 
         with tabs[2]:  # Follow-up System
             if 'followup_page' not in st.session_state:
@@ -1547,35 +1144,47 @@ else:
 
                 1. The Opening Statement
                 Bad: "Thank you for the opportunity to submit this proposal."
-                Good: "Based on our discussion about [specific challenge], here's how we'll help [company name] achieve 
-                [specific goal] within [timeframe]."
+                Good: "Based on what you've shared, there are three main challenges we need to address..."
+                Then list their challenges using their exact words - this is crucial. I literally write down their exact 
+                phrases during the discovery part of the call.
 
-                2. The Problem Statement
-                Bad: "Your website needs improvement."
-                Good: "Your current website conversion rate of 1.2% is significantly below the industry standard of 3%, 
-                resulting in approximately 450 lost leads per month."
+                Then say: "Here's how we'll solve each of these..."
+                Present your solution, but keep it high level. Don't get too technical. I made this mistake early on, 
+                getting into the weeds about SEO algorithms and social media strategies. You'll lose them. Keep it focused 
+                on outcomes.
 
-                3. The Solution Section
-                Bad: "We'll implement SEO best practices."
-                Good: "We'll increase your organic traffic by:
-                • Optimizing your top 20 product pages (identified in our audit)
-                • Creating 12 industry-specific blog posts
-                • Building 15 high-authority backlinks
-                Expected result: 
+                Finally: "The investment for this solution is $X per month..."
+                Then - and this is crucial - be completely silent. Don't say another word. Let them respond first. This 
+                silence might feel uncomfortable, but it's powerful. I count to ten in my head if I need to.
 
-                4. The Social Proof Section
-                Bad: "We've helped many companies."
-                Good: "We recently helped [similar company] increase their conversion rate from 1.2% to 3.8% in 60 days, 
-                resulting in 127 additional leads per month."
+                Now, here's what they're going to say, and exactly how you should respond:
 
-                5. The Investment Section
-                Bad: "Our fee is $5,000 per month."
-                Good: "Investment: $5,000 per month
-                Expected ROI: 
-                Time to break even: 
+                When they say "I need to think about it":
+                You say: "What specific aspects would you like to think about?"
+                This helps you address their real concerns immediately. Often, "I need to think about it" really means 
+                "I have an objection I'm not comfortable sharing."
 
-                In the next section, I'll show you how to present this proposal in a way that makes it almost impossible 
-                to say no.
+                When they say "It's too expensive":
+                You say: "Let me show you the ROI calculation based on your current numbers..."
+                Always focus on value, never apologize for your prices. I learned this the hard way - the moment you 
+                apologize for your price or try to justify it, you've lost.
+
+                When they say "We want to try it internally first":
+                You say: "Let me show you a comparison of in-house versus agency costs..."
+                Then break down the real costs of hiring and training an internal team. Include salary, benefits, 
+                software costs, training time - everything. This usually opens their eyes.
+
+                Remember, your job isn't to convince them. It's to help them make a clear decision about whether this is 
+                right for their business. Sometimes that decision will be no, and that's okay. Better to know now than 
+                after you've started working together.
+
+                I used to think sales was about persuasion and closing techniques. But really, it's about asking the right 
+                questions, listening carefully, and then showing people how you can help them get what they want. Do this 
+                right, and the closing takes care of itself.
+
+                That's it for this training. In the next video, I'll show you how to handle the follow-up process 
+                and what to do after the call to maximize your chances of closing the deal. Make sure to subscribe and 
+                hit that notification bell so you don't miss it. And if this was helpful, give it a thumbs up!
                 """)
 
                 col1, col2 = st.columns(2)
@@ -1805,7 +1414,7 @@ else:
 
                 That's it for this video! In the next one, I'll show you how to set up your project management system 
                 for maximum efficiency. Don't forget to hit subscribe and the notification bell to catch that one. 
-                And if this was helpful, give it a thumbs up!
+                And hey, if you've gotten value from this, give it a thumbs up - it really helps the channel.
                 """)
 
                 col1, col2 = st.columns(2)
@@ -2076,7 +1685,7 @@ else:
                 
                 st.write("""
                 Alright, this is where it gets really interesting. I'm going to show you how to automate your 
-                quality control process so it runs smoothly without constant oversight.
+                quality control process so it runs smoothly.
 
                 Let me share a story that changed everything for us. We were spending hours manually checking deliverables 
                 against our brand guidelines. Then we realized we could automate a lot of these checks. Game changer!
@@ -2093,7 +1702,7 @@ else:
                 • Review assignments
                 • Deadline reminders
                 • Status updates
-                • Approval routing
+                • Team coordination
 
                 Template System:
                 • Review checklists
@@ -2283,66 +1892,6 @@ else:
                         st.session_state.success_page = 1
                         st.rerun()
 
-    elif selected_section == "Growth":
-        st.title("Agency Growth")
-        
-        st.markdown("""
-        <div class="nav-pills">
-            <a href="#" class="nav-pill active">Team Building</a>
-            <a href="#" class="nav-pill">Financial Management</a>
-            <a href="#" class="nav-pill">Systems & Processes</a>
-            <a href="#" class="nav-pill">Scaling Strategy</a>
-        </div>
-        """, unsafe_allow_html=True)
-        
-        col1, col2 = st.columns(2)
-        
-        with col1:
-            st.markdown("""
-            <div class="module-card">
-                <h3>Team Building</h3>
-                <p>Build and manage a high-performing team.</p>
-                <ul style="color: #4b5563; margin-left: 1.5rem;">
-                    <li>Hiring process</li>
-                    <li>Training system</li>
-                    <li>Performance management</li>
-                </ul>
-            </div>
-            
-            <div class="module-card">
-                <h3>Financial Management</h3>
-                <p>Optimize your agency's financial performance.</p>
-                <ul style="color: #4b5563; margin-left: 1.5rem;">
-                    <li>Profit optimization</li>
-                    <li>Cash flow management</li>
-                    <li>Financial forecasting</li>
-                </ul>
-            </div>
-            """, unsafe_allow_html=True)
-        
-        with col2:
-            st.markdown("""
-            <div class="module-card">
-                <h3>Systems & Processes</h3>
-                <p>Create scalable systems for growth.</p>
-                <ul style="color: #4b5563; margin-left: 1.5rem;">
-                    <li>SOP development</li>
-                    <li>Automation setup</li>
-                    <li>Tool stack optimization</li>
-                </ul>
-            </div>
-            
-            <div class="module-card">
-                <h3>Scaling Strategy</h3>
-                <p>Scale your agency systematically.</p>
-                <ul style="color: #4b5563; margin-left: 1.5rem;">
-                    <li>Growth roadmap</li>
-                    <li>Service expansion</li>
-                    <li>Market positioning</li>
-                </ul>
-            </div>
-            """, unsafe_allow_html=True)
-        
     elif selected_section == "Resources":
         st.title("Tools & Resources")
         
@@ -2478,7 +2027,7 @@ else:
                 • Recovery plan
 
                 That's it for this video! In the next one, I'll show you our essential templates. Make sure to 
-                hit subscribe and the notification bell!
+                hit subscribe and the notification bell to catch that one. And if this was helpful, give it a thumbs up!
                 """)
 
                 col1, col2 = st.columns(2)
@@ -2511,7 +2060,7 @@ else:
                 st.title("Building Your Dream Team")
                 
                 st.write("""
-                Hey everyone! Welcome back. Today we're going to talk about something that can make or break your 
+                Hey everyone! Welcome back. Today we're going to talk about something that's absolutely crucial for your 
                 agency - building your team. I'm going to show you exactly how to hire, train, and structure your 
                 team.
 
@@ -2733,7 +2282,8 @@ else:
                 • Process changes
                 • Team input
 
-                In the next section, I'll show you how to automate these systems.
+                In the next section, I'll show you how to automate parts of this process to make it even more 
+                efficient.
                 """)
 
                 col1, col2 = st.columns(2)
@@ -2754,9 +2304,9 @@ else:
                 Alright, this is where it gets really powerful. I'm going to show you how to automate your systems 
                 so they run smoothly.
 
-                Let me share something game-changing. We used to spend hours on repetitive tasks. Then we started 
-                automating them one by one. Now our team focuses on creative work while our systems handle the 
-                routine stuff.
+                Let me share a story that changed everything for us. We were spending hours manually checking 
+                deliverables against our brand guidelines. Then we realized we could automate a lot of these checks. 
+                Game changer!
 
                 Here's exactly how we automate:
 
@@ -2817,38 +2367,32 @@ else:
 
             # Page 1: Financial Framework
             if st.session_state.finance_page == 1:
-                st.title("Managing Agency Finances")
+                st.title("Financial Management Fundamentals")
                 
                 st.write("""
-                Hey everyone! Welcome back. Today we're going to talk about something that's crucial for your 
-                agency's success - financial management. I'm going to show you exactly how to structure your 
-                finances for sustainable growth.
+                Hey everyone! Welcome to another video. Today we're going to talk about something
+                that's absolutely crucial for your agency - financial management.
 
-                Let me tell you about a scary moment I had. Early in my agency, I was making good money but 
-                couldn't figure out why I never had enough cash for payroll. That's when I realized I needed a 
-                proper financial system.
-
-                Here's what I developed - the "Profit First Framework":
-
-                Phase 1: Account Structure
-                • Operating account
-                • Tax savings
-                • Profit holdings
-                • Owner's compensation
-
-                Phase 2: Revenue Allocation
-                • Project income
-                • Retainer payments
-                • Service packages
-                • Additional services
-
-                Phase 3: Expense Management
-                • Fixed costs
-                • Variable expenses
-                • Team costs
-                • Growth investments
-
-                In the next section, I'll show you exactly how to set up these systems in your agency.
+                When I first started my agency, I was terrible at managing finances. I was focused
+                on getting clients and delivering work, but the financial side was a mess. Here's
+                what I learned:
+                """)
+                
+                st.markdown("""
+                <div class="module-card">
+                    <h3>Financial Management Framework</h3>
+                    <ul>
+                        <li>Cash flow management</li>
+                        <li>Pricing strategy</li>
+                        <li>Expense tracking</li>
+                        <li>Financial planning</li>
+                    </ul>
+                </div>
+                """, unsafe_allow_html=True)
+                
+                st.write("""
+                In the next video, we'll dive deep into each of these components. Make sure to
+                subscribe so you don't miss it!
                 """)
 
                 if st.button("Next Page →", key="finance_next_1"):
@@ -2860,40 +2404,27 @@ else:
                 st.title("Pricing Your Services")
                 
                 st.write("""
-                Welcome back! Now I'm going to show you exactly how to price your services. This is where most 
-                agencies leave money on the table - they don't price based on value.
+                Welcome back! Now let's talk about one of the most important aspects of financial
+                management - pricing your services correctly.
 
-                Here's a story that changed everything. We used to price based on time and materials, but we were 
-                always struggling to make good profits. Then we switched to value-based pricing, and everything 
-                changed.
-
-                Here's our exact pricing framework:
-
-                Service Packages:
-                • Basic package
-                • Standard package
-                • Premium package
-                • Custom solutions
-
-                Package Components:
-                • Core services
-                • Add-on options
-                • Support levels
-                • Delivery timeline
-
-                Value Pricing:
-                • Client outcomes
-                • Industry standards
-                • Market position
-                • Competitive edge
-
-                Pricing Psychology:
-                • Package naming
-                • Feature presentation
-                • Option structure
-                • Upgrade paths
-
-                In the next section, I'll show you how to manage and optimize your agency's finances.
+                Here's what we'll cover today:
+                """)
+                
+                st.markdown("""
+                <div class="module-card">
+                    <h3>Pricing Strategy Components</h3>
+                    <ul>
+                        <li>Value-based pricing</li>
+                        <li>Package creation</li>
+                        <li>Upsell opportunities</li>
+                        <li>Pricing psychology</li>
+                    </ul>
+                </div>
+                """, unsafe_allow_html=True)
+                
+                st.write("""
+                Remember: your pricing isn't just about covering costs. It's about positioning
+                your agency in the market and attracting the right clients.
                 """)
 
                 col1, col2 = st.columns(2)
@@ -2906,46 +2437,32 @@ else:
                         st.session_state.finance_page = 3
                         st.rerun()
 
-            # Page 3: Financial Management
+            # Page 3: Financial Planning
             elif st.session_state.finance_page == 3:
-                st.title("Financial Growth Strategies")
+                st.title("Financial Planning for Growth")
                 
                 st.write("""
-                Alright, this is where it gets exciting. I'm going to show you how to manage and grow your 
-                agency's finances strategically.
+                Hey everyone! In this final video about financial management, we're going to talk
+                about planning for growth.
 
-                Let me share something powerful. We used to just look at our bank balance to make decisions. 
-                Then we developed this financial management system, and it completely transformed how we run 
-                the agency.
-
-                Here's exactly how we manage finances:
-
-                Cash Flow Management:
-                • Income tracking
-                • Expense planning
-                • Reserve building
-                • Cash forecasting
-
-                Growth Investment:
-                • Team expansion
-                • Tool upgrades
-                • Training programs
-                • Marketing budget
-
-                Financial Planning:
-                • Monthly reviews
-                • Quarterly planning
-                • Annual strategy
-                • Growth targets
-
-                Risk Management:
-                • Emergency fund
-                • Insurance coverage
-                • Legal protection
-                • Contract reviews
-
-                That's it for this video! In the next one, I'll show you how to create a strategic plan for 
-                your agency's future. Make sure to hit subscribe and the notification bell to catch that one!
+                Here's what you need to focus on:
+                """)
+                
+                st.markdown("""
+                <div class="module-card">
+                    <h3>Growth Planning Elements</h3>
+                    <ul>
+                        <li>Investment strategy</li>
+                        <li>Resource allocation</li>
+                        <li>Risk management</li>
+                        <li>Growth targets</li>
+                    </ul>
+                </div>
+                """, unsafe_allow_html=True)
+                
+                st.write("""
+                Remember: sustainable growth comes from smart financial planning and disciplined
+                execution. Don't rush the process.
                 """)
 
                 col1, col2 = st.columns(2)
@@ -3110,6 +2627,56 @@ else:
 st.write("""
 Let me share something powerful. We used to lose good people because they couldn't see their future 
 with us. Then we created clear growth paths and development plans. Now our team is stronger than ever.
+
+Here's what we focus on:
+• Clear role definitions
+• Growth opportunities
+• Regular feedback
+• Team recognition
+
+Remember: your team is your most valuable asset. Invest in them, and they'll invest in your vision.
+""")
+
+# Remove case study references from Team Building section
+st.write("""
+Let me share something powerful. We used to lose good people because they couldn't see their future 
+with us. Then we created clear growth paths and development plans. Now our team is stronger than ever.
+
+Here's what we focus on:
+• Clear role definitions
+• Growth opportunities
+• Regular feedback
+• Team recognition
+
+Remember: your team is your most valuable asset. Invest in them, and they'll invest in your vision.
+""")
+
+# Remove case study references from Systems section
+st.write("""
+Let me share something that changed everything. We used to waste hours on repetitive tasks.
+Then we created systems to automate them. Now our team can focus on what really matters.
+
+Here's what we systemize:
+• Client communication
+• Project workflows
+• Quality checks
+• Team coordination
+
+The key is to start small and gradually build up your systems.
+""")
+
+# Remove case study references from Financial section
+st.write("""
+When I started my agency, I made a lot of mistakes with finances. Now we have a clear system
+that keeps everything organized and predictable.
+
+Focus on these areas:
+• Cash flow management
+• Pricing strategy
+• Expense tracking
+• Growth planning
+
+Remember: good financial management is the foundation of a sustainable agency.
 """)
 
 # Remove metrics from Systems section
@@ -3118,9 +2685,27 @@ Here's exactly how we automate:
 
 Workflow Automation:
 • Task assignment
-• Progress updates
+• Daily updates
 • Status checks
 • Team coordination
+
+Communication Automation:
+• Update notifications
+• Team messages
+• Project updates
+• Team alerts
+
+Process Automation:
+• Data collection
+• File organization
+• System checks
+• Task tracking
+
+Integration Automation:
+• Tool connections
+• Data sync
+• System updates
+• Backup systems
 """)
 
 # Remove performance metrics from Financial section
@@ -3154,7 +2739,7 @@ Adaptation Process:
 • Market changes
 • Client needs
 • Team capacity
-• Resource availability
+• Resource planning
 """)
 
 # Remove success metrics from Quality Control
@@ -3177,6 +2762,24 @@ Meeting Automation:
 • Agenda creation
 • Reminder system
 • Follow-up emails
+
+Communication Automation:
+• Update notifications
+• Educational content
+• Industry news
+• Project updates
+
+Documentation Automation:
+• Meeting notes
+• Action items
+• Progress tracking
+• Strategy documents
+
+Relationship Building:
+• Regular check-ins
+• Company updates
+• Project milestones
+• Thank you notes
 """)
 
 # Remove metrics from Systems & Processes section
