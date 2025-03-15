@@ -380,46 +380,47 @@ st.markdown("""
 # Add styles for better contrast
 st.markdown("""
 <style>
-.main-title {
-    color: #1a202c !important;
-    font-size: 2rem !important;
-    font-weight: 700 !important;
-    margin-bottom: 2rem !important;
-    padding: 1rem !important;
-    background-color: white !important;
-    border-radius: 8px !important;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) !important;
-}
-.lesson-box {
-    background-color: white;
-    padding: 2rem;
-    border-radius: 8px;
-    margin-bottom: 1.5rem;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-}
-.lesson-title {
-    color: #1a202c;
-    font-size: 1.5rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
-}
-.lesson-content {
-    color: #4a5568;
-    font-size: 1.1rem;
-    line-height: 1.6;
-}
-.key-point {
-    background-color: #EDF2F7;
-    padding: 1rem;
-    border-radius: 8px;
-    margin: 1rem 0;
-    color: #2D3748;
-}
-.navigation {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 2rem;
-}
+    /* Global Styles */
+    .main-title {
+        color: #1a202c !important;
+        font-size: 2rem !important;
+        font-weight: 700 !important;
+        margin-bottom: 2rem !important;
+        padding: 1rem !important;
+        background-color: white !important;
+        border-radius: 8px !important;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) !important;
+    }
+    .lesson-box {
+        background-color: white;
+        padding: 2rem;
+        border-radius: 8px;
+        margin-bottom: 1.5rem;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+    .lesson-title {
+        color: #1a202c;
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+    }
+    .lesson-content {
+        color: #4a5568;
+        font-size: 1.1rem;
+        line-height: 1.6;
+    }
+    .key-point {
+        background-color: #EDF2F7;
+        padding: 1rem;
+        border-radius: 8px;
+        margin: 1rem 0;
+        color: #2D3748;
+    }
+    .navigation {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 2rem;
+    }
 </style>
 """, unsafe_allow_html=True)
 
@@ -856,75 +857,17 @@ else:
               - Guarantees
             """)
 
-            # Add PDF download button with proper styling
+            # Add markdown download button with proper styling
             try:
-                pdf_path = "pdfs/sales_system_guide.pdf"
-                if not os.path.exists(pdf_path):
-                    # If PDF doesn't exist, create it from markdown
-                    md_path = "pdfs/sales_system_guide.md"
-                    with open(md_path, "r", encoding="utf-8") as md_file:
-                        md_content = md_file.read()
-                    
-                    # Convert markdown to HTML
-                    html_content = markdown2.markdown(md_content)
-                    
-                    # Add CSS styling
-                    html_content = f"""
-                    <html>
-                    <head>
-                        <style>
-                            body {{
-                                font-family: Arial, sans-serif;
-                                line-height: 1.6;
-                                margin: 40px;
-                            }}
-                            h1, h2, h3, h4 {{
-                                color: #2c3e50;
-                                margin-top: 30px;
-                            }}
-                            h1 {{ font-size: 28px; }}
-                            h2 {{ font-size: 24px; }}
-                            h3 {{ font-size: 20px; }}
-                            h4 {{ font-size: 18px; }}
-                            ul, ol {{
-                                margin: 20px 0;
-                                padding-left: 30px;
-                            }}
-                            li {{
-                                margin: 10px 0;
-                            }}
-                            p {{
-                                margin: 15px 0;
-                            }}
-                            code {{
-                                background: #f8f9fa;
-                                padding: 2px 5px;
-                                border-radius: 3px;
-                            }}
-                        </style>
-                    </head>
-                    <body>
-                        {html_content}
-                    </body>
-                    </html>
-                    """
-                    
-                    # Create PDF directory if it doesn't exist
-                    os.makedirs("pdfs", exist_ok=True)
-                    
-                    # Convert HTML to PDF
-                    HTML(string=html_content).write_pdf(pdf_path)
-
-                # Read and serve the PDF
-                with open(pdf_path, "rb") as pdf_file:
+                with open("pdfs/sales_system_guide.md", "r", encoding="utf-8") as f:
                     btn = st.download_button(
-                        label="📥 Download Complete Sales System Guide (PDF)",
-                        data=pdf_file.read(),
-                        file_name="agency_sales_system_guide.pdf",
-                        mime="application/pdf"
+                        label="📥 Download Complete Sales System Guide",
+                        data=f.read(),
+                        file_name="agency_sales_system_guide.md",
+                        mime="text/markdown"
                     )
             except Exception as e:
-                st.error(f"Could not load the PDF guide. Please try again later. Error: {str(e)}")
+                st.error(f"Could not load the guide. Please try again later. Error: {str(e)}")
             
             st.write("""
             ### Getting Started:
@@ -1009,75 +952,17 @@ else:
               - Guarantees
             """)
 
-            # Add PDF download button with proper styling
+            # Add markdown download button
             try:
-                pdf_path = "pdfs/sales_system_guide.pdf"
-                if not os.path.exists(pdf_path):
-                    # If PDF doesn't exist, create it from markdown
-                    md_path = "pdfs/sales_system_guide.md"
-                    with open(md_path, "r", encoding="utf-8") as md_file:
-                        md_content = md_file.read()
-                    
-                    # Convert markdown to HTML
-                    html_content = markdown2.markdown(md_content)
-                    
-                    # Add CSS styling
-                    html_content = f"""
-                    <html>
-                    <head>
-                        <style>
-                            body {{
-                                font-family: Arial, sans-serif;
-                                line-height: 1.6;
-                                margin: 40px;
-                            }}
-                            h1, h2, h3, h4 {{
-                                color: #2c3e50;
-                                margin-top: 30px;
-                            }}
-                            h1 {{ font-size: 28px; }}
-                            h2 {{ font-size: 24px; }}
-                            h3 {{ font-size: 20px; }}
-                            h4 {{ font-size: 18px; }}
-                            ul, ol {{
-                                margin: 20px 0;
-                                padding-left: 30px;
-                            }}
-                            li {{
-                                margin: 10px 0;
-                            }}
-                            p {{
-                                margin: 15px 0;
-                            }}
-                            code {{
-                                background: #f8f9fa;
-                                padding: 2px 5px;
-                                border-radius: 3px;
-                            }}
-                        </style>
-                    </head>
-                    <body>
-                        {html_content}
-                    </body>
-                    </html>
-                    """
-                    
-                    # Create PDF directory if it doesn't exist
-                    os.makedirs("pdfs", exist_ok=True)
-                    
-                    # Convert HTML to PDF
-                    HTML(string=html_content).write_pdf(pdf_path)
-
-                # Read and serve the PDF
-                with open(pdf_path, "rb") as pdf_file:
+                with open("pdfs/sales_system_guide.md", "r", encoding="utf-8") as f:
                     btn = st.download_button(
-                        label="📥 Download Complete Sales System Guide (PDF)",
-                        data=pdf_file.read(),
-                        file_name="agency_sales_system_guide.pdf",
-                        mime="application/pdf"
+                        label="📥 Download Complete Sales System Guide",
+                        data=f.read(),
+                        file_name="agency_sales_system_guide.md",
+                        mime="text/markdown"
                     )
             except Exception as e:
-                st.error(f"Could not load the PDF guide. Please try again later. Error: {str(e)}")
+                st.error(f"Could not load the guide. Please try again later. Error: {str(e)}")
             
             st.write("""
             ### Getting Started:
@@ -1162,75 +1047,17 @@ else:
               - Guarantees
             """)
 
-            # Add PDF download button with proper styling
+            # Add markdown download button
             try:
-                pdf_path = "pdfs/sales_system_guide.pdf"
-                if not os.path.exists(pdf_path):
-                    # If PDF doesn't exist, create it from markdown
-                    md_path = "pdfs/sales_system_guide.md"
-                    with open(md_path, "r", encoding="utf-8") as md_file:
-                        md_content = md_file.read()
-                    
-                    # Convert markdown to HTML
-                    html_content = markdown2.markdown(md_content)
-                    
-                    # Add CSS styling
-                    html_content = f"""
-                    <html>
-                    <head>
-                        <style>
-                            body {{
-                                font-family: Arial, sans-serif;
-                                line-height: 1.6;
-                                margin: 40px;
-                            }}
-                            h1, h2, h3, h4 {{
-                                color: #2c3e50;
-                                margin-top: 30px;
-                            }}
-                            h1 {{ font-size: 28px; }}
-                            h2 {{ font-size: 24px; }}
-                            h3 {{ font-size: 20px; }}
-                            h4 {{ font-size: 18px; }}
-                            ul, ol {{
-                                margin: 20px 0;
-                                padding-left: 30px;
-                            }}
-                            li {{
-                                margin: 10px 0;
-                            }}
-                            p {{
-                                margin: 15px 0;
-                            }}
-                            code {{
-                                background: #f8f9fa;
-                                padding: 2px 5px;
-                                border-radius: 3px;
-                            }}
-                        </style>
-                    </head>
-                    <body>
-                        {html_content}
-                    </body>
-                    </html>
-                    """
-                    
-                    # Create PDF directory if it doesn't exist
-                    os.makedirs("pdfs", exist_ok=True)
-                    
-                    # Convert HTML to PDF
-                    HTML(string=html_content).write_pdf(pdf_path)
-
-                # Read and serve the PDF
-                with open(pdf_path, "rb") as pdf_file:
+                with open("pdfs/sales_system_guide.md", "r", encoding="utf-8") as f:
                     btn = st.download_button(
-                        label="📥 Download Complete Sales System Guide (PDF)",
-                        data=pdf_file.read(),
-                        file_name="agency_sales_system_guide.pdf",
-                        mime="application/pdf"
+                        label="📥 Download Complete Sales System Guide",
+                        data=f.read(),
+                        file_name="agency_sales_system_guide.md",
+                        mime="text/markdown"
                     )
             except Exception as e:
-                st.error(f"Could not load the PDF guide. Please try again later. Error: {str(e)}")
+                st.error(f"Could not load the guide. Please try again later. Error: {str(e)}")
             
             st.write("""
             ### Getting Started:
@@ -1315,75 +1142,17 @@ else:
               - Guarantees
             """)
 
-            # Add PDF download button with proper styling
+            # Add markdown download button
             try:
-                pdf_path = "pdfs/sales_system_guide.pdf"
-                if not os.path.exists(pdf_path):
-                    # If PDF doesn't exist, create it from markdown
-                    md_path = "pdfs/sales_system_guide.md"
-                    with open(md_path, "r", encoding="utf-8") as md_file:
-                        md_content = md_file.read()
-                    
-                    # Convert markdown to HTML
-                    html_content = markdown2.markdown(md_content)
-                    
-                    # Add CSS styling
-                    html_content = f"""
-                    <html>
-                    <head>
-                        <style>
-                            body {{
-                                font-family: Arial, sans-serif;
-                                line-height: 1.6;
-                                margin: 40px;
-                            }}
-                            h1, h2, h3, h4 {{
-                                color: #2c3e50;
-                                margin-top: 30px;
-                            }}
-                            h1 {{ font-size: 28px; }}
-                            h2 {{ font-size: 24px; }}
-                            h3 {{ font-size: 20px; }}
-                            h4 {{ font-size: 18px; }}
-                            ul, ol {{
-                                margin: 20px 0;
-                                padding-left: 30px;
-                            }}
-                            li {{
-                                margin: 10px 0;
-                            }}
-                            p {{
-                                margin: 15px 0;
-                            }}
-                            code {{
-                                background: #f8f9fa;
-                                padding: 2px 5px;
-                                border-radius: 3px;
-                            }}
-                        </style>
-                    </head>
-                    <body>
-                        {html_content}
-                    </body>
-                    </html>
-                    """
-                    
-                    # Create PDF directory if it doesn't exist
-                    os.makedirs("pdfs", exist_ok=True)
-                    
-                    # Convert HTML to PDF
-                    HTML(string=html_content).write_pdf(pdf_path)
-
-                # Read and serve the PDF
-                with open(pdf_path, "rb") as pdf_file:
+                with open("pdfs/sales_system_guide.md", "r", encoding="utf-8") as f:
                     btn = st.download_button(
-                        label="📥 Download Complete Sales System Guide (PDF)",
-                        data=pdf_file.read(),
-                        file_name="agency_sales_system_guide.pdf",
-                        mime="application/pdf"
+                        label="📥 Download Complete Sales System Guide",
+                        data=f.read(),
+                        file_name="agency_sales_system_guide.md",
+                        mime="text/markdown"
                     )
             except Exception as e:
-                st.error(f"Could not load the PDF guide. Please try again later. Error: {str(e)}")
+                st.error(f"Could not load the guide. Please try again later. Error: {str(e)}")
             
             st.write("""
             ### Getting Started:
@@ -1544,75 +1313,17 @@ else:
                • Plan paid campaigns
             """)
 
-            # Add PDF download button with proper styling
+            # Add markdown download button with proper styling
             try:
-                pdf_path = "pdfs/lead_generation_guide.pdf"
-                if not os.path.exists(pdf_path):
-                    # If PDF doesn't exist, create it from markdown
-                    md_path = "pdfs/lead_generation_guide.md"
-                    with open(md_path, "r", encoding="utf-8") as md_file:
-                        md_content = md_file.read()
-                    
-                    # Convert markdown to HTML
-                    html_content = markdown2.markdown(md_content)
-                    
-                    # Add CSS styling
-                    html_content = f"""
-                    <html>
-                    <head>
-                        <style>
-                            body {{
-                                font-family: Arial, sans-serif;
-                                line-height: 1.6;
-                                margin: 40px;
-                            }}
-                            h1, h2, h3, h4 {{
-                                color: #2c3e50;
-                                margin-top: 30px;
-                            }}
-                            h1 {{ font-size: 28px; }}
-                            h2 {{ font-size: 24px; }}
-                            h3 {{ font-size: 20px; }}
-                            h4 {{ font-size: 18px; }}
-                            ul, ol {{
-                                margin: 20px 0;
-                                padding-left: 30px;
-                            }}
-                            li {{
-                                margin: 10px 0;
-                            }}
-                            p {{
-                                margin: 15px 0;
-                            }}
-                            code {{
-                                background: #f8f9fa;
-                                padding: 2px 5px;
-                                border-radius: 3px;
-                            }}
-                        </style>
-                    </head>
-                    <body>
-                        {html_content}
-                    </body>
-                    </html>
-                    """
-                    
-                    # Create PDF directory if it doesn't exist
-                    os.makedirs("pdfs", exist_ok=True)
-                    
-                    # Convert HTML to PDF
-                    HTML(string=html_content).write_pdf(pdf_path)
-
-                # Read and serve the PDF
-                with open(pdf_path, "rb") as pdf_file:
+                with open("pdfs/lead_generation_guide.md", "r", encoding="utf-8") as f:
                     btn = st.download_button(
-                        label="📥 Download Complete Lead Generation Guide (PDF)",
-                        data=pdf_file.read(),
-                        file_name="agency_lead_generation_guide.pdf",
-                        mime="application/pdf"
+                        label="📥 Download Complete Lead Generation Guide",
+                        data=f.read(),
+                        file_name="agency_lead_generation_guide.md",
+                        mime="text/markdown"
                     )
             except Exception as e:
-                st.error(f"Could not load the PDF guide. Please try again later. Error: {str(e)}")
+                st.error(f"Could not load the guide. Please try again later. Error: {str(e)}")
             
             st.write("""
             ### Implementation Steps
@@ -1701,75 +1412,17 @@ else:
               - Guarantees
             """)
 
-            # Add PDF download button
+            # Add markdown download button
             try:
-                pdf_path = "pdfs/sales_system_guide.pdf"
-                if not os.path.exists(pdf_path):
-                    # If PDF doesn't exist, create it from markdown
-                    md_path = "pdfs/sales_system_guide.md"
-                    with open(md_path, "r", encoding="utf-8") as md_file:
-                        md_content = md_file.read()
-                    
-                    # Convert markdown to HTML
-                    html_content = markdown2.markdown(md_content)
-                    
-                    # Add CSS styling
-                    html_content = f"""
-                    <html>
-                    <head>
-                        <style>
-                            body {{
-                                font-family: Arial, sans-serif;
-                                line-height: 1.6;
-                                margin: 40px;
-                            }}
-                            h1, h2, h3, h4 {{
-                                color: #2c3e50;
-                                margin-top: 30px;
-                            }}
-                            h1 {{ font-size: 28px; }}
-                            h2 {{ font-size: 24px; }}
-                            h3 {{ font-size: 20px; }}
-                            h4 {{ font-size: 18px; }}
-                            ul, ol {{
-                                margin: 20px 0;
-                                padding-left: 30px;
-                            }}
-                            li {{
-                                margin: 10px 0;
-                            }}
-                            p {{
-                                margin: 15px 0;
-                            }}
-                            code {{
-                                background: #f8f9fa;
-                                padding: 2px 5px;
-                                border-radius: 3px;
-                            }}
-                        </style>
-                    </head>
-                    <body>
-                        {html_content}
-                    </body>
-                    </html>
-                    """
-                    
-                    # Create PDF directory if it doesn't exist
-                    os.makedirs("pdfs", exist_ok=True)
-                    
-                    # Convert HTML to PDF
-                    HTML(string=html_content).write_pdf(pdf_path)
-
-                # Read and serve the PDF
-                with open(pdf_path, "rb") as pdf_file:
+                with open("pdfs/sales_system_guide.md", "r", encoding="utf-8") as f:
                     btn = st.download_button(
-                        label="📥 Download Complete Sales System Guide (PDF)",
-                        data=pdf_file.read(),
-                        file_name="agency_sales_system_guide.pdf",
-                        mime="application/pdf"
+                        label="📥 Download Complete Sales System Guide",
+                        data=f.read(),
+                        file_name="agency_sales_system_guide.md",
+                        mime="text/markdown"
                     )
             except Exception as e:
-                st.error(f"Could not load the PDF guide. Please try again later. Error: {str(e)}")
+                st.error(f"Could not load the guide. Please try again later. Error: {str(e)}")
             
             st.write("""
             ### Getting Started:
