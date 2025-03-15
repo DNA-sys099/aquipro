@@ -4,8 +4,6 @@ import markdown
 import os
 from pathlib import Path
 import pandas as pd
-import markdown2
-from weasyprint import HTML
 
 # Set page config for a modern look
 st.set_page_config(
