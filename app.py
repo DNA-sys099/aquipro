@@ -5,6 +5,18 @@ import os
 from pathlib import Path
 import pandas as pd
 
+# Initialize session state variables
+if 'show_home' not in st.session_state:
+    st.session_state.show_home = True
+if 'show_lead_generation' not in st.session_state:
+    st.session_state.show_lead_generation = False
+if 'show_sales_system' not in st.session_state:
+    st.session_state.show_sales_system = False
+if 'show_client_onboarding' not in st.session_state:
+    st.session_state.show_client_onboarding = False
+if 'show_project_management' not in st.session_state:
+    st.session_state.show_project_management = False
+
 # Set page config for a modern look
 st.set_page_config(
     page_title="AquiPro - Agency Growth System",
@@ -1815,7 +1827,7 @@ else:
                 
                 st.write("""
                 Hey everyone! Welcome back. Today we're going to talk about something that's absolutely crucial for your 
-                agency - client onboarding. I'm going to show you exactly how we set up and run projects so nothing 
+                agency - client onboarding. I'm going to show you exactly how to set up and run projects so nothing 
                 falls through the cracks.
 
                 But first, let me tell you about a complete disaster I had with a client. We signed this big client - 
