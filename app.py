@@ -512,6 +512,26 @@ div.stButton > button:hover {
 </style>
 """, unsafe_allow_html=True)
 
+# Add custom button styles
+st.markdown("""
+<style>
+.stDownloadButton button {
+    color: white !important;
+    background-color: #4CAF50 !important;
+    padding: 0.5rem 1rem !important;
+    font-size: 16px !important;
+    font-weight: bold !important;
+    border: none !important;
+    border-radius: 4px !important;
+    margin: 1rem 0 !important;
+}
+.stDownloadButton button:hover {
+    background-color: #45a049 !important;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2) !important;
+}
+</style>
+""", unsafe_allow_html=True)
+
 # Remove metrics initialization
 if 'metrics' in st.session_state:
     del st.session_state['metrics']
@@ -875,19 +895,120 @@ else:
             • **Email Marketing**: Segmented lists, automation
             • **Paid Advertising**: Platform-specific campaigns
             • **Partnerships**: Co-marketing opportunities
+
+            ### Advanced Lead Generation Tactics
+
+            #### 1. Webinar Strategy
+            Create high-converting webinars that generate qualified leads:
+
+            • **Topic Selection**
+              - Solve specific pain points
+              - Address common challenges
+              - Provide actionable solutions
+              - Share insider knowledge
+
+            • **Promotion Plan**
+              - Email marketing sequence
+              - Social media campaign
+              - Partner promotion
+              - Paid advertising
+
+            • **Engagement Techniques**
+              - Interactive polls
+              - Live Q&A sessions
+              - Resource sharing
+              - Case study breakdowns
+
+            #### 2. Content Upgrade Strategy
+            Create irresistible content upgrades for each marketing channel:
+
+            • **Blog Posts**
+              - Checklists and templates
+              - Step-by-step guides
+              - Resource libraries
+              - Video tutorials
+
+            • **Video Content**
+              - Workbooks and scripts
+              - Implementation guides
+              - Bonus training
+              - Expert interviews
+
+            • **Podcast Content**
+              - Show notes and transcripts
+              - Resource lists
+              - Action plans
+              - Bonus episodes
+
+            #### 3. Partnership Marketing
+            Build strategic partnerships for lead generation:
+
+            • **Partner Types**
+              - Complementary services
+              - Industry influencers
+              - Technology providers
+              - Content creators
+
+            • **Collaboration Models**
+              - Co-created content
+              - Joint webinars
+              - Shared resources
+              - Cross-promotion
+
+            • **Revenue Sharing**
+              - Commission structures
+              - Profit splitting
+              - Value exchange
+              - Long-term agreements
+
+            ### Implementation Steps
+            1. **Week 1**: Set up your content marketing foundation
+               • Choose your primary content types
+               • Create your content calendar
+               • Set up tracking systems
+
+            2. **Week 2**: Create your first lead magnets
+               • Choose your lead magnet type
+               • Develop the content
+               • Set up delivery system
+
+            3. **Week 3**: Launch your distribution strategy
+               • Set up social media accounts
+               • Create email sequences
+               • Plan paid campaigns
             """)
 
-            # Add PDF download button
-            with open("pdfs/lead_generation_guide.md", "r") as f:
-                st.markdown('<div class="stDownloadButton">', unsafe_allow_html=True)
-                btn = st.download_button(
-                    label="📥 Download Complete Lead Generation Guide (PDF)",
-                    data=f.read(),
-                    file_name="agency_lead_generation_guide.pdf",
-                    mime="application/pdf"
-                )
-                st.markdown('</div>', unsafe_allow_html=True)
-
+            # Add PDF download button with proper styling
+            st.markdown("""
+                <style>
+                div.stButton > button {
+                    color: white !important;
+                    background-color: #4CAF50 !important;
+                    padding: 0.5rem 1rem !important;
+                    font-size: 16px !important;
+                    font-weight: bold !important;
+                    border: none !important;
+                    border-radius: 4px !important;
+                    margin: 1rem 0 !important;
+                }
+                div.stButton > button:hover {
+                    background-color: #45a049 !important;
+                    box-shadow: 0 2px 4px rgba(0,0,0,0.2) !important;
+                }
+                </style>
+            """, unsafe_allow_html=True)
+            
+            try:
+                with open("pdfs/lead_generation_guide.md", "r", encoding="utf-8") as f:
+                    btn = st.download_button(
+                        label="📥 Download Complete Lead Generation Guide (PDF)",
+                        data=f.read().encode(),
+                        file_name="agency_lead_generation_guide.pdf",
+                        mime="application/pdf"
+                    )
+            except Exception as e:
+                st.error("Could not load the PDF guide. Please try again later.")
+            
             st.write("""
             ### Implementation Steps
             1. **Week 1**: Set up your content marketing foundation
@@ -933,6 +1054,48 @@ else:
             creating a comprehensive sales system for your agency.
             """)
 
+            st.write("""
+            ### Sales System Deep Dive
+
+            #### 1. Discovery Process Mastery
+            • **Pre-Call Research**
+              - Company background
+              - Industry analysis
+              - Key decision makers
+              - Current challenges
+
+            • **Question Framework**
+              - Current situation
+              - Desired outcomes
+              - Timeline expectations
+              - Budget parameters
+
+            • **Active Listening**
+              - Note taking system
+              - Follow-up questions
+              - Pain point identification
+              - Solution mapping
+
+            #### 2. Proposal Creation
+            • **Executive Summary**
+              - Problem statement
+              - Solution overview
+              - Expected outcomes
+              - Investment summary
+
+            • **Detailed Solution**
+              - Implementation plan
+              - Timeline breakdown
+              - Team structure
+              - Success metrics
+
+            • **Investment Options**
+              - Package tiers
+              - Payment terms
+              - Added value
+              - Guarantees
+            """)
+
             # Add PDF download button
             with open("pdfs/sales_system_guide.md", "r") as f:
                 btn = st.download_button(
@@ -976,7 +1139,7 @@ else:
                 The clients who ended up signing with us had an average of 7-8 touchpoints before they signed. But 
                 we were giving up after 2-3 emails.
 
-                So I developed what I call the "Value Ladder Follow-up System." Here's how it works:
+                So I developed what I call the "Value Ladder Follow-up System." Here's exactly how it works:
 
                 Day 1: Send a value-packed resource
                 • Something they can use immediately
@@ -1015,40 +1178,32 @@ else:
                 package. The enhanced package group had 40% fewer support requests in the first month and reported 
                 90% higher satisfaction.
 
-                Here's the first email template - the Value Resource Email:
+                Here's exactly what goes into our welcome package:
 
-                Subject: [Their Industry] Strategy Guide: Implementing What We Discussed
-                
-                Hey [Name],
+                1. Welcome Video Script:
+                "Hi [Client Name], this is [Your Name] from [Agency]. I'm so excited to have you on board! In this 
+                video, I'll walk you through what happens next and introduce you to your team..."
 
-                Following up on our conversation about [specific challenge they mentioned].
+                2. Required Forms (with explanations):
+                • Client Questionnaire: "This helps us understand your brand voice..."
+                • Access Form: "We'll use this to set up your analytics..."
+                • Brand Guidelines: "This ensures all work matches your brand..."
 
-                I put together a quick guide that shows you how to [solve specific problem] - even if you don't end 
-                up working with us. You can find it attached.
+                3. Kickoff Call Agenda:
+                • Introductions (5 minutes)
+                • Project Overview (10 minutes)
+                • Goal Setting (15 minutes)
+                • Timeline Review (10 minutes)
+                • Q&A (20 minutes)
 
-                Key points covered:
-                • [Specific point 1]
-                • [Specific point 2]
-                • [Specific point 3]
+                4. The Success Roadmap:
+                • Week 1: Setup and Strategy
+                • Week 2: Initial Deliverables
+                • Week 3: Review and Adjust
+                • Week 4: Scale and Optimize
 
-                Let me know if you have any questions!
-
-                Here's the Industry Insight Email (Day 3):
-
-                Subject: Spotted This [Industry] Trend - Thought of You
-
-                Hey [Name],
-
-                Just came across some interesting data about [their industry]:
-                [Share specific insight or trend]
-
-                This could mean [specific opportunity] for [their company name].
-
-                Here's a quick tip you can implement right now: [actionable tip]
-
-                Want to discuss how to take advantage of this?
-
-                In the next section, I'll show you how to customize these templates and when to use each one.
+                In the next section, I'll show you how to handle the crucial first 30 days to ensure long-term client 
+                success.
                 """)
 
                 col1, col2 = st.columns(2)
@@ -1137,9 +1292,7 @@ else:
                 five and six-figure deals.
 
                 But first, let me tell you about the worst proposal I ever wrote. It was for a $120,000 website project. 
-                I spent three days writing this monster - 25 pages of technical details, process breakdowns, and 
-                fancy graphics. I was so proud of it. The client's response? "This is way too complicated." We lost 
-                the deal.
+                I was so proud of it. The client's response? "This is way too complicated." We lost the deal.
 
                 That's when I realized something crucial - clients don't want to read a novel. They want to know three 
                 things:
@@ -1332,8 +1485,8 @@ else:
                 
                 st.write("""
                 Hey everyone! Welcome back. Today we're going to talk about something that's absolutely crucial for your 
-                agency - client onboarding. I'm going to show you the exact system we use that's resulted in a 95% 
-                client retention rate.
+                agency - client onboarding. I'm going to show you exactly how we set up and run projects so nothing 
+                falls through the cracks.
 
                 But first, let me tell you about a complete disaster I had with a client. We signed this big client - 
                 $15,000 per month. I was so excited about landing them that I rushed straight into the work. No proper 
@@ -1742,8 +1895,9 @@ else:
                 Alright, this is where it gets really interesting. I'm going to show you how to automate your 
                 quality control process so it runs smoothly.
 
-                Let me share a story that changed everything for us. We were spending hours manually checking deliverables 
-                against our brand guidelines. Then we realized we could automate a lot of these checks. Game changer!
+                Let me share a story that changed everything for us. We were spending hours manually checking 
+                deliverables against our brand guidelines. Then we realized we could automate a lot of these checks. 
+                Game changer!
 
                 Here's exactly how we automate quality control:
 
@@ -2307,9 +2461,9 @@ else:
                 Welcome back! Now I'm going to show you exactly how to implement these systems in your agency. 
                 This is where most people fail - they create great systems that nobody actually uses.
 
-                Here's a story that changed everything. We spent months creating this perfect system, but nobody 
-                was using it. Then we realized we needed to make it easier to use than not to use. That's when 
-                everything changed.
+                Here's a story that changed everything. We spent months creating this perfect system, but six months 
+                later, nothing had changed. Then we developed this implementation system, and everything started 
+                moving forward.
 
                 Here's our implementation framework:
 
