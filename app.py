@@ -4,6 +4,8 @@ import markdown
 import os
 from pathlib import Path
 import pandas as pd
+import markdown2
+from weasyprint import HTML
 
 # Set page config for a modern look
 st.set_page_config(
@@ -786,51 +788,615 @@ else:
         ])
 
         with growth_tabs[0]:
+            st.title("Agency Growth Mastery")
+            
             st.write("""
-            Building a strong team is crucial for agency growth. Let's focus on the key areas:
+            ## Module Overview
+            Master the art of selling agency services with our proven system. This comprehensive module 
+            breaks down every aspect of the sales process, from initial contact to closing high-ticket deals.
+
+            ### What You'll Learn:
+            • Building a repeatable sales framework
+            • Conducting effective discovery calls
+            • Creating winning proposals
+            • Closing deals with confidence
+            • Following up and nurturing leads
+
+            ### Module Structure:
+            1. Sales Foundation
+            2. Discovery Process
+            3. Proposal Creation
+            4. Closing Strategy
+            5. Follow-up System
+
+            ### Implementation Timeline:
+            This module is structured for implementation over 3-4 weeks. Each component builds on the previous, 
+            creating a comprehensive sales system for your agency.
+            """)
+
+            st.write("""
+            ### Sales System Deep Dive
+
+            #### 1. Discovery Process Mastery
+            • **Pre-Call Research**
+              - Company background
+              - Industry analysis
+              - Key decision makers
+              - Current challenges
+
+            • **Question Framework**
+              - Current situation
+              - Desired outcomes
+              - Timeline expectations
+              - Budget parameters
+
+            • **Active Listening**
+              - Note taking system
+              - Follow-up questions
+              - Pain point identification
+              - Solution mapping
+
+            #### 2. Proposal Creation
+            • **Executive Summary**
+              - Problem statement
+              - Solution overview
+              - Expected outcomes
+              - Investment summary
+
+            • **Detailed Solution**
+              - Implementation plan
+              - Timeline breakdown
+              - Team structure
+              - Success metrics
+
+            • **Investment Options**
+              - Package tiers
+              - Payment terms
+              - Added value
+              - Guarantees
+            """)
+
+            # Add PDF download button with proper styling
+            try:
+                pdf_path = "pdfs/sales_system_guide.pdf"
+                if not os.path.exists(pdf_path):
+                    # If PDF doesn't exist, create it from markdown
+                    md_path = "pdfs/sales_system_guide.md"
+                    with open(md_path, "r", encoding="utf-8") as md_file:
+                        md_content = md_file.read()
+                    
+                    # Convert markdown to HTML
+                    html_content = markdown2.markdown(md_content)
+                    
+                    # Add CSS styling
+                    html_content = f"""
+                    <html>
+                    <head>
+                        <style>
+                            body {{
+                                font-family: Arial, sans-serif;
+                                line-height: 1.6;
+                                margin: 40px;
+                            }}
+                            h1, h2, h3, h4 {{
+                                color: #2c3e50;
+                                margin-top: 30px;
+                            }}
+                            h1 {{ font-size: 28px; }}
+                            h2 {{ font-size: 24px; }}
+                            h3 {{ font-size: 20px; }}
+                            h4 {{ font-size: 18px; }}
+                            ul, ol {{
+                                margin: 20px 0;
+                                padding-left: 30px;
+                            }}
+                            li {{
+                                margin: 10px 0;
+                            }}
+                            p {{
+                                margin: 15px 0;
+                            }}
+                            code {{
+                                background: #f8f9fa;
+                                padding: 2px 5px;
+                                border-radius: 3px;
+                            }}
+                        </style>
+                    </head>
+                    <body>
+                        {html_content}
+                    </body>
+                    </html>
+                    """
+                    
+                    # Create PDF directory if it doesn't exist
+                    os.makedirs("pdfs", exist_ok=True)
+                    
+                    # Convert HTML to PDF
+                    HTML(string=html_content).write_pdf(pdf_path)
+
+                # Read and serve the PDF
+                with open(pdf_path, "rb") as pdf_file:
+                    btn = st.download_button(
+                        label="📥 Download Complete Sales System Guide (PDF)",
+                        data=pdf_file.read(),
+                        file_name="agency_sales_system_guide.pdf",
+                        mime="application/pdf"
+                    )
+            except Exception as e:
+                st.error(f"Could not load the PDF guide. Please try again later. Error: {str(e)}")
             
-            • Clear role definitions
-            • Growth opportunities
-            • Regular feedback
-            • Team recognition
-            
-            Remember: your team is your most valuable asset. Invest in them, and they'll invest in your vision.
+            st.write("""
+            ### Getting Started:
+            Begin with the Sales Foundation section. This will establish the core framework for your entire 
+            sales process. Complete each section's action items before moving to the next.
+
+            ### Expert Tips:
+            • Focus on value, not features
+            • Listen more than you talk
+            • Always follow up systematically
+            • Document everything for consistency
+
+            Ready to transform your agency's sales process? Let's begin!
             """)
 
         with growth_tabs[1]:
+            st.title("Agency Growth Mastery")
+            
             st.write("""
-            Good systems are the foundation of a scalable agency. Here's what to focus on:
+            ## Module Overview
+            Master the art of selling agency services with our proven system. This comprehensive module 
+            breaks down every aspect of the sales process, from initial contact to closing high-ticket deals.
+
+            ### What You'll Learn:
+            • Building a repeatable sales framework
+            • Conducting effective discovery calls
+            • Creating winning proposals
+            • Closing deals with confidence
+            • Following up and nurturing leads
+
+            ### Module Structure:
+            1. Sales Foundation
+            2. Discovery Process
+            3. Proposal Creation
+            4. Closing Strategy
+            5. Follow-up System
+
+            ### Implementation Timeline:
+            This module is structured for implementation over 3-4 weeks. Each component builds on the previous, 
+            creating a comprehensive sales system for your agency.
+            """)
+
+            st.write("""
+            ### Sales System Deep Dive
+
+            #### 1. Discovery Process Mastery
+            • **Pre-Call Research**
+              - Company background
+              - Industry analysis
+              - Key decision makers
+              - Current challenges
+
+            • **Question Framework**
+              - Current situation
+              - Desired outcomes
+              - Timeline expectations
+              - Budget parameters
+
+            • **Active Listening**
+              - Note taking system
+              - Follow-up questions
+              - Pain point identification
+              - Solution mapping
+
+            #### 2. Proposal Creation
+            • **Executive Summary**
+              - Problem statement
+              - Solution overview
+              - Expected outcomes
+              - Investment summary
+
+            • **Detailed Solution**
+              - Implementation plan
+              - Timeline breakdown
+              - Team structure
+              - Success metrics
+
+            • **Investment Options**
+              - Package tiers
+              - Payment terms
+              - Added value
+              - Guarantees
+            """)
+
+            # Add PDF download button with proper styling
+            try:
+                pdf_path = "pdfs/sales_system_guide.pdf"
+                if not os.path.exists(pdf_path):
+                    # If PDF doesn't exist, create it from markdown
+                    md_path = "pdfs/sales_system_guide.md"
+                    with open(md_path, "r", encoding="utf-8") as md_file:
+                        md_content = md_file.read()
+                    
+                    # Convert markdown to HTML
+                    html_content = markdown2.markdown(md_content)
+                    
+                    # Add CSS styling
+                    html_content = f"""
+                    <html>
+                    <head>
+                        <style>
+                            body {{
+                                font-family: Arial, sans-serif;
+                                line-height: 1.6;
+                                margin: 40px;
+                            }}
+                            h1, h2, h3, h4 {{
+                                color: #2c3e50;
+                                margin-top: 30px;
+                            }}
+                            h1 {{ font-size: 28px; }}
+                            h2 {{ font-size: 24px; }}
+                            h3 {{ font-size: 20px; }}
+                            h4 {{ font-size: 18px; }}
+                            ul, ol {{
+                                margin: 20px 0;
+                                padding-left: 30px;
+                            }}
+                            li {{
+                                margin: 10px 0;
+                            }}
+                            p {{
+                                margin: 15px 0;
+                            }}
+                            code {{
+                                background: #f8f9fa;
+                                padding: 2px 5px;
+                                border-radius: 3px;
+                            }}
+                        </style>
+                    </head>
+                    <body>
+                        {html_content}
+                    </body>
+                    </html>
+                    """
+                    
+                    # Create PDF directory if it doesn't exist
+                    os.makedirs("pdfs", exist_ok=True)
+                    
+                    # Convert HTML to PDF
+                    HTML(string=html_content).write_pdf(pdf_path)
+
+                # Read and serve the PDF
+                with open(pdf_path, "rb") as pdf_file:
+                    btn = st.download_button(
+                        label="📥 Download Complete Sales System Guide (PDF)",
+                        data=pdf_file.read(),
+                        file_name="agency_sales_system_guide.pdf",
+                        mime="application/pdf"
+                    )
+            except Exception as e:
+                st.error(f"Could not load the PDF guide. Please try again later. Error: {str(e)}")
             
-            • Client communication
-            • Project workflows
-            • Quality checks
-            • Team coordination
-            
-            The key is to start small and gradually build up your systems.
+            st.write("""
+            ### Getting Started:
+            Begin with the Sales Foundation section. This will establish the core framework for your entire 
+            sales process. Complete each section's action items before moving to the next.
+
+            ### Expert Tips:
+            • Focus on value, not features
+            • Listen more than you talk
+            • Always follow up systematically
+            • Document everything for consistency
+
+            Ready to transform your agency's sales process? Let's begin!
             """)
 
         with growth_tabs[2]:
+            st.title("Agency Growth Mastery")
+            
             st.write("""
-            Smart financial management is essential. Focus on these areas:
+            ## Module Overview
+            Master the art of selling agency services with our proven system. This comprehensive module 
+            breaks down every aspect of the sales process, from initial contact to closing high-ticket deals.
+
+            ### What You'll Learn:
+            • Building a repeatable sales framework
+            • Conducting effective discovery calls
+            • Creating winning proposals
+            • Closing deals with confidence
+            • Following up and nurturing leads
+
+            ### Module Structure:
+            1. Sales Foundation
+            2. Discovery Process
+            3. Proposal Creation
+            4. Closing Strategy
+            5. Follow-up System
+
+            ### Implementation Timeline:
+            This module is structured for implementation over 3-4 weeks. Each component builds on the previous, 
+            creating a comprehensive sales system for your agency.
+            """)
+
+            st.write("""
+            ### Sales System Deep Dive
+
+            #### 1. Discovery Process Mastery
+            • **Pre-Call Research**
+              - Company background
+              - Industry analysis
+              - Key decision makers
+              - Current challenges
+
+            • **Question Framework**
+              - Current situation
+              - Desired outcomes
+              - Timeline expectations
+              - Budget parameters
+
+            • **Active Listening**
+              - Note taking system
+              - Follow-up questions
+              - Pain point identification
+              - Solution mapping
+
+            #### 2. Proposal Creation
+            • **Executive Summary**
+              - Problem statement
+              - Solution overview
+              - Expected outcomes
+              - Investment summary
+
+            • **Detailed Solution**
+              - Implementation plan
+              - Timeline breakdown
+              - Team structure
+              - Success metrics
+
+            • **Investment Options**
+              - Package tiers
+              - Payment terms
+              - Added value
+              - Guarantees
+            """)
+
+            # Add PDF download button with proper styling
+            try:
+                pdf_path = "pdfs/sales_system_guide.pdf"
+                if not os.path.exists(pdf_path):
+                    # If PDF doesn't exist, create it from markdown
+                    md_path = "pdfs/sales_system_guide.md"
+                    with open(md_path, "r", encoding="utf-8") as md_file:
+                        md_content = md_file.read()
+                    
+                    # Convert markdown to HTML
+                    html_content = markdown2.markdown(md_content)
+                    
+                    # Add CSS styling
+                    html_content = f"""
+                    <html>
+                    <head>
+                        <style>
+                            body {{
+                                font-family: Arial, sans-serif;
+                                line-height: 1.6;
+                                margin: 40px;
+                            }}
+                            h1, h2, h3, h4 {{
+                                color: #2c3e50;
+                                margin-top: 30px;
+                            }}
+                            h1 {{ font-size: 28px; }}
+                            h2 {{ font-size: 24px; }}
+                            h3 {{ font-size: 20px; }}
+                            h4 {{ font-size: 18px; }}
+                            ul, ol {{
+                                margin: 20px 0;
+                                padding-left: 30px;
+                            }}
+                            li {{
+                                margin: 10px 0;
+                            }}
+                            p {{
+                                margin: 15px 0;
+                            }}
+                            code {{
+                                background: #f8f9fa;
+                                padding: 2px 5px;
+                                border-radius: 3px;
+                            }}
+                        </style>
+                    </head>
+                    <body>
+                        {html_content}
+                    </body>
+                    </html>
+                    """
+                    
+                    # Create PDF directory if it doesn't exist
+                    os.makedirs("pdfs", exist_ok=True)
+                    
+                    # Convert HTML to PDF
+                    HTML(string=html_content).write_pdf(pdf_path)
+
+                # Read and serve the PDF
+                with open(pdf_path, "rb") as pdf_file:
+                    btn = st.download_button(
+                        label="📥 Download Complete Sales System Guide (PDF)",
+                        data=pdf_file.read(),
+                        file_name="agency_sales_system_guide.pdf",
+                        mime="application/pdf"
+                    )
+            except Exception as e:
+                st.error(f"Could not load the PDF guide. Please try again later. Error: {str(e)}")
             
-            • Cash flow management
-            • Pricing strategy
-            • Expense tracking
-            • Growth planning
-            
-            Remember: good financial management is the foundation of a sustainable agency.
+            st.write("""
+            ### Getting Started:
+            Begin with the Sales Foundation section. This will establish the core framework for your entire 
+            sales process. Complete each section's action items before moving to the next.
+
+            ### Expert Tips:
+            • Focus on value, not features
+            • Listen more than you talk
+            • Always follow up systematically
+            • Document everything for consistency
+
+            Ready to transform your agency's sales process? Let's begin!
             """)
 
         with growth_tabs[3]:
+            st.title("Agency Growth Mastery")
+            
             st.write("""
-            Strategic planning helps you grow intentionally. Key elements include:
+            ## Module Overview
+            Master the art of selling agency services with our proven system. This comprehensive module 
+            breaks down every aspect of the sales process, from initial contact to closing high-ticket deals.
+
+            ### What You'll Learn:
+            • Building a repeatable sales framework
+            • Conducting effective discovery calls
+            • Creating winning proposals
+            • Closing deals with confidence
+            • Following up and nurturing leads
+
+            ### Module Structure:
+            1. Sales Foundation
+            2. Discovery Process
+            3. Proposal Creation
+            4. Closing Strategy
+            5. Follow-up System
+
+            ### Implementation Timeline:
+            This module is structured for implementation over 3-4 weeks. Each component builds on the previous, 
+            creating a comprehensive sales system for your agency.
+            """)
+
+            st.write("""
+            ### Sales System Deep Dive
+
+            #### 1. Discovery Process Mastery
+            • **Pre-Call Research**
+              - Company background
+              - Industry analysis
+              - Key decision makers
+              - Current challenges
+
+            • **Question Framework**
+              - Current situation
+              - Desired outcomes
+              - Timeline expectations
+              - Budget parameters
+
+            • **Active Listening**
+              - Note taking system
+              - Follow-up questions
+              - Pain point identification
+              - Solution mapping
+
+            #### 2. Proposal Creation
+            • **Executive Summary**
+              - Problem statement
+              - Solution overview
+              - Expected outcomes
+              - Investment summary
+
+            • **Detailed Solution**
+              - Implementation plan
+              - Timeline breakdown
+              - Team structure
+              - Success metrics
+
+            • **Investment Options**
+              - Package tiers
+              - Payment terms
+              - Added value
+              - Guarantees
+            """)
+
+            # Add PDF download button with proper styling
+            try:
+                pdf_path = "pdfs/sales_system_guide.pdf"
+                if not os.path.exists(pdf_path):
+                    # If PDF doesn't exist, create it from markdown
+                    md_path = "pdfs/sales_system_guide.md"
+                    with open(md_path, "r", encoding="utf-8") as md_file:
+                        md_content = md_file.read()
+                    
+                    # Convert markdown to HTML
+                    html_content = markdown2.markdown(md_content)
+                    
+                    # Add CSS styling
+                    html_content = f"""
+                    <html>
+                    <head>
+                        <style>
+                            body {{
+                                font-family: Arial, sans-serif;
+                                line-height: 1.6;
+                                margin: 40px;
+                            }}
+                            h1, h2, h3, h4 {{
+                                color: #2c3e50;
+                                margin-top: 30px;
+                            }}
+                            h1 {{ font-size: 28px; }}
+                            h2 {{ font-size: 24px; }}
+                            h3 {{ font-size: 20px; }}
+                            h4 {{ font-size: 18px; }}
+                            ul, ol {{
+                                margin: 20px 0;
+                                padding-left: 30px;
+                            }}
+                            li {{
+                                margin: 10px 0;
+                            }}
+                            p {{
+                                margin: 15px 0;
+                            }}
+                            code {{
+                                background: #f8f9fa;
+                                padding: 2px 5px;
+                                border-radius: 3px;
+                            }}
+                        </style>
+                    </head>
+                    <body>
+                        {html_content}
+                    </body>
+                    </html>
+                    """
+                    
+                    # Create PDF directory if it doesn't exist
+                    os.makedirs("pdfs", exist_ok=True)
+                    
+                    # Convert HTML to PDF
+                    HTML(string=html_content).write_pdf(pdf_path)
+
+                # Read and serve the PDF
+                with open(pdf_path, "rb") as pdf_file:
+                    btn = st.download_button(
+                        label="📥 Download Complete Sales System Guide (PDF)",
+                        data=pdf_file.read(),
+                        file_name="agency_sales_system_guide.pdf",
+                        mime="application/pdf"
+                    )
+            except Exception as e:
+                st.error(f"Could not load the PDF guide. Please try again later. Error: {str(e)}")
             
-            • Vision setting
-            • Goal planning
-            • Action steps
-            • Progress reviews
-            
-            Take time to plan your growth - don't just let it happen randomly.
+            st.write("""
+            ### Getting Started:
+            Begin with the Sales Foundation section. This will establish the core framework for your entire 
+            sales process. Complete each section's action items before moving to the next.
+
+            ### Expert Tips:
+            • Focus on value, not features
+            • Listen more than you talk
+            • Always follow up systematically
+            • Document everything for consistency
+
+            Ready to transform your agency's sales process? Let's begin!
             """)
 
     elif selected_section == "Acquisition":
@@ -979,35 +1545,74 @@ else:
             """)
 
             # Add PDF download button with proper styling
-            st.markdown("""
-                <style>
-                div.stButton > button {
-                    color: white !important;
-                    background-color: #4CAF50 !important;
-                    padding: 0.5rem 1rem !important;
-                    font-size: 16px !important;
-                    font-weight: bold !important;
-                    border: none !important;
-                    border-radius: 4px !important;
-                    margin: 1rem 0 !important;
-                }
-                div.stButton > button:hover {
-                    background-color: #45a049 !important;
-                    box-shadow: 0 2px 4px rgba(0,0,0,0.2) !important;
-                }
-                </style>
-            """, unsafe_allow_html=True)
-            
             try:
-                with open("pdfs/lead_generation_guide.md", "r", encoding="utf-8") as f:
+                pdf_path = "pdfs/lead_generation_guide.pdf"
+                if not os.path.exists(pdf_path):
+                    # If PDF doesn't exist, create it from markdown
+                    md_path = "pdfs/lead_generation_guide.md"
+                    with open(md_path, "r", encoding="utf-8") as md_file:
+                        md_content = md_file.read()
+                    
+                    # Convert markdown to HTML
+                    html_content = markdown2.markdown(md_content)
+                    
+                    # Add CSS styling
+                    html_content = f"""
+                    <html>
+                    <head>
+                        <style>
+                            body {{
+                                font-family: Arial, sans-serif;
+                                line-height: 1.6;
+                                margin: 40px;
+                            }}
+                            h1, h2, h3, h4 {{
+                                color: #2c3e50;
+                                margin-top: 30px;
+                            }}
+                            h1 {{ font-size: 28px; }}
+                            h2 {{ font-size: 24px; }}
+                            h3 {{ font-size: 20px; }}
+                            h4 {{ font-size: 18px; }}
+                            ul, ol {{
+                                margin: 20px 0;
+                                padding-left: 30px;
+                            }}
+                            li {{
+                                margin: 10px 0;
+                            }}
+                            p {{
+                                margin: 15px 0;
+                            }}
+                            code {{
+                                background: #f8f9fa;
+                                padding: 2px 5px;
+                                border-radius: 3px;
+                            }}
+                        </style>
+                    </head>
+                    <body>
+                        {html_content}
+                    </body>
+                    </html>
+                    """
+                    
+                    # Create PDF directory if it doesn't exist
+                    os.makedirs("pdfs", exist_ok=True)
+                    
+                    # Convert HTML to PDF
+                    HTML(string=html_content).write_pdf(pdf_path)
+
+                # Read and serve the PDF
+                with open(pdf_path, "rb") as pdf_file:
                     btn = st.download_button(
                         label="📥 Download Complete Lead Generation Guide (PDF)",
-                        data=f.read().encode(),
+                        data=pdf_file.read(),
                         file_name="agency_lead_generation_guide.pdf",
                         mime="application/pdf"
                     )
             except Exception as e:
-                st.error("Could not load the PDF guide. Please try again later.")
+                st.error(f"Could not load the PDF guide. Please try again later. Error: {str(e)}")
             
             st.write("""
             ### Implementation Steps
@@ -1097,14 +1702,75 @@ else:
             """)
 
             # Add PDF download button
-            with open("pdfs/sales_system_guide.md", "r") as f:
-                btn = st.download_button(
-                    label="📥 Download Complete Sales System Guide (PDF)",
-                    data=f.read(),
-                    file_name="agency_sales_system_guide.pdf",
-                    mime="application/pdf"
-                )
+            try:
+                pdf_path = "pdfs/sales_system_guide.pdf"
+                if not os.path.exists(pdf_path):
+                    # If PDF doesn't exist, create it from markdown
+                    md_path = "pdfs/sales_system_guide.md"
+                    with open(md_path, "r", encoding="utf-8") as md_file:
+                        md_content = md_file.read()
+                    
+                    # Convert markdown to HTML
+                    html_content = markdown2.markdown(md_content)
+                    
+                    # Add CSS styling
+                    html_content = f"""
+                    <html>
+                    <head>
+                        <style>
+                            body {{
+                                font-family: Arial, sans-serif;
+                                line-height: 1.6;
+                                margin: 40px;
+                            }}
+                            h1, h2, h3, h4 {{
+                                color: #2c3e50;
+                                margin-top: 30px;
+                            }}
+                            h1 {{ font-size: 28px; }}
+                            h2 {{ font-size: 24px; }}
+                            h3 {{ font-size: 20px; }}
+                            h4 {{ font-size: 18px; }}
+                            ul, ol {{
+                                margin: 20px 0;
+                                padding-left: 30px;
+                            }}
+                            li {{
+                                margin: 10px 0;
+                            }}
+                            p {{
+                                margin: 15px 0;
+                            }}
+                            code {{
+                                background: #f8f9fa;
+                                padding: 2px 5px;
+                                border-radius: 3px;
+                            }}
+                        </style>
+                    </head>
+                    <body>
+                        {html_content}
+                    </body>
+                    </html>
+                    """
+                    
+                    # Create PDF directory if it doesn't exist
+                    os.makedirs("pdfs", exist_ok=True)
+                    
+                    # Convert HTML to PDF
+                    HTML(string=html_content).write_pdf(pdf_path)
 
+                # Read and serve the PDF
+                with open(pdf_path, "rb") as pdf_file:
+                    btn = st.download_button(
+                        label="📥 Download Complete Sales System Guide (PDF)",
+                        data=pdf_file.read(),
+                        file_name="agency_sales_system_guide.pdf",
+                        mime="application/pdf"
+                    )
+            except Exception as e:
+                st.error(f"Could not load the PDF guide. Please try again later. Error: {str(e)}")
+            
             st.write("""
             ### Getting Started:
             Begin with the Sales Foundation section. This will establish the core framework for your entire 
@@ -1170,40 +1836,59 @@ else:
                 st.title("Email Templates That Convert")
                 
                 st.write("""
-                Welcome back! Now I'm going to share the exact email templates we use in our follow-up sequence. These 
-                aren't just any templates - these have been tested and refined over hundreds of leads.
+                Welcome back! Now I'm going to show you exactly what to write in each email template. I'm 
+                talking specific phrases that trigger emotional responses and drive decisions.
 
-                Let me tell you about an interesting experiment we did. We tested two different welcome packages with 
-                100 clients each. The first was just a standard email with forms. The second was our new enhanced 
-                package. The enhanced package group had 40% fewer support requests in the first month and reported 
-                90% higher satisfaction.
+                Let me share a quick story. We had this client who was reviewing three different agency proposals. All 
+                had similar pricing and services. But they chose us because, in their words, "Your proposal felt like 
+                you were reading our minds." I'm going to show you how to create that same effect.
 
-                Here's exactly what goes into our welcome package:
+                Let's break down each section:
 
-                1. Welcome Video Script:
-                "Hi [Client Name], this is [Your Name] from [Agency]. I'm so excited to have you on board! In this 
-                video, I'll walk you through what happens next and introduce you to your team..."
+                1. The Opening Statement
+                Bad: "Thank you for the opportunity to submit this proposal."
+                Good: "Based on what you've shared, there are three main challenges we need to address..."
+                Then list their challenges using their exact words - this is crucial. I literally write down their exact 
+                phrases during the discovery part of the call.
 
-                2. Required Forms (with explanations):
-                • Client Questionnaire: "This helps us understand your brand voice..."
-                • Access Form: "We'll use this to set up your analytics..."
-                • Brand Guidelines: "This ensures all work matches your brand..."
+                Then say: "Here's how we'll solve each of these..."
+                Present your solution, but keep it high level. Don't get too technical. I made this mistake early on, 
+                getting into the weeds about SEO algorithms and social media strategies. You'll lose them. Keep it focused 
+                on outcomes.
 
-                3. Kickoff Call Agenda:
-                • Introductions (5 minutes)
-                • Project Overview (10 minutes)
-                • Goal Setting (15 minutes)
-                • Timeline Review (10 minutes)
-                • Q&A (20 minutes)
+                Finally: "The investment for this solution is $X per month..."
+                Then - and this is crucial - be completely silent. Don't say another word. Let them respond first. This 
+                silence might feel uncomfortable, but it's powerful. I count to ten in my head if I need to.
 
-                4. The Success Roadmap:
-                • Week 1: Setup and Strategy
-                • Week 2: Initial Deliverables
-                • Week 3: Review and Adjust
-                • Week 4: Scale and Optimize
+                Now, here's what they're going to say, and exactly how you should respond:
 
-                In the next section, I'll show you how to handle the crucial first 30 days to ensure long-term client 
-                success.
+                When they say "I need to think about it":
+                You say: "What specific aspects would you like to think about?"
+                This helps you address their real concerns immediately. Often, "I need to think about it" really means 
+                "I have an objection I'm not comfortable sharing."
+
+                When they say "It's too expensive":
+                You say: "Let me show you the ROI calculation based on your current numbers..."
+                Always focus on value, never apologize for your prices. I learned this the hard way - the moment you 
+                apologize for your price or try to justify it, you've lost.
+
+                When they say "We want to try it internally first":
+                You say: "Let me show you a comparison of in-house versus agency costs..."
+                Then break down the real costs of hiring and training an internal team. Include salary, benefits, 
+                software costs, training time - everything. This usually opens their eyes.
+
+                Remember, your job isn't to convince them. It's to help them make a clear decision about whether this is 
+                right for their business. Sometimes that decision will be no, and that's okay. Better to know now than 
+                after you've started working together.
+
+                I used to think sales was about persuasion and closing techniques. But really, it's about asking the right 
+                questions, listening carefully, and then showing people how you can help them get what they want. Do this 
+                right, and the closing takes care of itself.
+
+                That's it for this training. In the next video, I'll show you how to handle the follow-up process 
+                and what to do after the call to maximize your chances of closing the deal. Make sure to subscribe and 
+                hit that notification bell to catch that one. And if this was helpful, give it a thumbs up - it really 
+                helps the channel.
                 """)
 
                 col1, col2 = st.columns(2)
@@ -1315,15 +2000,8 @@ else:
                 Block 3: The Investment
                 • Clear pricing structure
                 • Payment terms
-                • Start date and next steps
-
-                Here's what happened when I switched to this framework:
-                • Proposal length went from 25 pages to 5
-                • Time to write went from 3 days to 2 hours
-                • Close rate went from 30% to 85%
-
-                In the next section, I'll show you exactly how to write each block and what language to use to maximize 
-                your chances of closing the deal.
+                • Added value
+                • Guarantees
                 """)
 
                 if st.button("Next Page →", key="proposal_next_1"):
@@ -1386,7 +2064,8 @@ else:
 
                 That's it for this training. In the next video, I'll show you how to handle the follow-up process 
                 and what to do after the call to maximize your chances of closing the deal. Make sure to subscribe and 
-                hit that notification bell to catch that one. And if this was helpful, give it a thumbs up!
+                hit that notification bell to catch that one. And if this was helpful, give it a thumbs up - it really 
+                helps the channel.
                 """)
 
                 col1, col2 = st.columns(2)
@@ -1644,9 +2323,9 @@ else:
                 st.title("Setting Up Your Project Management System")
                 
                 st.write("""
-                Hey everyone! Welcome back. Today we're going to talk about something that completely transformed my 
-                agency - our project management system. I'm going to show you exactly how we set up and run projects 
-                so nothing falls through the cracks.
+                Hey everyone! Welcome back. Today we're going to talk about something that's absolutely crucial for your 
+                agency - project management. I'm going to show you exactly how we set up and run projects so nothing 
+                falls through the cracks.
 
                 But first, let me tell you about a nightmare situation I had. We were managing everything through 
                 email and spreadsheets. One day, we missed a crucial deadline because an email got buried in someone's 
@@ -3158,3 +3837,5 @@ Relationship Building:
 • Project milestones
 • Thank you notes
 """)
+
+```
