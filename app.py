@@ -16,6 +16,8 @@ if 'show_client_onboarding' not in st.session_state:
     st.session_state.show_client_onboarding = False
 if 'show_project_management' not in st.session_state:
     st.session_state.show_project_management = False
+if 'show_signup' not in st.session_state:
+    st.session_state.show_signup = False
 
 # Set page config for a modern look
 st.set_page_config(
