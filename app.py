@@ -2324,10 +2324,9 @@ else:
                 
                 st.write("""
                 Hey everyone! Welcome back. Today we're going to talk about something that's absolutely crucial for your 
-                agency - project management. I'm going to show you exactly how we set up and run projects so nothing 
-                falls through the cracks.
+                agency - project management. I'm going to show you exactly how to build systems that work.
 
-                But first, let me tell you about a nightmare situation I had. We were managing everything through 
+                Let me tell you about a nightmare situation I had. We were managing everything through 
                 email and spreadsheets. One day, we missed a crucial deadline because an email got buried in someone's 
                 inbox. The client was furious, and we almost lost them.
 
@@ -3837,5 +3836,3 @@ Relationship Building:
 • Project milestones
 • Thank you notes
 """)
-
-```
